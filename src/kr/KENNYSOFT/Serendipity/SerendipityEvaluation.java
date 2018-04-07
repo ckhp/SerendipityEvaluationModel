@@ -408,10 +408,9 @@ public class SerendipityEvaluation
 	static double NewConnection(int v_s) throws NoPathException
 	{
 		double val=0;
-		for(Vertex v : graph3N)
+		for(int v : graph2N.get(v_s).link)
 		{
-			if(v.index==v_s)continue;
-			if(graph3.get(v_s).domain!=v.domain)val=val+distance(graph3,v_s,v.index);
+			if(graph3.get(v_s).domain!=graph3.get(v).domain)val=val+distance(graph3,v_s,v);
 		}
 		sheetsc.getRow(sheetsc.getLastRowNum()).createCell(4).setCellValue(val);
 		return val;
