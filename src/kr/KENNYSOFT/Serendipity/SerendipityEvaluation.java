@@ -243,7 +243,7 @@ public class SerendipityEvaluation
 			if(v.index==v_d)continue;
 			if(v.domain==graph.get(v_d).domain)
 			{
-				for(List<Integer> p : getPaths(graph2N,v.index,v_d,5))
+				for(List<Integer> p : getPaths(graph2N,v.index,v_d,5,v.domain))
 				{
 					Row row=sheetpt.createRow(sheetpt.getLastRowNum()+1);
 					row.createCell(0).setCellValue("p"+row.getRowNum());
@@ -304,7 +304,7 @@ public class SerendipityEvaluation
 		return getShortestPath(graph,s,e,null);
 	}
 	
-	static List<List<Integer>> getPaths(Map<Integer,Vertex> graph,int s,int e,int mx,List<Integer> p,int domain)
+	static List<List<Integer>> getPaths(Map<Integer,Vertex> graph,int s,int e,int mx,int domain,List<Integer> p)
 	{
 		List<List<Integer>> paths=new ArrayList<>();
 		Map<Integer,Boolean> chk=new HashMap<>();
@@ -337,9 +337,9 @@ public class SerendipityEvaluation
 		return paths;
 	}
 	
-	static List<List<Integer>> getPaths(Map<Integer,Vertex> graph,int s,int e,int mx)
+	static List<List<Integer>> getPaths(Map<Integer,Vertex> graph,int s,int e,int mx,int domain)
 	{
-		return getPaths(graph,s,e,mx,null,-1);
+		return getPaths(graph,s,e,mx,domain,null);
 	}
 	
 	static int distance(List<Vertex> graph,int s,int e) throws NoPathException
@@ -367,7 +367,7 @@ public class SerendipityEvaluation
 			{
 				continue;
 			}
-			for(List<Integer> p2 : getPaths(graph2M,v_i,v_s,dist+1,p,graph.get(v_i).domain))
+			for(List<Integer> p2 : getPaths(graph2M,v_i,v_s,dist+1,graph.get(v_i).domain,p))
 			{
 				Row rowpt2=sheetpt2.createRow(sheetpt2.getLastRowNum()+1);
 				Row rowsc=sheetsc.createRow(sheetsc.getLastRowNum()+1);
