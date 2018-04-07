@@ -17,30 +17,31 @@ public class SerendipityValidation
 {
 	static Set<String> classSet=new HashSet<>();
 	static Map<String,Boolean> checkMap=new HashMap<>();
-	static Map<String,String> fieldMap=new HashMap<>();
+	static Map<String,String> domainMap=new HashMap<>();
 	
 	public static void main(String[] args) throws Exception
 	{
 		BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream(args[0]),"UTF-8"));
 		String line=null;
-		boolean lv3Started=false;
-		String lv3Field=null;
+		int lv=0;
+		String lv3Domain=null;
 		List<String> triple=new ArrayList<>();
 		while((line=br.readLine())!=null)
 		{
 			line=line.trim();
 			if(line.startsWith("@prefix"))continue;
-			if(line.startsWith("########3-Level#########"))
+			Matcher match=Pattern.compile("#+(\\d)-Level#+").matcher(line);
+			if(match.find())
 			{
-				lv3Started=true;
+				lv=Integer.parseInt(match.group(1));
 				continue;
 			}
-			if(lv3Started)
+			if(lv==3)
 			{
-				Matcher match=Pattern.compile("#+ *([ a-zA-Z:_]*) *#+").matcher(line);
+				match=Pattern.compile("#+ *([ a-zA-Z:_]*) *#+").matcher(line);
 				if(match.find())
 				{
-					lv3Field=match.group(1);
+					lv3Domain=match.group(1);
 					continue;
 				}
 			}
@@ -63,29 +64,33 @@ public class SerendipityValidation
 				}
 				if(triple.size()==3)
 				{
-					if(lv3Started)
+					switch(lv)
 					{
-						if(classSet.contains(triple.get(0))&&!classSet.contains(triple.get(2)))checkMap.put(triple.get(2),true);
-						if(classSet.contains(triple.get(2))&&!classSet.contains(triple.get(0)))checkMap.put(triple.get(0),true);
-						if(!classSet.contains(triple.get(0))&&!checkMap.containsKey(triple.get(0)))
-						{
-							checkMap.put(triple.get(0),false);
-							fieldMap.put(triple.get(0),lv3Field);
-						}
-						if(!classSet.contains(triple.get(2))&&!checkMap.containsKey(triple.get(2)))
-						{
-							checkMap.put(triple.get(2),false);
-							fieldMap.put(triple.get(2),lv3Field);
-						}
-					}
-					else
-					{
+					case 1:
 						classSet.add(triple.get(0));
 						classSet.add(triple.get(2));
+						break;
+					case 2:
+						classSet.add(triple.get(0));
+						checkMap.put(triple.get(2),true);
+						break;
+					case 3:
+						if(!checkMap.containsKey(triple.get(0)))
+						{
+							checkMap.put(triple.get(0),false);
+							domainMap.put(triple.get(0),lv3Domain);
+						}
+						if(!checkMap.containsKey(triple.get(2)))
+						{
+							checkMap.put(triple.get(2),false);
+							domainMap.put(triple.get(2),lv3Domain);
+						}
+						break;
 					}
 				}
 			}
 		}
+		//System.err.println(classSet.toString());
 		br.close();
 		boolean flag=false;
 		for(Entry<String,Boolean> entry : checkMap.entrySet())
@@ -93,7 +98,7 @@ public class SerendipityValidation
 			if(classSet.contains(entry.getKey()))continue;
 			if(!entry.getValue())
 			{
-				System.out.println(entry.getKey()+" :Related "+fieldMap.get(entry.getKey())+" .");
+				System.out.println(domainMap.get(entry.getKey())+" :SubTopic "+entry.getKey()+" .");
 				flag=true;
 			}
 		}

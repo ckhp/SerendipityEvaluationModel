@@ -13,6 +13,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class SerendipityEvaluation
@@ -36,13 +38,13 @@ public class SerendipityEvaluation
 	{
 		int index,domain,level;
 		String name;
-		List<Integer> link;
+		Set<Integer> link;
 		
 		public Vertex(int index,String name)
 		{
 			this.index=index;
 			this.name=name;
-			this.link=new ArrayList<>();
+			this.link=new HashSet<>();
 		}
 	}
 	
@@ -50,15 +52,17 @@ public class SerendipityEvaluation
 	{
 		BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream(args[0]),"UTF-8"));
 		String line=null;
-		boolean lv3Started=false;
 		List<String> triple=new ArrayList<>();
+		int lv=0,root=getIndex("kenny:ROOT");
+		graph.get(root).level=0;
 		while((line=br.readLine())!=null)
 		{
 			line=line.trim();
 			if(line.startsWith("@prefix"))continue;
-			if(line.startsWith("########3-Level#########"))
+			Matcher match=Pattern.compile("#+(\\d)-Level#+").matcher(line);
+			if(match.find())
 			{
-				lv3Started=true;
+				lv=Integer.parseInt(match.group(1));
 				continue;
 			}
 			if(line.startsWith("#")||line.length()==0)continue;
@@ -82,29 +86,24 @@ public class SerendipityEvaluation
 				{
 					int s=getIndex(triple.get(0)),e=getIndex(triple.get(2));
 					graph.get(s).link.add(e);
-					if(lv3Started)
+					graph.get(e).link.add(s);
+					switch(lv)
 					{
-						//DOMAIN(S,v)
-						if(!classSet.contains(s)&&classSet.contains(e))
-						{
-							graph.get(s).domain=e;
-							graph.get(s).level=3;
-						}
-						else if(!classSet.contains(e)&&classSet.contains(s))
-						{
-							graph.get(e).domain=s;
-							graph.get(e).level=3;
-						}
-						else
-						{
-							graph.get(s).level=3;
-							graph.get(e).level=3;
-						}
-					}
-					else
-					{
+					case 1:
+						graph.get(root).link.add(s);
+						graph.get(s).link.add(root);
 						classSet.add(s);
+						graph.get(s).level=1;
 						classSet.add(e);
+						graph.get(e).level=2;
+						break;
+					case 2:
+						classSet.add(s);
+						graph.get(s).level=2;
+						//DOMAIN(S,v)
+						graph.get(e).domain=s;
+						graph.get(e).level=3;
+						break;
 					}
 				}
 			}
@@ -118,8 +117,8 @@ public class SerendipityEvaluation
 		for(Vertex v : graph)
 		{
 			Vertex v2=new Vertex(v.index,v.name);
-			v.domain=v.domain;
-			v.level=v.level;
+			v2.domain=v.domain;
+			v2.level=v.level;
 			graph2.add(v2);
 		}
 		for(Vertex v : graph)
@@ -128,9 +127,12 @@ public class SerendipityEvaluation
 			{
 				if(v.level==3&&graph.get(d).level==3)continue;
 				graph2.get(v.index).link.add(d);
-				graph2.get(d).link.add(v.index);
+				//graph2.get(d).link.add(v.index);
 			}
 		}
+		showGraph(graph);
+		System.out.println("-------------------------");
+		showGraph(graph2);
 		graph2N=graph2.stream().filter(v->v.level==3).collect(Collectors.toList());
 		System.out.println(Evaluate(getIndex("dbr:Ponzo_illusion")));
 	}
@@ -143,6 +145,16 @@ public class SerendipityEvaluation
 		graph.add(vertex);
 		nameToIndex.put(name,index);
 		return index;
+	}
+	
+	static void showGraph(List<Vertex> graph)
+	{
+		for(Vertex v : graph)
+		{
+			System.out.print("["+v.level+"] "+v.index+"("+v.name+"): ");
+			for(int d : v.link)System.out.print(d+"("+graph.get(d).name+") ");
+			System.out.println();
+		}
 	}
 	
 	static double Evaluate(int v_d)
@@ -162,10 +174,10 @@ public class SerendipityEvaluation
 		List<Integer> path=new ArrayList<>();
 		boolean[] chk=new boolean[graph.size()];
 		int[] prv=new int[graph.size()];
+		Arrays.fill(prv,-1);
 		Queue<Integer> q=new ArrayDeque<>();
 		q.add(s);
 		chk[s]=true;
-		prv[s]=-1;
 		while(!q.isEmpty())
 		{
 			int now=q.poll();
@@ -186,6 +198,7 @@ public class SerendipityEvaluation
 			path.add(now);
 			now=prv[now];
 		}
+		if(path.get(path.size()-1)!=s||path.size()==1)throw new RuntimeException("No path between "+s+"("+graph.get(s).name+") <-> "+e+"("+graph.get(e).name+")");
 		path.remove(0);
 		Collections.reverse(path);
 		return path;
@@ -212,10 +225,13 @@ public class SerendipityEvaluation
 	
 	static double Interest(int v_i,int v_s)
 	{
+		return Math.random();
+		/*
 		double Val=0;
 		List<Integer> p2=getShortestPath(graph,v_i,v_s);
 		for(int v_i2 : p2)Val=Val+InterestVal(v_i2);
 		return Val/(p2.size()-1);
+		*/
 	}
 	
 	static double NewConnection(int v_s)
