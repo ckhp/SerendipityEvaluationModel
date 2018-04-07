@@ -1,0 +1,37 @@
+#Dummy Data for Illustrative Example
+#By changu0731@korea.ac.kr
+#By 525hm@naver.com
+
+@prefix : <http://example.com/> .
+
+###1-Level###
+
+:startNode :link :DomainA . 
+:startNode :link :DomainB . 
+
+###2-Level###
+
+:DomainA :link :NodeA1 ;
+		 :link :NodeA2 ;
+		 :link :NodeA3 ;
+		 :link :NodeA4 ;
+		 :link :NodeA2_1 ;
+		 :link :NodeA2_2 .
+
+:DomainB :link :NodeB1 .
+
+###3-Level###
+
+:NodeA1 :link :NodeA2 .
+:NodeA2 :link :NodeA3 .
+:NodeA2 :link :NodeA2_1 .
+:NodeA2 :link :NodeA2_2 .
+:NodeA2_1 :link :NodeB1 .
+:NodeA2_2 :link :NodeB1 .
+:NodeA4 :link :NodeA3 .
+
+
+
+
+
+

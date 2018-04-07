@@ -27,17 +27,14 @@ public class SerendipityEvaluation
 	static List<Vertex> graph=new ArrayList<>();
 	static List<Vertex> graphN;
 	static List<Vertex> graph2=new ArrayList<>();
-	static List<Vertex> graph2N;
+	static Map<Integer,Vertex> graph2M;
+	static Map<Integer,Vertex> graph2N;
 	static List<Vertex> graph3=new ArrayList<>();
-	static Map<Integer,Vertex> graph3N;
-	static List<Integer> Vps;
-	static List<Integer> Vpc;
-	static List<Integer> Vkd;
+	static List<Vertex> graph3N;
+	static List<Integer> Vps=new ArrayList<>();
 	static Map<String,Integer> nameToIndex=new HashMap<>();
 	
 	static String[] aVps={"dbr:Heredity"};
-	static String[] aVpc={"dbr:Programming_language"};
-	static String[] aVkd={"dbr:Computer_science"};
 	
 	static class Vertex
 	{
@@ -131,11 +128,20 @@ public class SerendipityEvaluation
 			}
 		}
 		br.close();
-		Vps=Arrays.stream(aVps).map(v->getIndex(v)).collect(Collectors.toList());
-		Vpc=Arrays.stream(aVpc).map(v->getIndex(v)).collect(Collectors.toList());
-		Vkd=Arrays.stream(aVkd).map(v->getIndex(v)).collect(Collectors.toList());
+		for(Vertex v : graph)
+		{
+			for(int d : v.link)
+			{
+				if(v.level==3&&graph.get(d).level==3&&v.domain!=graph.get(d).domain)
+				{
+					Vps.add(v.index);
+					break;
+				}
+			}
+		}
+		System.out.println(Vps.toString());
 		graphN=graph.stream().filter(v->v.level==3).collect(Collectors.toList());
-		//S'=(S.V,S.E-S.E_n), convert S' to undirected graph
+		//S'=(S.V,S.E_n)
 		for(Vertex v : graph)
 		{
 			Vertex v2=new Vertex(v.index,v.name);
@@ -147,13 +153,13 @@ public class SerendipityEvaluation
 		{
 			for(int d : v.link)
 			{
-				if(v.level==3&&graph.get(d).level==3)continue;
+				if(v.level!=3||graph.get(d).level!=3)continue;
 				graph2.get(v.index).link.add(d);
-				//graph2.get(d).link.add(v.index);
 			}
 		}
-		graph2N=graph2.stream().filter(v->v.level==3).collect(Collectors.toList());
-		//S''=(S.V,S.E_n)
+		graph2M=graph2.stream().collect(Collectors.toMap(Vertex::getIndex,Function.identity()));
+		graph2N=graph2.stream().filter(v->v.level==3).collect(Collectors.toMap(Vertex::getIndex,Function.identity()));
+		//S''=(S.V,S.E-S.E_n), convert S' to undirected graph
 		for(Vertex v : graph)
 		{
 			Vertex v2=new Vertex(v.index,v.name);
@@ -165,16 +171,15 @@ public class SerendipityEvaluation
 		{
 			for(int d : v.link)
 			{
-				if(v.level!=3||graph.get(d).level!=3)continue;
+				if(v.level==3&&graph.get(d).level==3)continue;
 				graph3.get(v.index).link.add(d);
-				//graph2.get(d).link.add(v.index);
 			}
 		}
-		graph3N=graph3.stream().filter(v->v.level==3).collect(Collectors.toMap(Vertex::getIndex,Function.identity()));
+		graph3N=graph3.stream().filter(v->v.level==3).collect(Collectors.toList());
 		showGraph(graph);
 		showGraph(graph2);
 		showGraph(graph3);
-		System.out.println(Evaluate(getIndex("dbr:Ponzo_illusion")));
+		System.out.println(Evaluate(getIndex(":NodeA4")));
 	}
 	
 	static int getIndex(String name)
@@ -205,15 +210,18 @@ public class SerendipityEvaluation
 		for(Vertex v : graphN)
 		{
 			if(v.index==v_d)continue;
+			System.out.println(v.index);
 			if(v.domain==graph.get(v_d).domain)
 			{
-				for(List<Integer> p : getPaths(graph3N,v.index,v_d,5))
+				for(List<Integer> p : getPaths(graph2N,v.index,v_d,5))
 				{
-					for(int v_i : p)
+					System.out.println("hi"+p);
+					n++;
+					for(int i=0;i<p.size();++i)
 					{
-						n++;
-						index=index+Serendipity(p,v_i);
+						index=index+Serendipity(p,p.get(i),i);
 					}
+					System.out.println("!"+index);
 				}
 			}
 		}
@@ -250,8 +258,7 @@ public class SerendipityEvaluation
 			path.add(now);
 			now=prv[now];
 		}
-		if(path.get(path.size()-1)!=s||path.size()==1)throw new NoPathException("No path between "+s+"("+graph.get(s).name+") <-> "+e+"("+graph.get(e).name+")");
-		path.remove(0);
+		if(path.get(path.size()-1)!=s)throw new NoPathException("No path between "+s+"("+graph.get(s).name+") <-> "+e+"("+graph.get(e).name+")");
 		Collections.reverse(path);
 		return path;
 	}
@@ -261,11 +268,12 @@ public class SerendipityEvaluation
 		return getShortestPath(graph,s,e,null);
 	}
 	
-	static List<List<Integer>> getPaths(Map<Integer,Vertex> graph,int s,int e,int mx)
+	static List<List<Integer>> getPaths(Map<Integer,Vertex> graph,int s,int e,int mx,List<Integer> p,int domain)
 	{
 		List<List<Integer>> paths=new ArrayList<>();
 		Map<Integer,Boolean> chk=new HashMap<>();
 		Stack<Context> stack=new Stack<>();
+		if(p!=null)for(int v : p)chk.put(v,true);
 		stack.push(new Context(graph,s));
 		chk.put(s,true);
 		while(!stack.isEmpty())
@@ -275,15 +283,16 @@ public class SerendipityEvaluation
 				paths.add(stack.stream().map(c->c.v).collect(Collectors.toList()));
 				chk.put(stack.peek().v,false);
 				stack.pop();
+				continue;
 			}
-			if(stack.size()>mx||!stack.peek().it.hasNext())
+			if(stack.size()>=mx||!stack.peek().it.hasNext())
 			{
 				chk.put(stack.peek().v,false);
 				stack.pop();
 				continue;
 			}
 			int d=stack.peek().it.next();
-			if(!chk.containsKey(d)||!chk.get(d))
+			if((!chk.containsKey(d)||!chk.get(d))&&(domain==-1||graph.get(d).domain==domain))
 			{
 				stack.push(new Context(graph,d));
 				chk.put(d,true);
@@ -292,34 +301,52 @@ public class SerendipityEvaluation
 		return paths;
 	}
 	
-	static int distance(List<Vertex> graph,int s,int e) throws NoPathException
+	static List<List<Integer>> getPaths(Map<Integer,Vertex> graph,int s,int e,int mx)
 	{
-		return getShortestPath(graph,s,e).size();
+		return getPaths(graph,s,e,mx,null,-1);
 	}
 	
-	static double Serendipity(List<Integer> p,int v_i) throws NoPathException
+	static int distance(List<Vertex> graph,int s,int e) throws NoPathException
+	{
+		return getShortestPath(graph,s,e).size()-1;
+	}
+	
+	static int distance(List<Vertex> graph,int s,int e,List<Integer> p) throws NoPathException
+	{
+		return getShortestPath(graph,s,e,p).size()-1;
+	}
+	
+	static double Serendipity(List<Integer> p,int v_i,int i) throws NoPathException
 	{
 		double score=0;
 		for(int v_s : Vps)
 		{
-			List<Integer> p2;
+			if(graph.get(v_s).domain!=graph.get(v_i).domain)continue;
+			int dist;
+			if(v_i==v_s)System.out.println("asdfasdasdfasdf");
 			try
 			{
-				p2=getShortestPath(graph3,v_i,v_s,p);
+				dist=distance(graph2,v_i,v_s,p);
 			}
 			catch(NoPathException e)
 			{
 				continue;
 			}
-			score=score+Interest(p2)*NewConnection(v_s)*Discovery(p);
+			for(List<Integer> p2 : getPaths(graph2M,v_i,v_s,dist+1,p,graph.get(v_i).domain))
+			{
+				System.out.println("hello"+p2+v_s);
+				System.out.println("ser"+Discovery(p,i)*Interest(p2)*NewConnection(v_s)+"/"+Discovery(p,i)+"?"+Interest(p2)+"?"+NewConnection(v_s));
+				score=score+Discovery(p,i)*Interest(p2)*NewConnection(v_s);
+			}
 		}
 		return score;
 	}
 	
-	static double Discovery(List<Integer> p)
+	static double Discovery(List<Integer> p,int i)
 	{
 		double val;
-		val=1/graph.get(p.get(0)).link.size();
+		System.out.println("dsc"+graph.get(p.get(0)).domain+"/////////"+i);
+		val=1.0/graph.get(graph.get(p.get(0)).domain).link.stream().filter(v->graph.get(v).level==3).count()/(i+1);
 		return val;
 	}
 	
@@ -327,26 +354,40 @@ public class SerendipityEvaluation
 	{
 		double Val=0;
 		for(int v_i2 : p2)Val=Val+InterestVal(v_i2);
-		return Val/(p2.size()-1);
+		return Val/p2.size();
 	}
 	
 	static double NewConnection(int v_s) throws NoPathException
 	{
 		double val=0;
-		for(Vertex v : graph2N)
+		for(Vertex v : graph3N)
 		{
 			if(v.index==v_s)continue;
-			if(graph2.get(v_s).domain!=v.domain)val=val+distance(graph2,v_s,v.index);
+			if(graph3.get(v_s).domain!=v.domain)val=val+distance(graph3,v_s,v.index);
 		}
 		return val;
 	}
 	
-	static double InterestVal(int v_i) throws NoPathException
+	static double InterestVal(int v_i)
 	{
-		double Comprehensibility=0;
-		double Novelty=0;
-		for(int v : Vpc)Novelty=Novelty+distance(graph2,v_i,v);
-		for(int v : Vkd)Comprehensibility=Comprehensibility+1/distance(graph2,v_i,v);
-		return ALPHA*Comprehensibility*Novelty;
+		switch(graph.get(v_i).name)
+		{
+		case ":NodeA1":
+			return 10;
+		case ":NodeA2":
+			return 20;
+		case ":NodeA2_1":
+			return 10;
+		case ":NodeA2_2":
+			return 40;
+		case ":NodeA3":
+			return 50;
+		case ":NodeA4":
+			return 20;
+		case ":NodeB1":
+			return 30;
+		default:
+			throw new RuntimeException("Not Hardcoded");
+		}
 	}
 }
