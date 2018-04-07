@@ -1,9 +1,10 @@
-package kr.KENNYSOFT.Serendipity;
+package kr.KENNYSOFT.SerendipityEvaluationModel;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -47,39 +48,39 @@ public class SerendipityEvaluation
 	static Sheet sheetpt2;
 	static Sheet sheetsc;
 	static int pathidx;
-	
+
 	static class Vertex
 	{
 		int index,domain,level;
 		String name;
 		Set<Integer> link;
-		
+
 		public Vertex(int index,String name)
 		{
 			this.index=index;
 			this.name=name;
 			this.link=new HashSet<>();
 		}
-		
+
 		public int getIndex()
 		{
 			return index;
 		}
 	}
-	
+
 	static class Context
 	{
 		int v;
 		Iterator<Integer> it;
-		
+
 		public Context(Map<Integer,Vertex> graph,int v)
 		{
 			this.v=v;
 			this.it=graph.get(v).link.iterator();
 		}
 	}
-	
-	public static void main(String[] args) throws Exception
+
+	public static void main(String[] args) throws NumberFormatException,IOException,NoPathException
 	{
 		Workbook workbook=new SXSSFWorkbook();
 		sheetiv=workbook.createSheet("InterestVal");
@@ -88,7 +89,7 @@ public class SerendipityEvaluation
 		sheetsc=workbook.createSheet("Scoring");
 		createHeader(sheetiv,"Node","InterestVal");
 		createHeader(sheetpt,"p","Path");
-		createHeader(sheetpt2,"p","p'","Path");
+		createHeader(sheetpt2,"p","v_s","p'","Path");
 		createHeader(sheetsc,"p","p'","Discovery","Interest","NewConnection","Score","Sum");
 		BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream(args[0]),"UTF-8"));
 		String line=null;
@@ -206,14 +207,14 @@ public class SerendipityEvaluation
 		workbook.write(new FileOutputStream(new File(args[0]).getName().substring(0,new File(args[0]).getName().lastIndexOf("."))+".xlsx"));
 		workbook.close();
 	}
-	
+
 	static void createHeader(Sheet sheet,String... headers)
 	{
 		Row row=sheet.createRow(0);
 		int i=0;
 		for(String header : headers)row.createCell(i++).setCellValue(header);
 	}
-	
+
 	static int getIndex(String name)
 	{
 		if(nameToIndex.containsKey(name))return nameToIndex.get(name);
@@ -223,7 +224,7 @@ public class SerendipityEvaluation
 		nameToIndex.put(name,index);
 		return index;
 	}
-	
+
 	static void showGraph(List<Vertex> graph)
 	{
 		for(Vertex v : graph)
@@ -234,7 +235,7 @@ public class SerendipityEvaluation
 		}
 		System.out.println("-------------------------");
 	}
-	
+
 	static double Evaluate(int v_d) throws NoPathException
 	{
 		double index=0;
@@ -261,9 +262,12 @@ public class SerendipityEvaluation
 				}
 			}
 		}
+		Row row=sheetsc.createRow(sheetsc.getLastRowNum()+1);
+		row.createCell(0).setCellValue("Total");
+		row.createCell(6).setCellValue(index);
 		return index;
 	}
-	
+
 	static List<Integer> getShortestPath(List<Vertex> graph,int s,int e,List<Integer> p) throws NoPathException
 	{
 		List<Integer> path=new ArrayList<>();
@@ -298,12 +302,12 @@ public class SerendipityEvaluation
 		Collections.reverse(path);
 		return path;
 	}
-	
+
 	static List<Integer> getShortestPath(List<Vertex> graph,int s,int e) throws NoPathException
 	{
 		return getShortestPath(graph,s,e,null);
 	}
-	
+
 	static List<List<Integer>> getPaths(Map<Integer,Vertex> graph,int s,int e,int mx,int domain,List<Integer> p)
 	{
 		List<List<Integer>> paths=new ArrayList<>();
@@ -336,22 +340,22 @@ public class SerendipityEvaluation
 		}
 		return paths;
 	}
-	
+
 	static List<List<Integer>> getPaths(Map<Integer,Vertex> graph,int s,int e,int mx,int domain)
 	{
 		return getPaths(graph,s,e,mx,domain,null);
 	}
-	
+
 	static int distance(List<Vertex> graph,int s,int e) throws NoPathException
 	{
 		return getShortestPath(graph,s,e).size()-1;
 	}
-	
+
 	static int distance(List<Vertex> graph,int s,int e,List<Integer> p) throws NoPathException
 	{
 		return getShortestPath(graph,s,e,p).size()-1;
 	}
-	
+
 	static double Serendipity(List<Integer> p,int v_i,int i) throws NoPathException
 	{
 		double score=0;
@@ -367,6 +371,7 @@ public class SerendipityEvaluation
 			{
 				continue;
 			}
+			int vsidx=0;
 			for(List<Integer> p2 : getPaths(graph2M,v_i,v_s,dist+1,graph.get(v_i).domain,p))
 			{
 				Row rowpt2=sheetpt2.createRow(sheetpt2.getLastRowNum()+1);
@@ -376,18 +381,21 @@ public class SerendipityEvaluation
 					rowpt2.createCell(0).setCellValue("p"+sheetpt.getLastRowNum());
 					rowsc.createCell(0).setCellValue("p"+sheetpt.getLastRowNum());
 				}
-				rowpt2.createCell(1).setCellValue("p'"+sheetpt.getLastRowNum()+","+(pathidx+1));
+				if(vsidx==0)rowpt2.createCell(1).setCellValue(graph.get(v_s).name);
+				rowpt2.createCell(2).setCellValue("p'"+sheetpt.getLastRowNum()+","+(pathidx+1));
 				rowsc.createCell(1).setCellValue("p'"+sheetpt.getLastRowNum()+","+(pathidx+1));
 				for(int j : p2)rowpt2.createCell(rowpt2.getLastCellNum()).setCellValue(graph.get(j).name);
 				double delta=Discovery(p,i)*Interest(p2)*NewConnection(v_s);
 				score=score+delta;
 				rowsc.createCell(5).setCellValue(delta);
 				pathidx++;
+				vsidx++;
 			}
+			if(vsidx>1)sheetpt2.addMergedRegion(new CellRangeAddress(sheetpt2.getLastRowNum()-vsidx+1,sheetpt2.getLastRowNum(),1,1));
 		}
 		return score;
 	}
-	
+
 	static double Discovery(List<Integer> p,int i)
 	{
 		double val;
@@ -395,7 +403,7 @@ public class SerendipityEvaluation
 		val=1.0/graph.get(graph.get(p.get(0)).domain).link.stream().filter(v->graph.get(v).level==3).count()/(i+1);
 		return val;
 	}
-	
+
 	static double Interest(List<Integer> p2) throws NoPathException
 	{
 		double Val=0;
@@ -404,7 +412,7 @@ public class SerendipityEvaluation
 		sheetsc.getRow(sheetsc.getLastRowNum()).createCell(3).setCellValue("("+IntStream.range(0,p2.size()).mapToObj(i->String.valueOf(InterestVal(p2.get(i)))).collect(Collectors.joining("+"))+")/"+p2.size()+"="+Val);
 		return Val;
 	}
-	
+
 	static double NewConnection(int v_s) throws NoPathException
 	{
 		double val=0;
@@ -415,7 +423,7 @@ public class SerendipityEvaluation
 		sheetsc.getRow(sheetsc.getLastRowNum()).createCell(4).setCellValue(val);
 		return val;
 	}
-	
+
 	static double InterestVal(int v_i)
 	{
 		Vertex v=graph.get(v_i);
@@ -436,7 +444,6 @@ public class SerendipityEvaluation
 		case ":NodeB1":
 			return 30;
 		default:
-			//throw new RuntimeException("Not Hardcoded");
 			return IntStream.range(0,v.name.length()).map(i->v.name.charAt(i)).sum()%100+1;
 		}
 	}

@@ -1,4 +1,4 @@
-package kr.KENNYSOFT.Serendipity;
+package kr.KENNYSOFT.SerendipityEvaluationModel;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -18,7 +18,7 @@ public class SerendipityValidation
 	static Set<String> classSet=new HashSet<>();
 	static Map<String,Boolean> checkMap=new HashMap<>();
 	static Map<String,String> domainMap=new HashMap<>();
-	
+
 	public static void main(String[] args) throws Exception
 	{
 		BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream(args[0]),"UTF-8"));

@@ -1,4 +1,4 @@
-package kr.KENNYSOFT.Serendipity;
+package kr.KENNYSOFT.SerendipityEvaluationModel;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -21,7 +21,7 @@ public class SerendipityGraphviz
 	static Map<String,String> prefixMap=new HashMap<>();
 	static Map<String,Set<String>> resourceMap=new HashMap<>();
 	static List<String[]> linkList=new ArrayList<>();
-	
+
 	public static void main(String[] args) throws Exception
 	{
 		BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream(args[0]),"UTF-8"));
@@ -45,7 +45,7 @@ public class SerendipityGraphviz
 			}
 			if(lv3Started)
 			{
-				Matcher match=Pattern.compile("#+ *([ a-zA-Z]*) *#+").matcher(line);
+				Matcher match=Pattern.compile("#+ *([ a-zA-Z:_]*) *#+").matcher(line);
 				if(match.find())
 				{
 					lv3Field=match.group(1);
@@ -114,7 +114,7 @@ public class SerendipityGraphviz
 		}
 		System.out.println("}");
 	}
-	
+
 	static Set<String> getResourceSet(String field)
 	{
 		if(resourceMap.containsKey(field))return resourceMap.get(field);
