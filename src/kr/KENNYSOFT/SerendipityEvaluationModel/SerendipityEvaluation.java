@@ -80,6 +80,13 @@ public class SerendipityEvaluation
 		}
 	}
 
+	/**
+	 * The main function of the realization, which initializes graph model and prepares to evaluate serendipity value.
+	 * @param args Command-line parameter
+	 * @throws IOException 
+	 * @throws NumberFormatException 
+	 * @throws NoPathException 
+	 */
 	public static void main(String[] args) throws NumberFormatException,IOException,NoPathException
 	{
 		Workbook workbook=new SXSSFWorkbook();
@@ -94,7 +101,7 @@ public class SerendipityEvaluation
 		BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream(args[0]),"UTF-8"));
 		String line=null;
 		List<String> triple=new ArrayList<>();
-		int lv=0,root=getIndex("kenny:ROOT");
+		int lv=0,root=getIndex(":ROOT");
 		graph.get(root).level=0;
 		while((line=br.readLine())!=null)
 		{
