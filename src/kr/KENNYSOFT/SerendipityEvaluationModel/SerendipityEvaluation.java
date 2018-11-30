@@ -32,15 +32,12 @@ import org.apache.poi.xssf.streaming.SXSSFWorkbook;
 
 public class SerendipityEvaluation
 {
-	final static double ALPHA=0.7;
-	static Set<Integer> classSet=new HashSet<>();
 	static List<Vertex> graph=new ArrayList<>();
 	static List<Vertex> graphN;
 	static List<Vertex> graph2=new ArrayList<>();
 	static Map<Integer,Vertex> graph2M;
 	static Map<Integer,Vertex> graph2N;
 	static List<Vertex> graph3=new ArrayList<>();
-	static List<Vertex> graph3N;
 	static List<Integer> Vps=new ArrayList<>();
 	static Map<String,Integer> nameToIndex=new HashMap<>();
 	static Sheet sheetiv;
@@ -48,6 +45,7 @@ public class SerendipityEvaluation
 	static Sheet sheetpt2;
 	static Sheet sheetsc;
 	static int pathidx;
+	static int N;
 
 	static class Vertex
 	{
@@ -98,6 +96,7 @@ public class SerendipityEvaluation
 		createHeader(sheetpt,"p","Path");
 		createHeader(sheetpt2,"p","v_s","p'","Path");
 		createHeader(sheetsc,"p","p'","Discovery","Interest","NewConnection","Score","Sum");
+		N=Integer.parseInt(args[1]);
 		BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream(args[0]),"UTF-8"));
 		String line=null;
 		List<String> triple=new ArrayList<>();
@@ -113,7 +112,8 @@ public class SerendipityEvaluation
 				lv=Integer.parseInt(match.group(1));
 				continue;
 			}
-			if(line.startsWith("#")||line.length()==0)continue;
+			line=line.replaceAll("#.*$","").trim();
+			if(line.length()==0)continue;
 			String[] tokens=line.split("( |\t)+");
 			for(String token : tokens)
 			{
@@ -135,24 +135,17 @@ public class SerendipityEvaluation
 					int s=getIndex(triple.get(0)),e=getIndex(triple.get(2));
 					graph.get(s).link.add(e);
 					graph.get(e).link.add(s);
-					switch(lv)
+					if(lv==1)
 					{
-					case 1:
 						graph.get(root).link.add(s);
 						graph.get(s).link.add(root);
-						classSet.add(s);
-						graph.get(s).level=1;
-						classSet.add(e);
-						graph.get(e).level=2;
-						break;
-					case 2:
-						classSet.add(s);
-						graph.get(s).level=2;
-						//DOMAIN(S,v)
-						graph.get(e).domain=s;
-						graph.get(e).level=3;
-						break;
 					}
+					if(lv<N)
+					{
+						graph.get(s).level=lv;
+						graph.get(e).level=lv+1;
+					}
+					else graph.get(e).domain=s; //DOMAIN(S,v)
 				}
 			}
 		}
@@ -164,14 +157,14 @@ public class SerendipityEvaluation
 			row.createCell(1).setCellValue(InterestVal(v.index));
 			for(int d : v.link)
 			{
-				if(v.level==3&&graph.get(d).level==3&&v.domain!=graph.get(d).domain)
+				if(v.level==N&&graph.get(d).level==3&&v.domain!=graph.get(d).domain)
 				{
 					Vps.add(v.index);
 					break;
 				}
 			}
 		}
-		graphN=graph.stream().filter(v->v.level==3).collect(Collectors.toList());
+		graphN=graph.stream().filter(v->v.level==N).collect(Collectors.toList());
 		//S'=(S.V,S.E_n)
 		for(Vertex v : graph)
 		{
@@ -184,12 +177,12 @@ public class SerendipityEvaluation
 		{
 			for(int d : v.link)
 			{
-				if(v.level!=3||graph.get(d).level!=3)continue;
+				if(v.level!=N||graph.get(d).level!=N)continue;
 				graph2.get(v.index).link.add(d);
 			}
 		}
 		graph2M=graph2.stream().collect(Collectors.toMap(Vertex::getIndex,Function.identity()));
-		graph2N=graph2.stream().filter(v->v.level==3).collect(Collectors.toMap(Vertex::getIndex,Function.identity()));
+		graph2N=graph2.stream().filter(v->v.level==N).collect(Collectors.toMap(Vertex::getIndex,Function.identity()));
 		//S''=(S.V,S.E-S.E_n), convert S' to undirected graph
 		for(Vertex v : graph)
 		{
@@ -202,15 +195,14 @@ public class SerendipityEvaluation
 		{
 			for(int d : v.link)
 			{
-				if(v.level==3&&graph.get(d).level==3)continue;
+				if(v.level==N&&graph.get(d).level==N)continue;
 				graph3.get(v.index).link.add(d);
 			}
 		}
-		graph3N=graph3.stream().filter(v->v.level==3).collect(Collectors.toList());
 		showGraph(graph);
 		showGraph(graph2);
 		showGraph(graph3);
-		System.out.println(Evaluate(getIndex("dbr:Description_Logic")));
+		System.out.println(Evaluate(getIndex(args[2])));
 		workbook.write(new FileOutputStream(new File(args[0]).getName().substring(0,new File(args[0]).getName().lastIndexOf("."))+".xlsx"));
 		workbook.close();
 	}
