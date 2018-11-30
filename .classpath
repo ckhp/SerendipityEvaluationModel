@@ -6,10 +6,12 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="libs/commons-collections4-4.1.jar"/>
-	<classpathentry kind="lib" path="libs/poi-3.17.jar"/>
-	<classpathentry kind="lib" path="libs/poi-ooxml-3.17.jar"/>
-	<classpathentry kind="lib" path="libs/poi-ooxml-schemas-3.17.jar"/>
-	<classpathentry kind="lib" path="libs/xmlbeans-2.6.0.jar"/>
+	<classpathentry kind="lib" path="libs/commons-collections4-4.2.jar"/>
+	<classpathentry kind="lib" path="libs/commons-compress-1.18.jar"/>
+	<classpathentry kind="lib" path="libs/curvesapi-1.05.jar"/>
+	<classpathentry kind="lib" path="libs/poi-4.0.0.jar"/>
+	<classpathentry kind="lib" path="libs/poi-ooxml-4.0.0.jar"/>
+	<classpathentry kind="lib" path="libs/poi-ooxml-schemas-4.0.0.jar"/>
+	<classpathentry kind="lib" path="libs/xmlbeans-3.0.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
