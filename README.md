@@ -1,5 +1,5 @@
 # SerendipityEvaluationModel
-Changu Kang, Hyeonmin Park (2018), Serendipity Evaluation Model
+Changu Kang, Hyeonmin Park, Seongbin Park (2018), Serendipity Evaluation Model
 
 # Execution
 
