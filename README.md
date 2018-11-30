@@ -2,7 +2,7 @@
 Changu Kang, Hyeonmin Park (2018), Serendipity Evaluation Model
 
 
-#Input Turtle-Syntax Linekd Data File Format
+# Input Turtle-Syntax Linekd Data File Format
 
 one should expliecitly denote the level of each node.
 Given format for this is as follows
