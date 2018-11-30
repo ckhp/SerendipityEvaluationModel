@@ -1,6 +1,10 @@
 # SerendipityEvaluationModel
 Changu Kang, Hyeonmin Park (2018), Serendipity Evaluation Model
 
+# Execution
+
+main procedure is in SerendipityEvaluation.java.
+It takes name of ttl fil (ex. HistoricalData.ttl) args[0] and the targent node (ex.Kyujanggak) as args[1]
 
 # Input Turtle-Syntax Linekd Data File Format
 
