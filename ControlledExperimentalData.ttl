@@ -1,6 +1,6 @@
-#Experimental Data Set for Serendipity Evaluation Model Research
-#By 525hm@naver.com, changu0731@korea.ac.kr
-#Last Update 2018.2.14
+#Controlled Experimental Data Set for Serendipity Evaluation Model Research
+#By 525hm@korea.ac.kr, changu0731@korea.ac.kr
+#Last Update 2018.9.17
 
 @prefix dbr: <http://dbpedia.org/resource/> .
 @prefix dbo: <http://dbpedia.org/ontology/> .
@@ -242,8 +242,6 @@ dbr:Marvin_Minsky dbo:field dbr:TrivialAI1 .
 dbr:TrivialAI2 :link dbr:Artificial_intelligence .
 
 :LessIntHypertext :Realated dbr:Network_science .
-
-
 
 dbr:Semantic_Web rdf:type :TrivialNodeHypertext1 .
 :TrivialNodeHypertext1 rdf:type :TrivialNodeHypertext2 .
