@@ -26,7 +26,7 @@ dbr:Natural_science
 
 dbr:Liberal_arts_education
 	:SubField dbr:Philosophy ;
-	:SubField dbr:Psycology ;
+	:SubField dbr:Psychology ;
 	:SubField dbr:Sociology .
 
 ########################
@@ -74,6 +74,98 @@ dbr:Sociology :SubTopic dbr:Political_sociology ;
 	:SubTopic dbr:Social_change ;
 	:SubTopic dbr:Economic_sociology ;
 	:SubTopic dbr:Social_network .
+
+########kenny:Validation########
+dbr:Computer_science :SubTopic dbr:Machine_learning .
+dbr:Philosophy :SubTopic dbr:Logicism .
+dbr:Computer_science :SubTopic dbr:Deep_learning .
+dbr:Mathematics :SubTopic dbr:Topological_graph_theory .
+dbr:Mathematics :SubTopic dbr:Random_graph .
+dbr:Psychology :SubTopic dbr:Broca\'s_area .
+dbr:Psychology :SubTopic dbr:Aphasia .
+dbr:Psychology :SubTopic dbr:David_Wechsler .
+dbr:Computer_science :SubTopic dbr:Stack .
+dbr:Sociology :SubTopic dbr:Duncan_Watts .
+dbr:Computer_science :SubTopic dbr:Linear_programming .
+dbr:Philosophy :SubTopic dbr:Modal_logic .
+dbr:Philosophy :SubTopic dbr:First-order_logic .
+dbr:Sociology :SubTopic dbr:Political_socialization .
+dbr:Computer_science :SubTopic dbr:Programming_language .
+dbr:Psychology :SubTopic dbr:Neuron .
+dbr:Industrial_engineering :SubTopic dbr:Inherent_safety .
+dbr:Computer_science :SubTopic dbr:Semantic_Web .
+dbr:Computer_science :SubTopic dbr:Ford-Fulkerson_algorithm .
+dbr:Psychology :SubTopic dbr:Wernicke\'s_area .
+dbr:Computer_science :SubTopic dbr:Kruskal_algorithm .
+dbr:Computer_science :SubTopic dbr:Floyd-Warshall_algorithm .
+dbr:Industrial_engineering :SubTopic dbr:Optimization_theory .
+dbr:Computer_science :SubTopic dbr:HITS_algorithm .
+dbr:Computer_science :SubTopic dbr:Turing_test .
+dbr:Computer_science :SubTopic dbr:WWW .
+dbr:Computer_science :SubTopic dbr:Tree .
+dbr:Mathematics :SubTopic dbr:Admissible_ordinal .
+dbr:Sociology :SubTopic :The_strength_of_weak_ties .
+dbr:Sociology :SubTopic dbr:Small-world_network .
+dbr:Computer_science :SubTopic dbr:Fuzzy_logic .
+dbr:Psychology :SubTopic dbr:Behavioral_neuroscience .
+dbr:Psychology :SubTopic dbr:Müller-Lyer_illusion .
+dbr:Psychology :SubTopic dbr:Wechsler_Preschool_and_Primary_Scale_of_Intelligence .
+dbr:Mathematics :SubTopic dbr:Graph .
+dbr:Computer_science :SubTopic dbr:Knowledge_representation_and_reasoning .
+dbr:Philosophy :SubTopic dbr:Analytic_philosophy .
+dbr:Mathematics :SubTopic dbr:Issac_Newton .
+dbr:Psychology :SubTopic dbr:Wechsler_Adult_Intelligence_Scale .
+dbr:Psychology :SubTopic dbr:Heredity .
+dbr:Mathematics :SubTopic dbr:Scale-free_network .
+dbr:Philosophy :SubTopic dbr:Temporal_logic .
+dbr:Mathematics :SubTopic dbr:Mathematical_analysis .
+dbr:Mathematics :SubTopic dbr:Cantor_diagonal_argument .
+dbr:Mathematics :SubTopic dbr:George_Cantor .
+dbr:Mathematics :SubTopic dbr:Kurt_Godel .
+dbr:Physics :SubTopic dbr:Special_relativity .
+dbr:Computer_science :SubTopic dbr:Tim_Berners-Lee .
+dbr:Computer_science :SubTopic dbr:Recurrent_Neural_Network .
+dbr:Computer_science :SubTopic dbr:Artificial_neural_network .
+dbr:Philosophy :SubTopic dbr:Russell_paradox .
+dbr:Mathematics :SubTopic dbr:Completeness_theorem .
+dbr:Computer_science :SubTopic dbr:Description_Logic .
+dbr:Psychology :SubTopic dbr:Moon_illusion .
+dbr:Psychology :SubTopic dbr:Jean_Piaget .
+dbr:Physics :SubTopic dbr:Classical_mechanics .
+dbr:Computer_science :SubTopic dbr:Type_system .
+dbr:Psychology :SubTopic dbr:Illusion .
+dbr:Psychology :SubTopic dbr:Ponzo_illusion .
+dbr:Philosophy :SubTopic dbr:Saul_Kripke .
+dbr:Mathematics :SubTopic dbr:Network_science .
+dbr:Mathematics :SubTopic dbr:Type_theory .
+dbr:Computer_science :SubTopic dbr:Alan_Turing .
+dbr:Computer_science :SubTopic dbr:Queue .
+dbr:Mathematics :SubTopic dbr:Caculus .
+dbr:Computer_science :SubTopic dbr:Convolutional_Neural_Network .
+dbr:Sociology :SubTopic dbr:Embeddedness .
+dbr:Psychology :SubTopic dbr:Sigmund_Freud .
+dbr:Computer_science :SubTopic dbr:PageRank .
+dbr:Philosophy :SubTopic dbr:Society_of_Mind .
+dbr:Computer_science :SubTopic dbr:Turing_machine .
+dbr:Mathematics :SubTopic dbr:Godel_metric .
+dbr:Computer_science :SubTopic dbr:Flow_network .
+dbr:Philosophy :SubTopic dbr:Mechanism .
+dbr:Philosophy :SubTopic dbr:Bertrand_Russell .
+dbr:Psychology :SubTopic dbr:Ames_room .
+dbr:Psychology :SubTopic dbr:Brain .
+dbr:Industrial_engineering :SubTopic dbr:Maximum_flow_problem .
+dbr:Computer_science :SubTopic dbr:Halting_problem .
+dbr:Computer_science :SubTopic dbr:Heap .
+dbr:Physics :SubTopic dbr:Einstein_field_equations .
+dbr:Physics :SubTopic dbr:Albert_Einstein .
+dbr:Industrial_engineering :SubTopic dbr:Risk_assessment .
+dbr:Sociology :SubTopic dbr:Peace_and_conflict_studies .
+dbr:Psychology :SubTopic dbr:Lev_Vygotsky .
+dbr:Mathematics :SubTopic dbr:Godel_incompleteness_theorems .
+dbr:Philosophy :SubTopic dbr:Gottlob_Frege .
+dbr:Computer_science :SubTopic dbr:Prim_algorithm .
+dbr:Physics :SubTopic dbr:General_relativity .
+dbr:Computer_science :SubTopic dbr:Marvin_Minsky .
 
 ########################
 ########3-Level#########
@@ -249,39 +341,3 @@ dbr:Wechsler_Preschool_and_Primary_Scale_of_Intelligence dbo:field dbr:Intellige
 dbr:David_Wechsler
 	dbo:knownFor dbr:Wechsler_Adult_Intelligence_Scale ;
 	dbo:knownFor dbr:Wechsler_Preschool_and_Primary_Scale_of_Intelligence .
-
-########kenny:Validation########
-dbr:Special_relativity :Related dbr:Physics .
-dbr:Deep_learning :Related dbr:Computer_science .
-dbr:Tim_Berners-Lee :Related dbr:Computer_science .
-dbr:Artificial_neural_network :Related dbr:Computer_science .
-dbr:Random_graph :Related dbr:Mathematics .
-dbr:Broca\'s_area :Related dbr:Psychology .
-dbr:Aphasia :Related dbr:Psychology .
-dbr:David_Wechsler :Related dbr:Psychology .
-dbr:Moon_illusion :Related dbr:Psychology .
-dbr:Classical_mechanics :Related dbr:Physics .
-dbr:Type_system :Related dbr:Computer_science .
-dbr:Ponzo_illusion :Related dbr:Psychology .
-dbr:Programming_language :Related dbr:Computer_science .
-dbr:Saul_Kripke :Related dbr:Philosophy .
-dbr:Neuron :Related dbr:Psychology .
-dbr:Wernicke\'s_area :Related dbr:Psychology .
-dbr:Caculus :Related dbr:Mathematics .
-dbr:Turing_machine :Related dbr:Computer_science .
-dbr:Godel_metric :Related dbr:Mathematics .
-dbr:Flow_network :Related dbr:Computer_science .
-dbr:Bertrand_Russell :Related dbr:Philosophy .
-dbr:Ames_room :Related dbr:Psychology .
-dbr:Brain :Related dbr:Psychology .
-dbr:Behavioral_neuroscience :Related dbr:Psychology .
-dbr:Müller-Lyer_illusion :Related dbr:Psychology .
-dbr:Maximum_flow_problem :Related dbr:Industrial_engineering .
-dbr:Einstein_field_equations :Related dbr:Physics .
-dbr:Albert_Einstein :Related dbr:Physics .
-dbr:Issac_Newton :Related dbr:Mathematics .
-dbr:Gottlob_Frege :Related dbr:Philosophy .
-dbr:Scale-free_network :Related dbr:Mathematics .
-dbr:General_relativity :Related dbr:Physics .
-dbr:Genetic_algirhtm :Related dbr:Psychology .
-dbr:Cantor_diagonal_argument :Related dbr:Mathematics .
