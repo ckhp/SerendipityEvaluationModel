@@ -145,7 +145,7 @@ public class SerendipityEvaluation
 						graph.get(s).level=lv;
 						graph.get(e).level=lv+1;
 					}
-					else graph.get(e).domain=s; //DOMAIN(S,v)
+					if(lv==N-1)graph.get(e).domain=s;//DOMAIN(S,v)
 				}
 			}
 		}
@@ -157,7 +157,7 @@ public class SerendipityEvaluation
 			row.createCell(1).setCellValue(InterestVal(v.index));
 			for(int d : v.link)
 			{
-				if(v.level==N&&graph.get(d).level==3&&v.domain!=graph.get(d).domain)
+				if(v.level==N&&graph.get(d).level==N&&v.domain!=graph.get(d).domain)
 				{
 					Vps.add(v.index);
 					break;
@@ -202,7 +202,7 @@ public class SerendipityEvaluation
 		showGraph(graph);
 		showGraph(graph2);
 		showGraph(graph3);
-		System.out.println(Evaluate(getIndex(args[2])));
+		System.out.println(getIndex(args[2])+"("+args[2]+"): "+Evaluate(getIndex(args[2])));
 		workbook.write(new FileOutputStream(new File(args[0]).getName().substring(0,new File(args[0]).getName().lastIndexOf("."))+".xlsx"));
 		workbook.close();
 	}
@@ -398,8 +398,8 @@ public class SerendipityEvaluation
 	static double Discovery(List<Integer> p,int i)
 	{
 		double val;
-		if(pathidx==0)sheetsc.getRow(sheetsc.getLastRowNum()).createCell(2).setCellValue("1/("+graph.get(graph.get(p.get(0)).domain).link.stream().filter(v->graph.get(v).level==3).count()+"×"+(i+1)+")");
-		val=1.0/graph.get(graph.get(p.get(0)).domain).link.stream().filter(v->graph.get(v).level==3).count()/(i+1);
+		if(pathidx==0)sheetsc.getRow(sheetsc.getLastRowNum()).createCell(2).setCellValue("1/("+graph.get(graph.get(p.get(0)).domain).link.stream().filter(v->graph.get(v).level==N).count()+"×"+(i+1)+")");
+		val=1.0/graph.get(graph.get(p.get(0)).domain).link.stream().filter(v->graph.get(v).level==N).count()/(i+1);
 		return val;
 	}
 
