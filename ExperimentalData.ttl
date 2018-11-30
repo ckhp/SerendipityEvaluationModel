@@ -1,6 +1,6 @@
 #Experimental Data Set for Serendipity Evaluation Model Research
 #By 525hm@naver.com, changu0731@korea.ac.kr
-#Last Update 2018.2.13
+#Last Update 2018.2.14
 
 @prefix dbr: <http://dbpedia.org/resource/> .
 @prefix dbo: <http://dbpedia.org/ontology/> .
@@ -105,7 +105,7 @@ dbr:Scale-free_network foaf:primaryTopic dbr:Network_science .
 dbr:Random_graph foaf:primaryTopic dbr:Network_science .
 
 dbr:Issac_Newton dbo:knownFor dbr:Caculus .
-dbr:Mathematical_analysis foaf:primaryTopic  dbr:Calculus .
+dbr:Mathematical_analysis foaf:primaryTopic  dbr:Calculus .
 
 dbr:George_Cantor dbo:knownFor dbr:Set_theory .
 dbr:George_Cantor dbo:knownFor dbr:Cantor_diagonal_argument .
@@ -173,17 +173,22 @@ dbr:PageRank rdf:type dbr:Algorithm ;
 	dbp:Data dbr:Graph .
 dbr:HITS_algorithm rdf:type dbr:Algorithm ;
 	dbp:Data dbr:Graph .
+dbr:Genetic_algorithm rdf:type dbr:Algorithm .
 dbr:HITS_algorithm dct:subject dbr:Hypertext .
 
 dbr:Machine_learning foaf:primaryTopic dbr:Artificial_intelligence .
 dbr:Deep_learning :ApproachOf dbr:Machine_learning .
 dbr:Artificial_neural_network :ApproachOf dbr:Machine_learning .
+dbr:Convolutional_Neural_Network :ApproachOf dbr:Artificial_neural_network .
+dbr:Convolutional_Neural_Network :ApproachOf dbr:Artificial_neural_network .
+dbr:Recurrent_Neural_Network :ApproachOf dbr:Artificial_neural_network .
 dbr:Logic foaf:primaryTopic dbr:Artificial_intelligence .
 dbr:Fuzzy_logic foaf:primaryTopic dbr:Artificial_intelligence .
-dbr:Knowledge_representation_and_reasoning foaf:primaryTopic dbr:Artificial_intelligence .
+dbr:Knowledge_representation_and_reasoning :ApproachOf dbr:Artificial_intelligence .
+dbr:Description_Logic :ApproachOf dbr:Knowledge_representation_and_reasoning .
+dbr:Description_Logic foaf:primaryTopic dbr:Logic .
 dbr:Knowledge_representation_and_reasoning :Related dbr:Logic .
 dbr:Semantic_Web foaf:primaryTopic dbr:Knowledge_representation_and_reasoning .
-
 dbr:Type_system foaf:primaryTopic dbr:Programming_language .
 
 ########dbr:Philosophy########
@@ -193,8 +198,10 @@ dbr:Fuzzy_logic foaf:primaryTopic dbr:Logic .
 dbr:First-order_logic foaf:primaryTopic dbr:Logic .
 dbr:Gottlob_Frege dbo:knownFor dbr:First-order_logic .
 
+dbr:Saul_Kripke dbo:field dbr:Logic .
 dbr:Saul_Kripke dbo:knownFor dbr:Admissible_ordinal .
 dbr:Saul_Kripke dbo:knownFor dbr:Modal_logic .
+
 
 dbr:Gottlob_Frege dbo:knownFor dbr:Logicism .
 dbr:Logicism foaf:primaryTopic dbr:Philosophy_of_mathematics .
@@ -208,7 +215,6 @@ dbr:Society_of_Mind
 	dct:subject dbr:Philosophy_of_mind ;
 	dbo:arthur dbr:Marvin_Minsky .
 
-
 dbr:Mechanism foaf:primaryTopic dbr:Philosophy_of_mind .
 
 dbr:Marvin_Minsky dbo:field dbr:Philosophy_of_mind .
@@ -216,6 +222,8 @@ dbr:Turing_test foaf:primaryTopicOf dbr:Philosophy_of_mind .
 dbr:Godel_incompleteness_theorems foaf:primaryTopic dbr:Mechanism .
 dbr:Artificial_intelligence foaf:primaryTopicOf dbr:Philosophy_of_mind .
 dbr:Logicism foaf:primaryTopic dbr:Philosophy_of_mathematics .
+dbr:Analytic_philosophy :subfield dbr:Logic .
+dbr:Analytic_philosophy :subfield dbr:Philosophy_of_mathematics .
 
 ########dbr:Psychology########
 dbr:Neuron foaf:primaryTopic dbr:Behavioral_neuroscience .
@@ -227,7 +235,7 @@ dbr:Aphasia
 	:Related dbr:Wernicke\'s_area .
 dbr:Heredity
 	foaf:primaryTopic dbr:Developmental_psychology ;
-	:Related dbr:Genetic_algirhtm .
+	:Related dbr:Genetic_algorithm .
 dbr:Jean_Piaget dbo:knownFor dbr:Developmental_psychology .
 dbr:Lev_Vygotsky dbo:knownFor dbr:Developmental_psychology .
 dbr:Sigmund_Freud dbo:knownFor dbr:Developmental_psychology .
