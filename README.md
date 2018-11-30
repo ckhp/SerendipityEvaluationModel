@@ -64,5 +64,7 @@ Given format for this is as follows
 
 :Israel :SubTopic :Old_City ;
    :SubTopic :Western_Wall ;
+
+...(skip)...
    
 ```
