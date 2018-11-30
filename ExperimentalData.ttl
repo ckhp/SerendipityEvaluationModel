@@ -51,7 +51,13 @@ dbo:Psychology
 	:SubTopic dbr:Cognitive_psychology ;
 	:SubTopic dbr:Developmental_psychology ;
 	:SubTopic dbr:Perception ;
-	:SubTopic dbr:Intelligence .
+	:SubTopic dbr:Consciousness ;
+	:SubTopic dbr:Motivation ;
+	:SubTopic dbr:Emotion ;
+	:SubTopic dbr:Intelligence ;
+	:SubTopic dbr:Mental_disorder ;
+	:SubTopic dbr:Gestalt ;
+	:SubTopic dbr:Psychoanalysis .
 
 dbr:Philosophy :SubTopic dbr:Philosophy_of_mind ;
 	:SubTopic dbr:Logic ;
@@ -88,7 +94,7 @@ dbr:Kurt_Godel dbo:knownFor dbr:Completeness_theorem ;
 dbr:Kurt_Godel dbo:field dbr:Mathematical_logic .
 dbr:Godel_incompleteness_theorems foaf:primaryTopic dbr:Computability_theory ;
 	foaf:primaryTopic dbr:Mathematical_logic .
-dbr:Completeness_theorem foaf:primaryTopic dbr:Mathematical_logic .
+dbr:Completeness_theorem foaf:primaryTopic  dbr:Mathematical_logic .
 
 dbr:Topological_graph_theory :Branch dbr:Graph_theory .
 dbr:Topological_graph_theory foaf:primaryTopic dbr:Topology .
@@ -104,7 +110,7 @@ dbr:Mathematical_analysis foaf:primaryTopic  dbr:Calculus .
 
 dbr:George_Cantor dbo:knownFor dbr:Set_theory .
 dbr:George_Cantor dbo:knownFor dbr:Cantor_diagonal_argument .
-dbr:Cantor_diagonal_argument :Composed dbr:Godel_incompleteness_theorems .
+dbr:Cantor_diagonal_argument :Composed  dbr:Godel_incompleteness_theorems .
 dbr:Set_theory foaf:primaryTopic dbr:Mathematical_logic .
 dbr:Type_theory :OffShot dbr:Set_theory .
 dbr:Admissible_ordinal foaf:primayTopic dbr:Set_theory .
@@ -176,7 +182,7 @@ dbr:HITS_algorithm dct:subject dbr:Hypertext .
 
 dbr:Machine_learning foaf:primaryTopic dbr:Artificial_intelligence .
 dbr:Deep_learning :ApproachOf dbr:Machine_learning .
-dbr:Artificial_neural_network :ApproachOf dbr:Machine_learning .
+dbr:Artificial_neural_network :ApproachOf  dbr:Machine_learning .
 dbr:Logic foaf:primaryTopic dbr:Artificial_intelligence .
 dbr:Fuzzy_logic foaf:primaryTopic dbr:Artificial_intelligence .
 dbr:Knowledge_representation_and_reasoning foaf:primaryTopic dbr:Artificial_intelligence .
@@ -226,20 +232,17 @@ dbr:Wernicke\'s_area rdf:Type dbr:Brain .
 dbr:Aphasia
 	:Related dbr:Broca\'s_area ;
 	:Related dbr:Wernicke\'s_area .
-
 dbr:Heredity
 	foaf:primaryTopic dbr:Developmental_psychology ;
 	:Related dbr:Genetic_algirhtm .
 dbr:Jean_Piaget dbo:knownFor dbr:Developmental_psychology .
 dbr:Lev_Vygotsky dbo:knownFor dbr:Developmental_psychology .
 dbr:Sigmund_Freud dbo:knownFor dbr:Developmental_psychology .
-
 dbr:Illusion foaf:primaryTopic dbr:Perception .
 dbr:Moon_illusion dbo:field dbr:Illusion .
 dbr:Ames_room dbo:field dbr:Illusion .
 dbr:Müller-Lyer_illusion dbo:field dbr:Illusion .
 dbr:Ponzo_illusion dbo:field dbr:Illusion .
-
 dbr:Wechsler_Adult_Intelligence_Scale dbo:field dbr:Intelligence .
 dbr:Wechsler_Preschool_and_Primary_Scale_of_Intelligence dbo:field dbr:Intelligence .
 dbr:David_Wechsler
