@@ -1,6 +1,6 @@
 #Experimental Data Set for Serendipity Evaluation Model Research
 #By 525hm@naver.com, changu0731@korea.ac.kr
-#Last Update 2018.1.8
+#Last Update 2018.1.19
 
 @prefix dbr: <http://dbpedia.org/resource/> .
 @prefix dbo: <http://dbpedia.org/ontology/> .
@@ -17,14 +17,14 @@
 ########################
 
 dbo:Engineering
-	:SubField dbr:Computer_Science ;
+	:SubField dbr:Computer_science ;
 	:SubField dbr:Industrial_engineering .
 
 dbo:Natural_science
 	:SubField dbr:Physics ;
 	:SubField dbr:Mathematics .
 
-dbo:Liberal_Arts_education
+dbo:Liberal_arts_education
 	:SubField dbr:Philosophy ;
 	:SubField dbr:Psycology ;
 	:SubField dbr:Sociology .
@@ -34,13 +34,13 @@ dbo:Liberal_Arts_education
 ########################
 
 dbo:Industrial_engineering
-	:SubTopic dbr:Operation_Research ;
+	:SubTopic dbr:Operations_research ;
 	:SubTopic dbr:Safety_engineering ;
 	:SubTopic dbr:Accounting .
 
 
-dbo:Computer_Science
-	:SubTopic dbr:Data_Structure ;
+dbo:Computer_science
+	:SubTopic dbr:Data_structure ;
 	:SubTopic dbr:Algorithm ;
 	:SubTopic dbr:Hypertext ;
 	:SubTopic dbr:Artificial_intelligence ;
@@ -51,23 +51,7 @@ dbo:Psychology
 	:SubTopic dbr:Cognitive_psychology ;
 	:SubTopic dbr:Developmental_psychology ;
 	:SubTopic dbr:Perception ;
-	:SubTopic dbr:Consciousness ;
-	:SubTopic dbr:Learning ;
-	:SubTopic dbr:Conditioning ;
-	:SubTopic dbr:Memory ;
-	:SubTopic dbr:Language ;
-	:SubTopic dbr:Thought ;
-	:SubTopic dbr:Motivation ;
-	:SubTopic dbr:Emotion ;
-	:SubTopic dbr:Intelligence ;
-	:SubTopic dbr:Personality ;
-	:SubTopic dbr:Stress ;
-	:SubTopic dbr:Mental_disorder ;
-	:SubTopic dbr:Structuralism ;
-	:SubTopic dbr:Functionalism ;
-	:SubTopic dbr:Behaviorism ;
-	:SubTopic dbr:Gestalt ;
-	:SubTopic dbr:Psychoanalysis .
+	:SubTopic dbr:Intelligence .
 
 dbr:Philosophy :SubTopic dbr:Philosophy_of_mind ;
 	:SubTopic dbr:Logic ;
@@ -75,10 +59,10 @@ dbr:Philosophy :SubTopic dbr:Philosophy_of_mind ;
 	:SubTopic dbr:Philosophy_of_language .
 
 dbr:Mathematics :SubTopic dbr:Mathematical_logic ;
-	:SubTopic dbr:Graph_Theory ;
+	:SubTopic dbr:Graph_theory ;
 	:SubTopic dbr:Topology ;
 	:SubTopic dbr:Calculus ;
-	:SubTopic dbr:Set_Theory .
+	:SubTopic dbr:Set_theory .
 
 dbr:Sociology :SubTopic dbr:Political_sociology ;
 	:SubTopic dbr:Social_change ;
@@ -91,8 +75,8 @@ dbr:Sociology :SubTopic dbr:Political_sociology ;
 
 
 ########Industrial Engineering########
-dbr:Optimization_Theory foaf:primaryTopic dbr:Operation_Research .
-dbr:Max_Flow_Problem rdf:Type dbr:Optimization_Theory .
+dbr:Optimization_theory foaf:primaryTopic dbr:Operations_research .
+dbr:Maximum_flow_problem rdf:Type dbr:Optimization_theory .
 dbr:Inherent_safety foaf:primaryTopic dbr:Safety_engineering .
 dbr:Risk_assessment dct:subject dbr:Safety_engineering .
 
@@ -101,35 +85,35 @@ dbr:Kurt_Godel dbo:knownFor dbr:Godel_incompleteness_theorems .
 dbr:Kurt_Godel dbo:knownFor dbr:Completeness_theorem ;
 	dbo:knownFor dbr:Godel_metric .
 
-dbr:Kurt_Godel dbo:field dbr:Mathematical_Logic .
+dbr:Kurt_Godel dbo:field dbr:Mathematical_logic .
 dbr:Godel_incompleteness_theorems foaf:primaryTopic dbr:Computability_theory ;
 	foaf:primaryTopic dbr:Mathematical_logic .
-dbr:Completeness_theorem foaf:primaryTopic  dbr:Mathematical_logic .
+dbr:Completeness_theorem foaf:primaryTopic dbr:Mathematical_logic .
 
-dbr:Topological_graph_theory :Branch dbr:Graph_Theory .
+dbr:Topological_graph_theory :Branch dbr:Graph_theory .
 dbr:Topological_graph_theory foaf:primaryTopic dbr:Topology .
 
-dbr:Graph_Theory :StudyOf dbr:Graph .
-dbr:Graph_Theory :OffShot dbr:Network_Science .
+dbr:Graph_theory :StudyOf dbr:Graph .
+dbr:Graph_theory :OffShot dbr:Network_science .
 
-dbr:Scale-free_network foaf:primaryTopic dbr:Network_Science .
-dbr:Random_graph foaf:primaryTopic dbr:Network_Science .
+dbr:Scale-free_network foaf:primaryTopic dbr:Network_science .
+dbr:Random_graph foaf:primaryTopic dbr:Network_science .
 
 dbr:Issac_Newton dbo:knownFor dbr:Caculus .
 dbr:Mathematical_analysis foaf:primaryTopic  dbr:Calculus .
 
-dbr:George_Cantor dbo:knownFor dbr:Set_Theory .
+dbr:George_Cantor dbo:knownFor dbr:Set_theory .
 dbr:George_Cantor dbo:knownFor dbr:Cantor_diagonal_argument .
-dbr:Cantor_diagonal_argument :Composed  dbr:Godel_incompleteness_theorems .
-dbr:Set_Theory foaf:primaryTopic dbr:Mathematical_logic .
-dbr:Type_Theory :OffShot dbr:Set_Theory .
-dbr:Admissible_ordinal foaf:primayTopic dbr:Set_Theory .
+dbr:Cantor_diagonal_argument :Composed dbr:Godel_incompleteness_theorems .
+dbr:Set_theory foaf:primaryTopic dbr:Mathematical_logic .
+dbr:Type_theory :OffShot dbr:Set_theory .
+dbr:Admissible_ordinal foaf:primayTopic dbr:Set_theory .
 
 
 ########Sociology########
-dbr:Social_network :ApplicationOf dbr:Network_Science .
+dbr:Social_network :ApplicationOf dbr:Network_science .
 dbr:Small-world_network foaf:primaryTopic dbr:Social_network .
-dbr:Small-world_network foaf:primaryTopic dbr:Network_Science .
+dbr:Small-world_network foaf:primaryTopic dbr:Network_science .
 :The_strength_of_weak_ties foaf:primaryTopic dbr:Social_network .
 dbr:Duncan_Watts dbo:knownFor dbr:Small-world_network ;
 	dbo:knownFor dbr:Embeddedness ;
@@ -153,14 +137,14 @@ dbr:Alan_Turing
 	dbo:knownFor dbr:Turing_machine ;
 	dbo:knownFor dbr:Turing_test ;
 	dbo:knownFor dbr:Halting_problem ;
-	dbo:field dbr:Computer_Science .
+	dbo:field dbr:Computer_science .
 
-dbr:Halting_Problem foaf:primaryTopic dbr:Computability_theory .
+dbr:Halting_problem foaf:primaryTopic dbr:Computability_theory .
 
 dbr:Turing_test foaf:primaryTopic dbr:Cognitive_psychology ;
-	foaf:primaryTopic dbr:Artificial_Intelligence .
+	foaf:primaryTopic dbr:Artificial_intelligence .
 dbr:Marvin_Minsky dbo:field dbr:Artificial_intelligence .
-dbr:Hypertext :Realated dbr:Network_Science .
+dbr:Hypertext :Realated dbr:Network_science .
 dbr:WWW rdf:type dbr:Hypertext .
 dbr:Semantic_Web rdf:type dbr:Hypertext .
 dbr:Tim_Berners-Lee dbo:knownFor dbr:Semantic_Web ;
@@ -179,7 +163,7 @@ dbr:Floyd-Warshall_algorithm rdf:type dbr:Algorithm ;
 
 dbr:Ford-Fulkerson_algorithm rdf:type dbr:Algorithm ;
 							dbp:Data dbr:Flow_network ;
-							:ComputationProblem dbr:Max_Flow_Problem .
+							:ComputationProblem dbr:Maximum_flow_problem .
 dbr:Kruskal_algorithm rdf:type dbr:Algorithm ;
 						dbp:Data dbr:Graph .
 dbr:Prim_algorithm rdf:type dbr:Algorithm ;
@@ -192,34 +176,34 @@ dbr:HITS_algorithm dct:subject dbr:Hypertext .
 
 dbr:Machine_learning foaf:primaryTopic dbr:Artificial_intelligence .
 dbr:Deep_learning :ApproachOf dbr:Machine_learning .
-dbr:Artificial_neural_network :ApproachOf  dbr:Machine_learning .
+dbr:Artificial_neural_network :ApproachOf dbr:Machine_learning .
 dbr:Logic foaf:primaryTopic dbr:Artificial_intelligence .
 dbr:Fuzzy_logic foaf:primaryTopic dbr:Artificial_intelligence .
-dbr:Knowledge_Representation foaf:primaryTopic dbr:Artificial_intelligence .
-dbr:Knowledge_Representation :Related dbr:Logic .
-dbr:Semantic_Web foaf:primaryTopic dbr:Knowledge_Representation .
+dbr:Knowledge_representation_and_reasoning foaf:primaryTopic dbr:Artificial_intelligence .
+dbr:Knowledge_representation_and_reasoning :Related dbr:Logic .
+dbr:Semantic_Web foaf:primaryTopic dbr:Knowledge_representation_and_reasoning .
 
-dbr:Type_System foaf:primaryTopic dbr:Programming_Language .
+dbr:Type_system foaf:primaryTopic dbr:Programming_language .
 
 
 ########Philosophy########
-dbr:Modal_Logic foaf:primaryTopic dbr:Logic .
-dbr:Temporal_Logic foaf:primaryTopic dbr:Logic .
-dbr:Fuzzy_Logic foaf:primaryTopic dbr:Logic .
-dbr:First_Order_Logic foaf:primaryTopic dbr:Logic .
-dbr:Gottlob_Frege dbo:knownFor dbr:First_Order_Logic .
+dbr:Modal_logic foaf:primaryTopic dbr:Logic .
+dbr:Temporal_logic foaf:primaryTopic dbr:Logic .
+dbr:Fuzzy_logic foaf:primaryTopic dbr:Logic .
+dbr:First-order_logic foaf:primaryTopic dbr:Logic .
+dbr:Gottlob_Frege dbo:knownFor dbr:First-order_logic .
 
 dbr:Saul_Kripke dbo:knownFor dbr:Admissible_ordinal .
-dbr:Saul_Kripke dbo:knownFor dbr:Modal_Logic .
+dbr:Saul_Kripke dbo:knownFor dbr:Modal_logic .
 
 dbr:Gottlob_Frege dbo:knownFor dbr:Logicism .
 dbr:Logicism foaf:primaryTopic dbr:Philosophy_of_mathematics .
 dbr:Bertrand_Russell dbo:knownFor dbr:Logicism .
 dbr:Bertrand_Russell dbo:knownFor dbr:Russell_paradox .
-dbr:Bertrand_Russell dbo:knownFor dbr:Type_Theory .
+dbr:Bertrand_Russell dbo:knownFor dbr:Type_theory .
 dbr:Bertrand_Russell dbo:knwonFor dbr:Logicism .
-dbr:Russell_paradox dct:subject dbr:Set_Theory .
-dbr:Type_Theory :OffShot dbr:Type_System .
+dbr:Russell_paradox dct:subject dbr:Set_theory .
+dbr:Type_theory :OffShot dbr:Type_system .
 dbr:Society_of_Mind
 	dct:subject dbr:Philosophy_of_mind ;
 	dbo:arthur dbr:Marvin_Minsky .
