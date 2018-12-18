@@ -1,17 +1,22 @@
 # SerendipityEvaluationModel
+
 Changu Kang, Hyeonmin Park, Seongbin Park (2018), Serendipity Evaluation Model
 
-# Execution
+## Execution
 
-main procedure is in SerendipityEvaluation.java.
-It takes name of ttl fil (ex. HistoricalData.ttl) args[0] and the targent node (ex.Kyujanggak) as args[1]
+The main procedure is in `SerendipityEvaluation.java`. The argument should fit to the following form:
 
-# Input Turtle-Syntax Linekd Data File Format
+* args[0]: The name of ttl file (ex. `HistoricalData.ttl`)
+* args[1]: _N_ parameter of input; the maximum level of hierarchy structure (ex. `3` for following example data)
+* args[2]: The name of target node (ex. `:Kyujanggak`)
 
-one should expliecitly denote the level of each node.
-Given format for this is as follows
+## Input: Turtle-Syntax Linked Data File Format
 
-```
+One should expliecitly denote the level of each node.
+
+Given format for this is as follows:
+
+```turtle
 @prefix : <http://example.com/> .
 
 ########################
@@ -66,5 +71,4 @@ Given format for this is as follows
    :SubTopic :Western_Wall ;
 
 ...(skip)...
-   
 ```
