@@ -203,7 +203,7 @@ public class SerendipityEvaluation
 		showGraph(graph2);
 		showGraph(graph3);
 		System.out.println(getIndex(args[2])+"("+args[2]+"): "+Evaluate(getIndex(args[2])));
-		workbook.write(new FileOutputStream(new File(args[0]).getName().substring(0,new File(args[0]).getName().lastIndexOf("."))+".xlsx"));
+		workbook.write(new FileOutputStream(new File(args[0]).getAbsolutePath().replaceAll(".[^.]*$",".xlsx")));
 		workbook.close();
 	}
 
