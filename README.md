@@ -24,9 +24,9 @@ Since this project is set to Java-11, if you want to use other version then you 
 
 ### Run in Shell
 
-If you are not familiar with Eclipse or just want to run without any IDE, you can run in the shell. I assume that you got Java properly and you can use `java` command without any problem in the shell. That is, if you are using Windows, you should configure environment variables like 'PATH'.
+If you are not familiar with Eclipse or just want to run without any IDE, you can run in the shell. We assume that you have Java and can use `java` command without any problem in the shell. That is, if you are using Windows, you should configure environment variables like 'PATH'.
 
-Following commands are for evaluate all example data:
+Following commands are for evaluating all example data:
 
 ```shell
 javac -classpath "libs/*" -sourcepath "src" src/kr/KENNYSOFT/SerendipityEvaluationModel/SerendipityEvaluation.java
