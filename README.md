@@ -41,7 +41,7 @@ java -classpath "src;libs/*" kr.KENNYSOFT.SerendipityEvaluationModel.Serendipity
 
 ## Input: Turtle-Syntax Linked Data File Format
 
-One should expliecitly denote the level of each node.
+One should explicitly denote the level of each node.
 
 Given format for this is as follows:
 
