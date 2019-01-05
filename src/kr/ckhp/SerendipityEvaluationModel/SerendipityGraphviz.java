@@ -1,4 +1,4 @@
-package kr.KENNYSOFT.SerendipityEvaluationModel;
+package kr.ckhp.SerendipityEvaluationModel;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;

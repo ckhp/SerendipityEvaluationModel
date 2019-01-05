@@ -1,4 +1,4 @@
-package kr.KENNYSOFT.SerendipityEvaluationModel;
+package kr.ckhp.SerendipityEvaluationModel;
 
 class NoPathException extends Exception
 {

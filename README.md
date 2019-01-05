@@ -29,14 +29,14 @@ If you are not familiar with Eclipse or just want to run without any IDE, you ca
 Following commands are for evaluating all example data:
 
 ```shell
-javac -classpath "libs/*" -sourcepath "src" src/kr/KENNYSOFT/SerendipityEvaluationModel/SerendipityEvaluation.java
-java -classpath "src;libs/*" kr.KENNYSOFT.SerendipityEvaluationModel.SerendipityEvaluation "ExampleData/Data1.ttl" 3 "dbr:Description_Logic"
-java -classpath "src;libs/*" kr.KENNYSOFT.SerendipityEvaluationModel.SerendipityEvaluation "ExampleData/Data2.ttl" 3 "dbr:Description_Logic"
-java -classpath "src;libs/*" kr.KENNYSOFT.SerendipityEvaluationModel.SerendipityEvaluation "ExampleData/HistoricalHeritage.ttl" 4 ":Kyujanggak"
+javac -classpath "libs/*" -sourcepath "src" src/kr/ckhp/SerendipityEvaluationModel/SerendipityEvaluation.java
+java -classpath "src;libs/*" kr.ckhp.SerendipityEvaluationModel.SerendipityEvaluation "ExampleData/Data1.ttl" 3 "dbr:Description_Logic"
+java -classpath "src;libs/*" kr.ckhp.SerendipityEvaluationModel.SerendipityEvaluation "ExampleData/Data2.ttl" 3 "dbr:Description_Logic"
+java -classpath "src;libs/*" kr.ckhp.SerendipityEvaluationModel.SerendipityEvaluation "ExampleData/HistoricalHeritage.ttl" 4 ":Kyujanggak"
 mv "ExampleData/HistoricalHeritage.xlsx" "ExampleData/HistoricalHeritage-Kyujanggak.xlsx"
-java -classpath "src;libs/*" kr.KENNYSOFT.SerendipityEvaluationModel.SerendipityEvaluation "ExampleData/HistoricalHeritage.ttl" 4 ":Gyeongbokgung"
+java -classpath "src;libs/*" kr.ckhp.SerendipityEvaluationModel.SerendipityEvaluation "ExampleData/HistoricalHeritage.ttl" 4 ":Gyeongbokgung"
 mv "ExampleData/HistoricalHeritage.xlsx" "ExampleData/HistoricalHeritage-Gyeongbokgung.xlsx"
-java -classpath "src;libs/*" kr.KENNYSOFT.SerendipityEvaluationModel.SerendipityEvaluation "ExampleData/IllustrativeExample.ttl" 3 ":NodeA4"
+java -classpath "src;libs/*" kr.ckhp.SerendipityEvaluationModel.SerendipityEvaluation "ExampleData/IllustrativeExample.ttl" 3 ":NodeA4"
 ```
 
 ## Input: Turtle-Syntax Linked Data File Format
