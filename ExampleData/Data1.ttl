@@ -75,7 +75,7 @@ dbr:Sociology :SubTopic dbr:Political_sociology ;
 	:SubTopic dbr:Economic_sociology ;
 	:SubTopic dbr:Social_network .
 
-########kenny:Validation########
+########Validation########
 dbr:Computer_science :SubTopic dbr:Machine_learning .
 dbr:Philosophy :SubTopic dbr:Logicism .
 dbr:Computer_science :SubTopic dbr:Deep_learning .
