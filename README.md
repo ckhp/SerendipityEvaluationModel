@@ -9,8 +9,7 @@ Changu Kang, Hyeonmin Park, Seongbin Park (2018), Serendipity Evaluation Model
 The main procedure is in `SerendipityEvaluation.java`. The argument should fit to the following form:
 
 * args[0]: The name of ttl file (ex. `HistoricalData.ttl`)
-* args[1]: _N_ parameter of input; the maximum level of hierarchy structure (ex. `3` for following example data)
-* args[2]: The name of target node (ex. `:Kyujanggak`)
+* args[1]: The name of target node (ex. `:Kyujanggak`)
 
 ### Environment
 
@@ -30,13 +29,13 @@ Following commands are for evaluating all examples:
 
 ```shell
 javac -classpath "libs/*" -sourcepath "src" src/kr/ckhp/SerendipityEvaluationModel/SerendipityEvaluation.java
-java -classpath "src;libs/*" kr.ckhp.SerendipityEvaluationModel.SerendipityEvaluation "ExampleData/Data1.ttl" 3 "dbr:Description_Logic"
-java -classpath "src;libs/*" kr.ckhp.SerendipityEvaluationModel.SerendipityEvaluation "ExampleData/Data2.ttl" 3 "dbr:Description_Logic"
-java -classpath "src;libs/*" kr.ckhp.SerendipityEvaluationModel.SerendipityEvaluation "ExampleData/HistoricalHeritage.ttl" 4 ":Kyujanggak"
+java -classpath "src;libs/*" kr.ckhp.SerendipityEvaluationModel.SerendipityEvaluation "ExampleData/Data1.ttl" "dbr:Description_Logic"
+java -classpath "src;libs/*" kr.ckhp.SerendipityEvaluationModel.SerendipityEvaluation "ExampleData/Data2.ttl" "dbr:Description_Logic"
+java -classpath "src;libs/*" kr.ckhp.SerendipityEvaluationModel.SerendipityEvaluation "ExampleData/HistoricalHeritage.ttl" ":Kyujanggak"
 mv "ExampleData/HistoricalHeritage.xlsx" "ExampleData/HistoricalHeritage-Kyujanggak.xlsx"
-java -classpath "src;libs/*" kr.ckhp.SerendipityEvaluationModel.SerendipityEvaluation "ExampleData/HistoricalHeritage.ttl" 4 ":Gyeongbokgung"
+java -classpath "src;libs/*" kr.ckhp.SerendipityEvaluationModel.SerendipityEvaluation "ExampleData/HistoricalHeritage.ttl" ":Gyeongbokgung"
 mv "ExampleData/HistoricalHeritage.xlsx" "ExampleData/HistoricalHeritage-Gyeongbokgung.xlsx"
-java -classpath "src;libs/*" kr.ckhp.SerendipityEvaluationModel.SerendipityEvaluation "ExampleData/IllustrativeExample.ttl" 3 ":NodeA4"
+java -classpath "src;libs/*" kr.ckhp.SerendipityEvaluationModel.SerendipityEvaluation "ExampleData/IllustrativeExample.ttl" ":NodeA4"
 ```
 
 ## Input: Turtle-Syntax Linked Data File Format

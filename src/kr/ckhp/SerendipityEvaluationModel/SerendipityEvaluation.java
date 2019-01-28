@@ -96,7 +96,6 @@ public class SerendipityEvaluation
 		createHeader(sheetpt,"p","Path");
 		createHeader(sheetpt2,"p","v_s","p'","Path");
 		createHeader(sheetsc,"p","p'","Discovery","Interest","NewConnection","Score","Sum");
-		N=Integer.parseInt(args[1]);
 		BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream(args[0]),"UTF-8"));
 		String line=null;
 		List<String> triple=new ArrayList<>();
@@ -104,9 +103,20 @@ public class SerendipityEvaluation
 		graph.get(root).level=0;
 		while((line=br.readLine())!=null)
 		{
+			Matcher match=Pattern.compile("#+ *(\\d)-Level *#+").matcher(line.trim());
+			if(match.find())
+			{
+				lv=Integer.parseInt(match.group(1));
+				if(lv>N)N=lv;
+			}
+		}
+		br.close();
+		br=new BufferedReader(new InputStreamReader(new FileInputStream(args[0]),"UTF-8"));
+		while((line=br.readLine())!=null)
+		{
 			line=line.trim();
 			if(line.startsWith("@prefix"))continue;
-			Matcher match=Pattern.compile("#+(\\d)-Level#+").matcher(line);
+			Matcher match=Pattern.compile("#+ *(\\d)-Level *#+").matcher(line);
 			if(match.find())
 			{
 				lv=Integer.parseInt(match.group(1));
@@ -199,10 +209,11 @@ public class SerendipityEvaluation
 				graph3.get(v.index).link.add(d);
 			}
 		}
-		showGraph(graph);
-		showGraph(graph2);
-		showGraph(graph3);
-		System.out.println(getIndex(args[2])+"("+args[2]+"): "+Evaluate(getIndex(args[2])));
+		//showGraph(graph);
+		//showGraph(graph2);
+		//showGraph(graph3);
+		//System.out.println(getIndex(args[1])+"("+args[1]+"): "+Evaluate(getIndex(args[1])));
+		System.out.println("Evaluate(" + args[1]+") = "+Evaluate(getIndex(args[1])));
 		workbook.write(new FileOutputStream(new File(args[0]).getAbsolutePath().replaceAll(".[^.]*$",".xlsx")));
 		workbook.close();
 	}
