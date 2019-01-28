@@ -1,6 +1,6 @@
 # SerendipityEvaluationModel
 
-Changu Kang, Hyeonmin Park, Seongbin Park (2018), Serendipity Evaluation Model
+Changu Kang, Hyeonmin Park, Seongbin Park (2019), Serendipity Evaluation Model _(TBD)_
 
 ## Execution
 
@@ -13,7 +13,7 @@ The main procedure is in `SerendipityEvaluation.java`. The argument should fit t
 
 ### Environment
 
-Prerequsite: Java 8+ is needed.
+Prerequisite: Java 8+ is needed.
 
 ### Run in Eclipse
 
