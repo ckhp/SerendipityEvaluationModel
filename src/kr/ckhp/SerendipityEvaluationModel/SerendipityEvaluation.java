@@ -321,31 +321,32 @@ public class SerendipityEvaluation
 	static List<List<Integer>> getPaths(Map<Integer,Vertex> graph,int s,int e,int mx,int domain,List<Integer> p)
 	{
 		List<List<Integer>> paths=new ArrayList<>();
-		Map<Integer,Boolean> chk=new HashMap<>();
+		BitSet chk=new BitSet();
 		Stack<Context> stack=new Stack<>();
-		if(p!=null)for(int v : p)chk.put(v,true);
+		if(p!=null)for(int v : p)chk.set(v);
 		stack.push(new Context(graph,s));
-		chk.put(s,true);
+		chk.set(s);
 		while(!stack.isEmpty())
 		{
-			if(stack.peek().v==e)
+			Context ctx=stack.peek();
+			if(ctx.v==e)
 			{
 				paths.add(stack.stream().map(c->c.v).collect(Collectors.toList()));
-				chk.put(stack.peek().v,false);
+				chk.clear(ctx.v);
 				stack.pop();
 				continue;
 			}
-			if(stack.size()>=mx||!stack.peek().it.hasNext())
+			if(stack.size()>=mx||!ctx.it.hasNext())
 			{
-				chk.put(stack.peek().v,false);
+				chk.clear(ctx.v);
 				stack.pop();
 				continue;
 			}
-			int d=stack.peek().it.next();
-			if((!chk.containsKey(d)||!chk.get(d))&&(domain==-1||graph.get(d).domain==domain))
+			int d=ctx.it.next();
+			if(!chk.get(d)&&(domain==-1||graph.get(d).domain==domain))
 			{
 				stack.push(new Context(graph,d));
-				chk.put(d,true);
+				chk.set(d);
 			}
 		}
 		return paths;
