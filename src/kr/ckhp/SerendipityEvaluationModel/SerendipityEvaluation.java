@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.BitSet;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -32,19 +33,19 @@ import org.apache.poi.xssf.streaming.SXSSFWorkbook;
 
 public class SerendipityEvaluation
 {
-	static List<Vertex> graph=new ArrayList<>();
-	static List<Vertex> graphN;
-	static List<Vertex> graph2=new ArrayList<>();
-	static Map<Integer,Vertex> graph2M;
-	static Map<Integer,Vertex> graph2N;
-	static List<Vertex> graph3=new ArrayList<>();
+	static List<Vertex> Graph=new ArrayList<>();
+	static List<Vertex> GraphN;
+	static List<Vertex> Graph2=new ArrayList<>();
+	static Map<Integer,Vertex> Graph2M;
+	static Map<Integer,Vertex> Graph2N;
+	static List<Vertex> Graph3=new ArrayList<>();
 	static List<Integer> Vps=new ArrayList<>();
 	static Map<String,Integer> nameToIndex=new HashMap<>();
 	static Sheet sheetiv;
 	static Sheet sheetpt;
 	static Sheet sheetpt2;
 	static Sheet sheetsc;
-	static int pathidx;
+	static int pathIdx;
 	static int N;
 
 	static class Vertex
@@ -100,7 +101,7 @@ public class SerendipityEvaluation
 		String line=null;
 		List<String> triple=new ArrayList<>();
 		int lv=0,root=getIndex(":ROOT");
-		graph.get(root).level=0;
+		Graph.get(root).level=0;
 		while((line=br.readLine())!=null)
 		{
 			Matcher match=Pattern.compile("#+ *(\\d)-Level *#+").matcher(line.trim());
@@ -143,70 +144,70 @@ public class SerendipityEvaluation
 				if(triple.size()==3)
 				{
 					int s=getIndex(triple.get(0)),e=getIndex(triple.get(2));
-					graph.get(s).link.add(e);
-					graph.get(e).link.add(s);
+					Graph.get(s).link.add(e);
+					Graph.get(e).link.add(s);
 					if(lv==1)
 					{
-						graph.get(root).link.add(s);
-						graph.get(s).link.add(root);
+						Graph.get(root).link.add(s);
+						Graph.get(s).link.add(root);
 					}
 					if(lv<N)
 					{
-						graph.get(s).level=lv;
-						graph.get(e).level=lv+1;
+						Graph.get(s).level=lv;
+						Graph.get(e).level=lv+1;
 					}
-					if(lv==N-1)graph.get(e).domain=s;//DOMAIN(S,v)
+					if(lv==N-1)Graph.get(e).domain=s;//DOMAIN(S,v)
 				}
 			}
 		}
 		br.close();
-		for(Vertex v : graph)
+		for(Vertex v : Graph)
 		{
 			Row row=sheetiv.createRow(sheetiv.getLastRowNum()+1);
 			row.createCell(0).setCellValue(v.name);
-			row.createCell(1).setCellValue(InterestVal(v.index));
+			row.createCell(1).setCellValue(interestVal(v.index));
 			for(int d : v.link)
 			{
-				if(v.level==N&&graph.get(d).level==N&&v.domain!=graph.get(d).domain)
+				if(v.level==N&&Graph.get(d).level==N&&v.domain!=Graph.get(d).domain)
 				{
 					Vps.add(v.index);
 					break;
 				}
 			}
 		}
-		graphN=graph.stream().filter(v->v.level==N).collect(Collectors.toList());
+		GraphN=Graph.stream().filter(v->v.level==N).collect(Collectors.toList());
 		//S'=(S.V,S.E_n)
-		for(Vertex v : graph)
+		for(Vertex v : Graph)
 		{
 			Vertex v2=new Vertex(v.index,v.name);
 			v2.domain=v.domain;
 			v2.level=v.level;
-			graph2.add(v2);
+			Graph2.add(v2);
 		}
-		for(Vertex v : graph)
+		for(Vertex v : Graph)
 		{
 			for(int d : v.link)
 			{
-				if(v.level!=N||graph.get(d).level!=N)continue;
-				graph2.get(v.index).link.add(d);
+				if(v.level!=N||Graph.get(d).level!=N)continue;
+				Graph2.get(v.index).link.add(d);
 			}
 		}
-		graph2M=graph2.stream().collect(Collectors.toMap(Vertex::getIndex,Function.identity()));
-		graph2N=graph2.stream().filter(v->v.level==N).collect(Collectors.toMap(Vertex::getIndex,Function.identity()));
+		Graph2M=Graph2.stream().collect(Collectors.toMap(Vertex::getIndex,Function.identity()));
+		Graph2N=Graph2.stream().filter(v->v.level==N).collect(Collectors.toMap(Vertex::getIndex,Function.identity()));
 		//S''=(S.V,S.E-S.E_n), convert S' to undirected graph
-		for(Vertex v : graph)
+		for(Vertex v : Graph)
 		{
 			Vertex v2=new Vertex(v.index,v.name);
 			v2.domain=v.domain;
 			v2.level=v.level;
-			graph3.add(v2);
+			Graph3.add(v2);
 		}
-		for(Vertex v : graph)
+		for(Vertex v : Graph)
 		{
 			for(int d : v.link)
 			{
-				if(v.level==N&&graph.get(d).level==N)continue;
-				graph3.get(v.index).link.add(d);
+				if(v.level==N&&Graph.get(d).level==N)continue;
+				Graph3.get(v.index).link.add(d);
 			}
 		}
 		//showGraph(graph);
@@ -228,9 +229,9 @@ public class SerendipityEvaluation
 	static int getIndex(String name)
 	{
 		if(nameToIndex.containsKey(name))return nameToIndex.get(name);
-		int index=graph.size();
+		int index=Graph.size();
 		Vertex vertex=new Vertex(index,name);
-		graph.add(vertex);
+		Graph.add(vertex);
 		nameToIndex.put(name,index);
 		return index;
 	}
@@ -249,25 +250,25 @@ public class SerendipityEvaluation
 	static double Evaluate(int v_d) throws NoPathException
 	{
 		double index=0;
-		for(Vertex v : graphN)
+		for(Vertex v : GraphN)
 		{
 			if(v.index==v_d)continue;
-			if(v.domain==graph.get(v_d).domain)
+			if(v.domain==Graph.get(v_d).domain)
 			{
-				for(List<Integer> p : getPaths(graph2N,v.index,v_d,5,v.domain))
+				for(List<Integer> p : getPaths(Graph2N,v.index,v_d,5,v.domain))
 				{
 					Row row=sheetpt.createRow(sheetpt.getLastRowNum()+1);
 					row.createCell(0).setCellValue("p"+row.getRowNum());
-					for(int i : p)row.createCell(row.getLastCellNum()).setCellValue(graph.get(i).name);
-					pathidx=0;
+					for(int i : p)row.createCell(row.getLastCellNum()).setCellValue(Graph.get(i).name);
+					pathIdx=0;
 					for(int i=0;i<p.size();++i)index=index+Serendipity(p,p.get(i),i);
-					sheetsc.getRow(sheetsc.getLastRowNum()-pathidx+1).createCell(6).setCellValue(IntStream.rangeClosed(sheetsc.getLastRowNum()-pathidx+1,sheetsc.getLastRowNum()).mapToObj(i->String.valueOf(sheetsc.getRow(i).getCell(5).getNumericCellValue())).collect(Collectors.joining("+"))+"="+IntStream.rangeClosed(sheetsc.getLastRowNum()-pathidx+1,sheetsc.getLastRowNum()).mapToDouble(i->sheetsc.getRow(i).getCell(5).getNumericCellValue()).sum());
-					if(pathidx>1)
+					sheetsc.getRow(sheetsc.getLastRowNum()-pathIdx+1).createCell(6).setCellValue(IntStream.rangeClosed(sheetsc.getLastRowNum()-pathIdx+1,sheetsc.getLastRowNum()).mapToObj(i->String.valueOf(sheetsc.getRow(i).getCell(5).getNumericCellValue())).collect(Collectors.joining("+"))+"="+IntStream.rangeClosed(sheetsc.getLastRowNum()-pathIdx+1,sheetsc.getLastRowNum()).mapToDouble(i->sheetsc.getRow(i).getCell(5).getNumericCellValue()).sum());
+					if(pathIdx>1)
 					{
-						sheetpt2.addMergedRegion(new CellRangeAddress(sheetpt2.getLastRowNum()-pathidx+1,sheetpt2.getLastRowNum(),0,0));
-						sheetsc.addMergedRegion(new CellRangeAddress(sheetsc.getLastRowNum()-pathidx+1,sheetsc.getLastRowNum(),0,0));
-						sheetsc.addMergedRegion(new CellRangeAddress(sheetsc.getLastRowNum()-pathidx+1,sheetsc.getLastRowNum(),2,2));
-						sheetsc.addMergedRegion(new CellRangeAddress(sheetsc.getLastRowNum()-pathidx+1,sheetsc.getLastRowNum(),6,6));
+						sheetpt2.addMergedRegion(new CellRangeAddress(sheetpt2.getLastRowNum()-pathIdx+1,sheetpt2.getLastRowNum(),0,0));
+						sheetsc.addMergedRegion(new CellRangeAddress(sheetsc.getLastRowNum()-pathIdx+1,sheetsc.getLastRowNum(),0,0));
+						sheetsc.addMergedRegion(new CellRangeAddress(sheetsc.getLastRowNum()-pathIdx+1,sheetsc.getLastRowNum(),2,2));
+						sheetsc.addMergedRegion(new CellRangeAddress(sheetsc.getLastRowNum()-pathIdx+1,sheetsc.getLastRowNum(),6,6));
 					}
 				}
 			}
@@ -372,37 +373,37 @@ public class SerendipityEvaluation
 		double score=0;
 		for(int v_s : Vps)
 		{
-			if(graph.get(v_s).domain!=graph.get(v_i).domain)continue;
+			if(Graph.get(v_s).domain!=Graph.get(v_i).domain)continue;
 			int dist;
 			try
 			{
-				dist=distance(graph2,v_i,v_s,p);
+				dist=distance(Graph2,v_i,v_s,p);
 			}
 			catch(NoPathException e)
 			{
 				continue;
 			}
-			int vsidx=0;
-			for(List<Integer> p2 : getPaths(graph2M,v_i,v_s,dist+1,graph.get(v_i).domain,p))
+			int vsIdx=0;
+			for(List<Integer> p2 : getPaths(Graph2M,v_i,v_s,dist+1,Graph.get(v_i).domain,p))
 			{
 				Row rowpt2=sheetpt2.createRow(sheetpt2.getLastRowNum()+1);
 				Row rowsc=sheetsc.createRow(sheetsc.getLastRowNum()+1);
-				if(pathidx==0)
+				if(pathIdx==0)
 				{
 					rowpt2.createCell(0).setCellValue("p"+sheetpt.getLastRowNum());
 					rowsc.createCell(0).setCellValue("p"+sheetpt.getLastRowNum());
 				}
-				if(vsidx==0)rowpt2.createCell(1).setCellValue(graph.get(v_s).name);
-				rowpt2.createCell(2).setCellValue("p'"+sheetpt.getLastRowNum()+","+(pathidx+1));
-				rowsc.createCell(1).setCellValue("p'"+sheetpt.getLastRowNum()+","+(pathidx+1));
-				for(int j : p2)rowpt2.createCell(rowpt2.getLastCellNum()).setCellValue(graph.get(j).name);
+				if(vsIdx==0)rowpt2.createCell(1).setCellValue(Graph.get(v_s).name);
+				rowpt2.createCell(2).setCellValue("p'"+sheetpt.getLastRowNum()+","+(pathIdx+1));
+				rowsc.createCell(1).setCellValue("p'"+sheetpt.getLastRowNum()+","+(pathIdx+1));
+				for(int j : p2)rowpt2.createCell(rowpt2.getLastCellNum()).setCellValue(Graph.get(j).name);
 				double delta=Discovery(p,i)*Interest(p2)*NewConnection(v_s);
 				score=score+delta;
 				rowsc.createCell(5).setCellValue(delta);
-				pathidx++;
-				vsidx++;
+				pathIdx++;
+				vsIdx++;
 			}
-			if(vsidx>1)sheetpt2.addMergedRegion(new CellRangeAddress(sheetpt2.getLastRowNum()-vsidx+1,sheetpt2.getLastRowNum(),1,1));
+			if(vsIdx>1)sheetpt2.addMergedRegion(new CellRangeAddress(sheetpt2.getLastRowNum()-vsIdx+1,sheetpt2.getLastRowNum(),1,1));
 		}
 		return score;
 	}
@@ -410,34 +411,31 @@ public class SerendipityEvaluation
 	static double Discovery(List<Integer> p,int i)
 	{
 		double val;
-		if(pathidx==0)sheetsc.getRow(sheetsc.getLastRowNum()).createCell(2).setCellValue("1/("+graph.get(graph.get(p.get(0)).domain).link.stream().filter(v->graph.get(v).level==N).count()+"×"+(i+1)+")");
-		val=1.0/graph.get(graph.get(p.get(0)).domain).link.stream().filter(v->graph.get(v).level==N).count()/(i+1);
+		val=1.0/Graph.get(Graph.get(p.get(0)).domain).link.stream().filter(v->Graph.get(v).level==N).count()/(i+1);
+		if(pathIdx==0)sheetsc.getRow(sheetsc.getLastRowNum()).createCell(2).setCellValue("1/("+Graph.get(Graph.get(p.get(0)).domain).link.stream().filter(v->Graph.get(v).level==N).count()+"×"+(i+1)+")");
 		return val;
 	}
 
 	static double Interest(List<Integer> p2) throws NoPathException
 	{
 		double Val=0;
-		for(int v_i2 : p2)Val=Val+InterestVal(v_i2);
+		for(int v_i2 : p2)Val=Val+interestVal(v_i2);
 		Val=Val/p2.size();
-		sheetsc.getRow(sheetsc.getLastRowNum()).createCell(3).setCellValue("("+IntStream.range(0,p2.size()).mapToObj(i->String.valueOf(InterestVal(p2.get(i)))).collect(Collectors.joining("+"))+")/"+p2.size()+"="+Val);
+		sheetsc.getRow(sheetsc.getLastRowNum()).createCell(3).setCellValue("("+IntStream.range(0,p2.size()).mapToObj(i->String.valueOf(interestVal(p2.get(i)))).collect(Collectors.joining("+"))+")/"+p2.size()+"="+Val);
 		return Val;
 	}
 
 	static double NewConnection(int v_s) throws NoPathException
 	{
 		double val=0;
-		for(int v : graph2N.get(v_s).link)
-		{
-			if(graph3.get(v_s).domain!=graph3.get(v).domain)val=val+distance(graph3,v_s,v);
-		}
+		for(int v : Graph2N.get(v_s).link)if(Graph3.get(v_s).domain!=Graph3.get(v).domain)val=val+distance(Graph3,v_s,v);
 		sheetsc.getRow(sheetsc.getLastRowNum()).createCell(4).setCellValue(val);
 		return val;
 	}
 
-	static double InterestVal(int v_i)
+	static double interestVal(int v_i)
 	{
-		Vertex v=graph.get(v_i);
+		Vertex v=Graph.get(v_i);
 		switch(v.name)
 		{
 		case ":NodeA1":
