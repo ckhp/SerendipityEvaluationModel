@@ -1,4 +1,4 @@
-package kr.ckhp.SerendipityEvaluationModel;
+package SerendipityEvaluationModel;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
