@@ -102,7 +102,7 @@ public class SerendipityEvaluation
 		createHeader(sheetiv,"Node","InterestVal", "Normalized");
 		createHeader(sheetpt,"p","Path");
 		createHeader(sheetpt2,"p","v_s","p'","Path");
-		createHeader(sheetsc,"p","p'","Discovery","Interest","NewConnection","Score");
+		createHeader(sheetsc,"p","p'","Pre-encountering","Post-encountering","Discovery","Score");
 		BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream(args[0]),"UTF-8"));
 		String line=null;
 		List<String> triple=new ArrayList<>();
