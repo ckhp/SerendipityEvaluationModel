@@ -48,9 +48,9 @@ public class SerendipityEvaluation
 	static List<Integer> Vps=new ArrayList<>();
 	static Map<String,Integer> nameToIndex=new HashMap<>();
 	static Sheet sheetiv;
-	static Sheet sheetpt;
-	static Sheet sheetpt2;
-	static Sheet sheetsc;
+//	static Sheet sheetpt;
+//	static Sheet sheetpt2;
+//	static Sheet sheetsc;
 	static int pathIdx;
 	static int N;
 
@@ -96,13 +96,13 @@ public class SerendipityEvaluation
 	{
 		Workbook workbook=new SXSSFWorkbook();
 		sheetiv=workbook.createSheet("InterestVal");
-		sheetpt=workbook.createSheet("Path");
-		sheetpt2=workbook.createSheet("Path2");
-		sheetsc=workbook.createSheet("Scoring");
+	//	sheetpt=workbook.createSheet("Path");
+	//	sheetpt2=workbook.createSheet("Path2");
+	//	sheetsc=workbook.createSheet("Scoring");
 		createHeader(sheetiv,"Node","InterestVal", "Normalized");
-		createHeader(sheetpt,"p","Path");
-		createHeader(sheetpt2,"p","v_s","p'","Path");
-		createHeader(sheetsc,"p","p'","Pre-encountering","Post-encountering","Discovery","Score");
+	//	createHeader(sheetpt,"p","Path");
+	//	createHeader(sheetpt2,"p","v_s","p'","Path");
+	//	createHeader(sheetsc,"p","p'","Pre-encountering","Post-encountering","Discovery","Score");
 		BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream(args[0]),"UTF-8"));
 		String line=null;
 		List<String> triple=new ArrayList<>();
@@ -231,18 +231,22 @@ public class SerendipityEvaluation
 		
 		Graph.get(2);
 		
+		
+		double potentialSeren=0;
 		for(int i=0; i<GraphN.size(); i++) {
-			System.out.println(Evaluate(getIndex(GraphN.get(i).name)));
+			//System.out.println(Evaluate(getIndex(GraphN.get(i).name)));
+			potentialSeren += Evaluate(getIndex(GraphN.get(i).name));
 			System.out.println("Page "+ GraphN.get(i).name + " Evaluation completed");
 			//System.out.println("Evaluate(" + GraphN.get(i).name+") = " + Evaluate(getIndex(GraphN.get(i).name)));
 		}
+		
 		//Row row=sheetsc.createRow(sheetsc.getLastRowNum()+1);
 		//row.createCell(0).setCellValue("Total");
 	    //Cell cell = row.createCell(6);
 	    //String sum = "SUM(F1:F"+ Integer.toString(row.getRowNum())+")";
 		//cell.setCellFormula(sum);
 		
-		System.out.println("Please check "+args[0].substring(0, args[0].length()-3)+"xlsx to see the evaluation result");
+		System.out.println("The potential serendipity value for the given information space is: "+ potentialSeren);
 		
 		workbook.write(new FileOutputStream(new File(args[0]).getAbsolutePath().replaceAll(".[^.]*$",".xlsx")));
 		workbook.close();
@@ -286,21 +290,21 @@ public class SerendipityEvaluation
 			{
 				for(List<Integer> p : getPaths(Graph2N,v.index,v_d,5,v.domain))
 				{
-					Row row=sheetpt.createRow(sheetpt.getLastRowNum()+1);
-					row.createCell(0).setCellValue("p"+row.getRowNum());
-					for(int i : p)row.createCell(row.getLastCellNum()).setCellValue(Graph.get(i).name);
-					pathIdx=0;
+					//Row row=sheetpt.createRow(sheetpt.getLastRowNum()+1);
+					//row.createCell(0).setCellValue("p"+row.getRowNum());
+					//for(int i : p)row.createCell(row.getLastCellNum()).setCellValue(Graph.get(i).name);
+					//pathIdx=0;
 					for(int i=0;i<p.size();++i)
 						if(v_d != p.get(i))index=index+Serendipity(p,p.get(i), v_d); //remove sidetracked paths starting from target node
 					//sheetsc.getRow(sheetsc.getLastRowNum()-pathIdx+1).createCell(6).setCellValue(IntStream.rangeClosed(sheetsc.getLastRowNum()-pathIdx+1,sheetsc.getLastRowNum()).mapToObj(i->String.valueOf(sheetsc.getRow(i).getCell(5).getNumericCellValue())).collect(Collectors.joining("+"))+"="+IntStream.rangeClosed(sheetsc.getLastRowNum()-pathIdx+1,sheetsc.getLastRowNum()).mapToDouble(i->sheetsc.getRow(i).getCell(5).getNumericCellValue()).sum());
 						
-					if(pathIdx>1)
-					{
+					//if(pathIdx>1)
+					//{
 						//sheetpt2.addMergedRegion(new CellRangeAddress(sheetpt2.getLastRowNum()-pathIdx+1,sheetpt2.getLastRowNum(),0,0));
 						//sheetsc.addMergedRegion(new CellRangeAddress(sheetsc.getLastRowNum()-pathIdx+1,sheetsc.getLastRowNum(),0,0));
 						//sheetsc.addMergedRegion(new CellRangeAddress(sheetsc.getLastRowNum()-pathIdx+1,sheetsc.getLastRowNum(),2,2)); // give separate discovery value to each sidetrakced path
 						//sheetsc.addMergedRegion(new CellRangeAddress(sheetsc.getLastRowNum()-pathIdx+1,sheetsc.getLastRowNum(),6,6));
-					}
+					//}
 
 				}
 				
