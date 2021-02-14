@@ -232,15 +232,15 @@ public class SerendipityEvaluation
 		Graph.get(2);
 		
 		for(int i=0; i<GraphN.size(); i++) {
-			Evaluate(getIndex(GraphN.get(i).name));
+			System.out.println(Evaluate(getIndex(GraphN.get(i).name)));
 			System.out.println("Page "+ GraphN.get(i).name + " Evaluation completed");
 			//System.out.println("Evaluate(" + GraphN.get(i).name+") = " + Evaluate(getIndex(GraphN.get(i).name)));
 		}
-		Row row=sheetsc.createRow(sheetsc.getLastRowNum()+1);
-		row.createCell(0).setCellValue("Total");
-	    Cell cell = row.createCell(6);
-	    String sum = "SUM(F1:F"+ Integer.toString(row.getRowNum())+")";
-		cell.setCellFormula(sum);
+		//Row row=sheetsc.createRow(sheetsc.getLastRowNum()+1);
+		//row.createCell(0).setCellValue("Total");
+	    //Cell cell = row.createCell(6);
+	    //String sum = "SUM(F1:F"+ Integer.toString(row.getRowNum())+")";
+		//cell.setCellFormula(sum);
 		
 		System.out.println("Please check "+args[0].substring(0, args[0].length()-3)+"xlsx to see the evaluation result");
 		
@@ -296,10 +296,10 @@ public class SerendipityEvaluation
 						
 					if(pathIdx>1)
 					{
-						sheetpt2.addMergedRegion(new CellRangeAddress(sheetpt2.getLastRowNum()-pathIdx+1,sheetpt2.getLastRowNum(),0,0));
-						sheetsc.addMergedRegion(new CellRangeAddress(sheetsc.getLastRowNum()-pathIdx+1,sheetsc.getLastRowNum(),0,0));
+						//sheetpt2.addMergedRegion(new CellRangeAddress(sheetpt2.getLastRowNum()-pathIdx+1,sheetpt2.getLastRowNum(),0,0));
+						//sheetsc.addMergedRegion(new CellRangeAddress(sheetsc.getLastRowNum()-pathIdx+1,sheetsc.getLastRowNum(),0,0));
 						//sheetsc.addMergedRegion(new CellRangeAddress(sheetsc.getLastRowNum()-pathIdx+1,sheetsc.getLastRowNum(),2,2)); // give separate discovery value to each sidetrakced path
-						sheetsc.addMergedRegion(new CellRangeAddress(sheetsc.getLastRowNum()-pathIdx+1,sheetsc.getLastRowNum(),6,6));
+						//sheetsc.addMergedRegion(new CellRangeAddress(sheetsc.getLastRowNum()-pathIdx+1,sheetsc.getLastRowNum(),6,6));
 					}
 
 				}
@@ -424,28 +424,28 @@ public class SerendipityEvaluation
 
 			for(List<Integer> p2 : getPaths(Graph2M,v_i,v_s,dist+1,Graph.get(v_i).domain,p))
 			{
-				Row rowpt2=sheetpt2.createRow(sheetpt2.getLastRowNum()+1);
-				Row rowsc=sheetsc.createRow(sheetsc.getLastRowNum()+1);
+				//Row rowpt2=sheetpt2.createRow(sheetpt2.getLastRowNum()+1);
+				//Row rowsc=sheetsc.createRow(sheetsc.getLastRowNum()+1);
 			
 				if(pathIdx==0)
 				{
-					rowpt2.createCell(0).setCellValue("p"+sheetpt.getLastRowNum());
-					rowsc.createCell(0).setCellValue("p"+sheetpt.getLastRowNum());
+					//rowpt2.createCell(0).setCellValue("p"+sheetpt.getLastRowNum());
+					//rowsc.createCell(0).setCellValue("p"+sheetpt.getLastRowNum());
 				}
-				if(vsIdx==0)rowpt2.createCell(1).setCellValue(Graph.get(v_s).name);
+				//if(vsIdx==0)rowpt2.createCell(1).setCellValue(Graph.get(v_s).name);
 				
-				rowpt2.createCell(2).setCellValue("p'"+sheetpt.getLastRowNum()+","+(pathIdx+1));
-				rowsc.createCell(1).setCellValue("p'"+sheetpt.getLastRowNum()+","+(pathIdx+1));
+				//rowpt2.createCell(2).setCellValue("p'"+sheetpt.getLastRowNum()+","+(pathIdx+1));
+				//rowsc.createCell(1).setCellValue("p'"+sheetpt.getLastRowNum()+","+(pathIdx+1));
 			
-				for(int j : p2)rowpt2.createCell(rowpt2.getLastCellNum()).setCellValue(Graph.get(j).name);
+				//for(int j : p2)rowpt2.createCell(rowpt2.getLastCellNum()).setCellValue(Graph.get(j).name);
 				double delta=Discovery(p,p2)*Interest(p2)*NewConnection(v_s);
 				score=score+delta;
-				rowsc.createCell(5).setCellValue(delta);
+				//rowsc.createCell(5).setCellValue(delta);
 				pathIdx++;
 				vsIdx++;
 			}
 
-			if(vsIdx>1)sheetpt2.addMergedRegion(new CellRangeAddress(sheetpt2.getLastRowNum()-vsIdx+1,sheetpt2.getLastRowNum(),1,1));
+			//if(vsIdx>1)sheetpt2.addMergedRegion(new CellRangeAddress(sheetpt2.getLastRowNum()-vsIdx+1,sheetpt2.getLastRowNum(),1,1));
 		}
 		return score;
 		
@@ -454,7 +454,7 @@ public class SerendipityEvaluation
 	static double Discovery(List<Integer> p,List<Integer> p2)
 	{
 		double val = 1.0/(p.indexOf(p2.get(0))+1);
-		sheetsc.getRow(sheetsc.getLastRowNum()).createCell(2).setCellValue(val);
+		//sheetsc.getRow(sheetsc.getLastRowNum()).createCell(2).setCellValue(val);
 		return val;
 	}
 
@@ -467,7 +467,7 @@ public class SerendipityEvaluation
 			Val = Val+findNormalizedIntForGivenName(sheetiv, v_i2, Graph);
 		}
 		Val=Val/Double.valueOf(p2.size());
-		sheetsc.getRow(sheetsc.getLastRowNum()).createCell(3).setCellValue("("+IntStream.range(0,p2.size()).mapToObj(i->String.valueOf(findNormalizedIntForGivenName(sheetiv, p2.get(i), Graph))).collect(Collectors.joining("+"))+")/"+p2.size()+"="+Val);
+		//sheetsc.getRow(sheetsc.getLastRowNum()).createCell(3).setCellValue("("+IntStream.range(0,p2.size()).mapToObj(i->String.valueOf(findNormalizedIntForGivenName(sheetiv, p2.get(i), Graph))).collect(Collectors.joining("+"))+")/"+p2.size()+"="+Val);
 		return Val;
 	}
 
@@ -484,7 +484,7 @@ public class SerendipityEvaluation
 		}
 		input = input.substring(0, input.length()-1);
 		input = input.concat(")="+val);
-		sheetsc.getRow(sheetsc.getLastRowNum()).createCell(4).setCellValue(input);
+		//sheetsc.getRow(sheetsc.getLastRowNum()).createCell(4).setCellValue(input);
 		return val;
 	}
 

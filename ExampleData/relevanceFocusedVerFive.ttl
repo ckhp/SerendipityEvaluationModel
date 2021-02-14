@@ -1,0 +1,497 @@
+@prefix : <http://example.com/> .
+
+########################
+########1-Level#########
+########################
+
+:BookShelf
+   :Genre :Adventure ;
+   :Genre :Biography ;
+   :Genre :Anthropology ;
+   :Genre :Christianity ;
+   :Genre :Fantasy ;
+   :Genre :Gothic ;
+   :Genre :Humor .
+
+########################
+########2-Level#########
+########################
+:Adventure 
+	:Books :She ;
+	:Books :Captain_Blood ;
+	:Books :Captains_Courageous_A_Story_Of_The_Grand_Banks ;
+	:Books :The_Call_Of_The_Wild ;
+	:Books :The_Black_Arrow_A_Tale_Of_Two_Roses ;
+	:Books :King_Of_The_Kyber_Rifles ;
+	:Books :Tarzan_Of_The_Apes .
+
+:Biography
+	:Books :Eminent_Victorians ;
+	:Books :Representative_Men_Seven_Lectures ;
+	:Books :Real_Soldiers_Of_Fortune ;
+	:Books :Frederick_Douglass_A_Biography .
+
+:Anthropology 
+	:Books :The_Golden_Bough_A_Study_Of_Magic_And_Religion ;
+	:Books :The_Evolution_Of_Man ;
+	:Books :Evolution_Of_The_Japanese_Social_And_Psychic ;
+	:Books :The_Belief_In_Immortality_And_The_Worship_Of_The_Dead ;
+	:Books :Pygmies_Papuans_The_Stone_Age_To_day_In_Dutch_New_Guinea ;
+	:Books :The_Paganp_Tribes_Of_Borneo ;
+	:Books :Kinship_Organisations_And_Group_Marriage_In_Australia ;
+	:Books :The_Repair_Of_Casa_Grande_Ruin_Arizona_In_1891 ;
+	:Books :Casa_Grande_Ruin ;
+	:Books :Lecture_On_The_Aborigines_Of_Newfoundland .
+
+:Christianity 
+	:Books :The_Confessions_Of_St_Augustine ;
+	:Books :The_Imitation_Of_Christ ;
+	:Books :Doctrina_Christiana ;
+	:Books :Grace_Abounding_To_The_Chief_Of_Sinners ;
+	:Books :Summa_Theologica ;
+	:Books :The_St_Gregory_Hymnal_And_Catholic_Choir_Book ;
+	:Books :The_Hymns_Of_Prudentius ;
+	:Books :Divine_Songs ;
+	:Books :The_Smalcald_Articles ;
+	:Books :The_Cell_Of_Self_Knowledge ;
+	:Books :Prayers_Written_At_Vailima_And_A_Lowden_Sabbath_Morn .
+
+:Fantasy 
+	:Books :The_Marvelous_Land_Of_Oz ;
+	:Books :The_Legends_Of_King_Arthur_And_His_Knights ;
+	:Books :The_Wonderful_Wizard_Of_Oz ;
+	:Books :The_Story_Of_The_Volsungs ;
+	:Books :The_Sea_Fairies ;
+	:Books :The_Master_Key ;
+	:Books :The_Enchanted_Island_Of_Yew ;
+	:Books :The_Hollow_Land ;
+	:Books :Sky_Island ;
+	:Books :The_Mirror_Of_Kong_Ho .
+
+:Gothic 
+	:Books :Frankenstein_Or_The_Modern_Prometheus ;
+	:Books :The_Yellow_Wallpaper ;
+	:Books :The_Picture_Of_Dorian_Gray ;
+	:Books :Dracula ;
+	:Books :Wuthering_Heights ;
+	:Books :The_Turn_Of_The_Screw ;
+	:Books :Northanger_Abbey ;
+	:Books :The_Strange_Case_Of_Dr_Jekyll_And_Mr_Hyde ;
+	:Books :Fantome_de_l_Opera ;
+	:Books :The_Mysteries_Of_Udolpho ;
+	:Books :Wieland_Or_The_Transformation .
+
+:Humor 
+	:Books :Three_Men_In_A_Boat ;
+	:Books :My_Man_Jeeves ;
+	:Books :The_Diary_Of_A_Nobody ;
+	:Books :The_Book_Of_Nonsense ;
+	:Books :Jill_The_Reckless ;
+	:Books :Uneasy_Money ;
+	:Books :Mike ;
+	:Books :Indiscretions_Of_Archie ;
+	:Books :Nonsense_Songs ;
+	:Books :The_Little_Warrior ;
+	:Books :The_Swoop_Or_How_Clarence_Saved_England .
+	
+########################
+########3-Level#########
+########################
+
+:She 
+	:Linked :King_Of_The_Kyber_Rifles ;
+	:Linked :Tarzan_Of_The_Apes ;
+	:Linked :The_Belief_In_Immortality_And_The_Worship_Of_The_Dead ;
+	:Linked :Doctrina_Christiana ;
+	:Linked :The_Yellow_Wallpaper ;
+	:Linked :Wuthering_Heights ;
+	:Linked :Northanger_Abbey .
+	
+:Captain_Blood 
+	:Linked :Captains_Courageous_A_Story_Of_The_Grand_Banks ;
+	:Linked :The_Black_Arrow_A_Tale_Of_Two_Roses ;
+	:Linked :King_Of_The_Kyber_Rifles ;
+	:Linked :Eminent_Victorians ;
+	:Linked :Pygmies_Papuans_The_Stone_Age_To_day_In_Dutch_New_Guinea ;
+	:Linked :Kinship_Organisations_And_Group_Marriage_In_Australia ;
+	:Linked :The_Repair_Of_Casa_Grande_Ruin_Arizona_In_1891 ;
+	:Linked :Casa_Grande_Ruin ;
+	:Linked :Lecture_On_The_Aborigines_Of_Newfoundland ;
+	:Linked :The_Sea_Fairies .
+	
+:Captains_Courageous_A_Story_Of_The_Grand_Banks
+	:Linked :The_Black_Arrow_A_Tale_Of_Two_Roses .
+
+	
+:The_Black_Arrow_A_Tale_Of_Two_Roses
+	:Linked :King_Of_The_Kyber_Rifles ;
+	:Linked :Tarzan_Of_The_Apes ;
+	:Linked :Eminent_Victorians ;
+	:Linked :Pygmies_Papuans_The_Stone_Age_To_day_In_Dutch_New_Guinea ;
+	:Linked :The_Repair_Of_Casa_Grande_Ruin_Arizona_In_1891 ;
+	:Linked :Casa_Grande_Ruin ;
+	:Linked :Lecture_On_The_Aborigines_Of_Newfoundland ;
+	:Linked :The_Cell_Of_Self_Knowledge ;
+	:Linked :The_Legends_Of_King_Arthur_And_His_Knights ;
+	:Linked :The_Enchanted_Island_Of_Yew ;
+	:Linked :The_Hollow_Land ;
+	:Linked :The_Picture_Of_Dorian_Gray ;
+	:Linked :Wieland_Or_The_Transformation .
+	
+:King_Of_The_Kyber_Rifles
+	:Linked :Eminent_Victorians ;
+	:Linked :Pygmies_Papuans_The_Stone_Age_To_day_In_Dutch_New_Guinea ;
+	:Linked :Kinship_Organisations_And_Group_Marriage_In_Australia ;
+	:Linked :The_Repair_Of_Casa_Grande_Ruin_Arizona_In_1891 ;
+	:Linked :Casa_Grande_Ruin ;
+	:Linked :Lecture_On_The_Aborigines_Of_Newfoundland ;
+	:Linked :The_Cell_Of_Self_Knowledge ;
+	:Linked :The_Master_Key ;
+	:Linked :The_Picture_Of_Dorian_Gray ;
+	:Linked :Northanger_Abbey ;
+	:Linked :Wieland_Or_The_Transformation .
+	
+:Tarzan_Of_The_Apes
+	:Linked :Doctrina_Christiana .
+	
+:Eminent_Victorians
+	:Linked :Pygmies_Papuans_The_Stone_Age_To_day_In_Dutch_New_Guinea ;
+	:Linked :Kinship_Organisations_And_Group_Marriage_In_Australia ;
+	:Linked :The_Repair_Of_Casa_Grande_Ruin_Arizona_In_1891 ;
+	:Linked :Casa_Grande_Ruin ;
+	:Linked :Lecture_On_The_Aborigines_Of_Newfoundland ;
+	:Linked :Grace_Abounding_To_The_Chief_Of_Sinners ;
+	:Linked :The_Cell_Of_Self_Knowledge ;
+	:Linked :The_Legends_Of_King_Arthur_And_His_Knights ;
+	:Linked :The_Mirror_Of_Kong_Ho ;
+	:Linked :The_Picture_Of_Dorian_Gray ;
+	:Linked :Dracula ;
+	:Linked :The_Turn_Of_The_Screw ;
+	:Linked :Northanger_Abbey ;
+	:Linked :The_Strange_Case_Of_Dr_Jekyll_And_Mr_Hyde ;
+	:Linked :Wieland_Or_The_Transformation .
+	
+:Representative_Men_Seven_Lectures
+	:Linked :Fantome_de_l_Opera .
+
+	
+:Frederick_Douglass_A_Biography
+	:Linked :Lecture_On_The_Aborigines_Of_Newfoundland ;
+	:Linked :Northanger_Abbey .
+	
+:The_Golden_Bough_A_Study_Of_Magic_And_Religion
+	:Linked :Summa_Theologica ;
+	:Linked :The_Smalcald_Articles ;
+	:Linked :The_Cell_Of_Self_Knowledge ;
+	:Linked :Prayers_Written_At_Vailima_And_A_Lowden_Sabbath_Morn ;
+	:Linked :The_Wonderful_Wizard_Of_Oz .
+	
+:The_Evolution_Of_Man
+	:Linked :The_Belief_In_Immortality_And_The_Worship_Of_The_Dead ;
+	:Linked :Pygmies_Papuans_The_Stone_Age_To_day_In_Dutch_New_Guinea ;
+	:Linked :Kinship_Organisations_And_Group_Marriage_In_Australia ;
+	:Linked :The_Repair_Of_Casa_Grande_Ruin_Arizona_In_1891 ;
+	:Linked :Casa_Grande_Ruin ;
+	:Linked :Lecture_On_The_Aborigines_Of_Newfoundland ;
+	:Linked :Frankenstein_Or_The_Modern_Prometheus ;
+	:Linked :The_Strange_Case_Of_Dr_Jekyll_And_Mr_Hyde .
+	
+:Evolution_Of_The_Japanese_Social_And_Psychic
+	:Linked :The_Belief_In_Immortality_And_The_Worship_Of_The_Dead ;
+	:Linked :The_Paganp_Tribes_Of_Borneo ;
+	:Linked :Kinship_Organisations_And_Group_Marriage_In_Australia ;
+	:Linked :Northanger_Abbey .
+	
+:The_Belief_In_Immortality_And_The_Worship_Of_The_Dead
+	:Linked :Pygmies_Papuans_The_Stone_Age_To_day_In_Dutch_New_Guinea ;
+	:Linked :The_Paganp_Tribes_Of_Borneo ;
+	:Linked :Kinship_Organisations_And_Group_Marriage_In_Australia ;
+	:Linked :Doctrina_Christiana ;
+	:Linked :Prayers_Written_At_Vailima_And_A_Lowden_Sabbath_Morn .
+	
+:Pygmies_Papuans_The_Stone_Age_To_day_In_Dutch_New_Guinea
+	:Linked :Kinship_Organisations_And_Group_Marriage_In_Australia ;
+	:Linked :The_Repair_Of_Casa_Grande_Ruin_Arizona_In_1891 ;
+	:Linked :Casa_Grande_Ruin ;
+	:Linked :Lecture_On_The_Aborigines_Of_Newfoundland ;
+	:Linked :Doctrina_Christiana ;
+	:Linked :The_Picture_Of_Dorian_Gray .
+	
+:The_Paganp_Tribes_Of_Borneo
+	:Linked :Kinship_Organisations_And_Group_Marriage_In_Australia ;
+	:Linked :Northanger_Abbey .
+	
+:Kinship_Organisations_And_Group_Marriage_In_Australia
+	:Linked :The_Repair_Of_Casa_Grande_Ruin_Arizona_In_1891 ;
+	:Linked :Casa_Grande_Ruin ;
+	:Linked :Lecture_On_The_Aborigines_Of_Newfoundland ;
+	:Linked :The_Cell_Of_Self_Knowledge ;
+	:Linked :The_Picture_Of_Dorian_Gray ;
+	:Linked :Northanger_Abbey ;
+	:Linked :Wieland_Or_The_Transformation .
+	
+:The_Repair_Of_Casa_Grande_Ruin_Arizona_In_1891
+	:Linked :Casa_Grande_Ruin ;
+	:Linked :Lecture_On_The_Aborigines_Of_Newfoundland ;
+	:Linked :The_Cell_Of_Self_Knowledge ;
+	:Linked :The_Picture_Of_Dorian_Gray ;
+	:Linked :Wieland_Or_The_Transformation .
+	
+:Casa_Grande_Ruin
+	:Linked :Lecture_On_The_Aborigines_Of_Newfoundland ;
+	:Linked :The_Cell_Of_Self_Knowledge ;
+	:Linked :The_Picture_Of_Dorian_Gray ;
+	:Linked :Wieland_Or_The_Transformation .
+	
+:Lecture_On_The_Aborigines_Of_Newfoundland
+	:Linked :The_Cell_Of_Self_Knowledge ;
+	:Linked :The_Picture_Of_Dorian_Gray ;
+	:Linked :Wieland_Or_The_Transformation .
+	
+:The_Confessions_Of_St_Augustine
+	:Linked :The_Imitation_Of_Christ ;
+	:Linked :Doctrina_Christiana ;
+	:Linked :Grace_Abounding_To_The_Chief_Of_Sinners ;
+	:Linked :Summa_Theologica ;
+	:Linked :The_St_Gregory_Hymnal_And_Catholic_Choir_Book ;
+	:Linked :The_Smalcald_Articles .
+	
+:The_Imitation_Of_Christ
+	:Linked :Doctrina_Christiana ;
+	:Linked :Summa_Theologica ;
+	:Linked :The_St_Gregory_Hymnal_And_Catholic_Choir_Book ;
+	:Linked :The_Smalcald_Articles ;
+	:Linked :The_Cell_Of_Self_Knowledge ;
+	:Linked :Prayers_Written_At_Vailima_And_A_Lowden_Sabbath_Morn ;
+	:Linked :The_Yellow_Wallpaper ;
+	:Linked :The_Picture_Of_Dorian_Gray ;
+	:Linked :Wuthering_Heights ;
+	:Linked :The_Turn_Of_The_Screw ;
+	:Linked :The_Strange_Case_Of_Dr_Jekyll_And_Mr_Hyde ;
+	:Linked :Wieland_Or_The_Transformation .
+	
+:Doctrina_Christiana
+	:Linked :Grace_Abounding_To_The_Chief_Of_Sinners ;
+	:Linked :Summa_Theologica ;
+	:Linked :The_St_Gregory_Hymnal_And_Catholic_Choir_Book ;
+	:Linked :The_Hymns_Of_Prudentius ;
+	:Linked :Divine_Songs ;
+	:Linked :The_Smalcald_Articles ;
+	:Linked :The_Cell_Of_Self_Knowledge ;
+	:Linked :Prayers_Written_At_Vailima_And_A_Lowden_Sabbath_Morn ;
+	:Linked :The_Marvelous_Land_Of_Oz ;
+	:Linked :The_Legends_Of_King_Arthur_And_His_Knights .
+	
+:Grace_Abounding_To_The_Chief_Of_Sinners
+	:Linked :The_St_Gregory_Hymnal_And_Catholic_Choir_Book ;
+	:Linked :The_Hymns_Of_Prudentius ;
+	:Linked :Divine_Songs ;
+	:Linked :The_Smalcald_Articles ;
+	:Linked :The_Cell_Of_Self_Knowledge ;
+	:Linked :Prayers_Written_At_Vailima_And_A_Lowden_Sabbath_Morn ;
+	:Linked :The_Marvelous_Land_Of_Oz ;
+	:Linked :The_Legends_Of_King_Arthur_And_His_Knights ;
+	:Linked :The_Mirror_Of_Kong_Ho ;
+	:Linked :The_Picture_Of_Dorian_Gray ;
+	:Linked :Dracula ;
+	:Linked :Wuthering_Heights ;
+	:Linked :The_Turn_Of_The_Screw ;
+	:Linked :Northanger_Abbey ;
+	:Linked :The_Strange_Case_Of_Dr_Jekyll_And_Mr_Hyde .
+	
+:Summa_Theologica
+	:Linked :The_St_Gregory_Hymnal_And_Catholic_Choir_Book ;
+	:Linked :The_Hymns_Of_Prudentius ;
+	:Linked :The_Smalcald_Articles ;
+	:Linked :The_Cell_Of_Self_Knowledge ;
+	:Linked :Prayers_Written_At_Vailima_And_A_Lowden_Sabbath_Morn ;
+	:Linked :The_Yellow_Wallpaper ;
+	:Linked :The_Picture_Of_Dorian_Gray ;
+	:Linked :Wuthering_Heights ;
+	:Linked :The_Turn_Of_The_Screw ;
+	:Linked :The_Strange_Case_Of_Dr_Jekyll_And_Mr_Hyde ;
+	:Linked :Wieland_Or_The_Transformation .
+	
+:The_St_Gregory_Hymnal_And_Catholic_Choir_Book
+	:Linked :The_Hymns_Of_Prudentius ;
+	:Linked :Divine_Songs ;
+	:Linked :The_Smalcald_Articles ;
+	:Linked :The_Cell_Of_Self_Knowledge ;
+	:Linked :Prayers_Written_At_Vailima_And_A_Lowden_Sabbath_Morn .
+	
+:The_Hymns_Of_Prudentius
+	:Linked :Divine_Songs ;
+	:Linked :The_Cell_Of_Self_Knowledge ;
+	:Linked :Prayers_Written_At_Vailima_And_A_Lowden_Sabbath_Morn ;
+	:Linked :The_Marvelous_Land_Of_Oz ;
+	:Linked :The_Legends_Of_King_Arthur_And_His_Knights .
+	
+:Divine_Songs
+	:Linked :Prayers_Written_At_Vailima_And_A_Lowden_Sabbath_Morn ;
+	:Linked :The_Marvelous_Land_Of_Oz ;
+	:Linked :The_Legends_Of_King_Arthur_And_His_Knights ;
+	:Linked :The_Wonderful_Wizard_Of_Oz ;
+	:Linked :The_Sea_Fairies ;
+	:Linked :The_Enchanted_Island_Of_Yew ;
+	:Linked :The_Turn_Of_The_Screw ;
+	:Linked :The_Strange_Case_Of_Dr_Jekyll_And_Mr_Hyde .
+	
+:The_Smalcald_Articles
+	:Linked :The_Cell_Of_Self_Knowledge ;
+	:Linked :Prayers_Written_At_Vailima_And_A_Lowden_Sabbath_Morn ;
+	:Linked :The_Yellow_Wallpaper ;
+	:Linked :The_Picture_Of_Dorian_Gray ;
+	:Linked :Wuthering_Heights ;
+	:Linked :The_Turn_Of_The_Screw ;
+	:Linked :The_Strange_Case_Of_Dr_Jekyll_And_Mr_Hyde ;
+	:Linked :Wieland_Or_The_Transformation .
+	
+:The_Cell_Of_Self_Knowledge
+	:Linked :Prayers_Written_At_Vailima_And_A_Lowden_Sabbath_Morn ;
+	:Linked :The_Legends_Of_King_Arthur_And_His_Knights ;
+	:Linked :The_Mirror_Of_Kong_Ho ;
+	:Linked :The_Yellow_Wallpaper ;
+	:Linked :The_Picture_Of_Dorian_Gray ;
+	:Linked :Dracula ;
+	:Linked :Wuthering_Heights ;
+	:Linked :The_Turn_Of_The_Screw ;
+	:Linked :Northanger_Abbey ;
+	:Linked :The_Strange_Case_Of_Dr_Jekyll_And_Mr_Hyde ;
+	:Linked :Wieland_Or_The_Transformation .
+	
+:Prayers_Written_At_Vailima_And_A_Lowden_Sabbath_Morn
+	:Linked :The_Marvelous_Land_Of_Oz ;
+	:Linked :The_Legends_Of_King_Arthur_And_His_Knights ;
+	:Linked :The_Wonderful_Wizard_Of_Oz ;
+	:Linked :The_Yellow_Wallpaper ;
+	:Linked :The_Picture_Of_Dorian_Gray ;
+	:Linked :Wuthering_Heights ;
+	:Linked :The_Turn_Of_The_Screw ;
+	:Linked :The_Strange_Case_Of_Dr_Jekyll_And_Mr_Hyde ;
+	:Linked :Wieland_Or_The_Transformation .
+	
+:The_Marvelous_Land_Of_Oz
+	:Linked :The_Legends_Of_King_Arthur_And_His_Knights ;
+	:Linked :The_Wonderful_Wizard_Of_Oz ;
+	:Linked :The_Sea_Fairies ;
+	:Linked :The_Master_Key ;
+	:Linked :The_Enchanted_Island_Of_Yew ;
+	:Linked :The_Hollow_Land ;
+	:Linked :Sky_Island ;
+	:Linked :The_Mirror_Of_Kong_Ho .
+
+:The_Legends_Of_King_Arthur_And_His_Knights
+	:Linked :The_Enchanted_Island_Of_Yew ;
+	:Linked :The_Hollow_Land ;
+	:Linked :The_Mirror_Of_Kong_Ho ;
+	:Linked :The_Picture_Of_Dorian_Gray ;
+	:Linked :Wuthering_Heights ;
+	:Linked :The_Turn_Of_The_Screw ;
+	:Linked :Northanger_Abbey ;
+	:Linked :The_Strange_Case_Of_Dr_Jekyll_And_Mr_Hyde .
+	
+:The_Wonderful_Wizard_Of_Oz
+	:Linked :The_Sea_Fairies ;
+	:Linked :The_Master_Key ;
+	:Linked :The_Enchanted_Island_Of_Yew ;
+	:Linked :The_Hollow_Land ;
+	:Linked :Sky_Island ;
+	:Linked :The_Mirror_Of_Kong_Ho ;
+	:Linked :The_Picture_Of_Dorian_Gray ;
+	:Linked :Northanger_Abbey .
+	
+:The_Story_Of_The_Volsungs
+	:Linked :Northanger_Abbey .
+
+:The_Sea_Fairies
+	:Linked :The_Master_Key ;
+	:Linked :The_Enchanted_Island_Of_Yew ;
+	:Linked :The_Hollow_Land ;
+	:Linked :Sky_Island ;
+	:Linked :The_Mirror_Of_Kong_Ho .
+	
+:The_Master_Key
+	:Linked :The_Enchanted_Island_Of_Yew ;
+	:Linked :The_Hollow_Land ;
+	:Linked :Sky_Island ;
+	:Linked :The_Mirror_Of_Kong_Ho ;
+	:Linked :The_Picture_Of_Dorian_Gray .
+	
+:The_Enchanted_Island_Of_Yew
+	:Linked :The_Hollow_Land ;
+	:Linked :Sky_Island .
+	
+:The_Hollow_Land
+	:Linked :The_Mirror_Of_Kong_Ho ;
+	:Linked :Frankenstein_Or_The_Modern_Prometheus ;
+	:Linked :Wuthering_Heights .
+	
+:The_Mirror_Of_Kong_Ho
+	:Linked :Frankenstein_Or_The_Modern_Prometheus ;
+	:Linked :The_Picture_Of_Dorian_Gray ;
+	:Linked :Dracula ;
+	:Linked :Wuthering_Heights ;
+	:Linked :The_Turn_Of_The_Screw ;
+	:Linked :Northanger_Abbey ;
+	:Linked :The_Strange_Case_Of_Dr_Jekyll_And_Mr_Hyde .
+	
+:Frankenstein_Or_The_Modern_Prometheus
+	:Linked :Dracula ;
+	:Linked :Northanger_Abbey ;
+	:Linked :The_Strange_Case_Of_Dr_Jekyll_And_Mr_Hyde ;
+	:Linked :Fantome_de_l_Opera ;
+	:Linked :The_Mysteries_Of_Udolpho ;
+	:Linked :Wieland_Or_The_Transformation .
+	
+:The_Yellow_Wallpaper
+	:Linked :Northanger_Abbey ;
+	:Linked :The_Strange_Case_Of_Dr_Jekyll_And_Mr_Hyde ;
+	:Linked :The_Mysteries_Of_Udolpho ;
+	:Linked :Mental_Defectives_And_Sexual_Offenders .
+
+:The_Picture_Of_Dorian_Gray
+	:Linked :Dracula ;
+	:Linked :Wuthering_Heights ;
+	:Linked :The_Turn_Of_The_Screw ;
+	:Linked :Northanger_Abbey ;
+	:Linked :The_Strange_Case_Of_Dr_Jekyll_And_Mr_Hyde ;
+	:Linked :Wieland_Or_The_Transformation .
+	
+:Dracula
+	:Linked :Wuthering_Heights ;
+	:Linked :The_Turn_Of_The_Screw ;
+	:Linked :Northanger_Abbey ;
+	:Linked :The_Strange_Case_Of_Dr_Jekyll_And_Mr_Hyde ;
+	:Linked :Fantome_de_l_Opera ;
+	:Linked :The_Mysteries_Of_Udolpho ;
+	:Linked :Wieland_Or_The_Transformation .
+	
+:Wuthering_Heights
+	:Linked :The_Turn_Of_The_Screw ;
+	:Linked :Northanger_Abbey ;
+	:Linked :The_Strange_Case_Of_Dr_Jekyll_And_Mr_Hyde ;
+	:Linked :Wieland_Or_The_Transformation .
+	
+:The_Turn_Of_The_Screw
+	:Linked :Northanger_Abbey ;
+	:Linked :The_Strange_Case_Of_Dr_Jekyll_And_Mr_Hyde ;
+	:Linked :Wieland_Or_The_Transformation .
+	
+:Northanger_Abbey
+	:Linked :The_Strange_Case_Of_Dr_Jekyll_And_Mr_Hyde ;
+	:Linked :Fantome_de_l_Opera ;
+	:Linked :The_Mysteries_Of_Udolpho ;
+	:Linked :Wieland_Or_The_Transformation .
+	
+:The_Strange_Case_Of_Dr_Jekyll_And_Mr_Hyde
+	:Linked :Fantome_de_l_Opera ;
+	:Linked :The_Mysteries_Of_Udolpho ;
+	:Linked :Wieland_Or_The_Transformation .
+	
+:Fantome_de_l_Opera
+	:Linked :The_Mysteries_Of_Udolpho ;
+	:Linked :Wieland_Or_The_Transformation .
+	
+:The_Mysteries_Of_Udolpho
+	:Linked :Wieland_Or_The_Transformation .
+	
