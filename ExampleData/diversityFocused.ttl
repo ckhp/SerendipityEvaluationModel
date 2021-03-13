@@ -104,34 +104,34 @@
 ########################
 
 :She 
-	:Linked :Captain_Blood ;
-	:Linked :The_Call_Of_The_Wild ;
-	:Linked :The_Count_of_Monte_Cristo_Illustrated ;
-	:Linked :The_Scarlet_Pimpernel ;
+	:Linked :Jurgen_A_Comedy_of_Justice ;
+	:Linked :Four_Weird_Tales ;
+	:Linked :The_Bride_of_Lammermoor ;
+	:Linked :La_dame_aux_camelias ;
 	:Linked :Moby_Dick_or_The_Whale ;
 	:Linked :King_Solomon_Mines ;
 	:Linked :The_Prisoner_of_Zenda ;
 	:Linked :Scaramouche_A_Romance_of_the_French_Revolution .
 	
 :Captain_Blood
-	:Linked :Captains_Courageous_A_Story_Of_The_Grand_Banks ;
-	:Linked :The_Call_Of_The_Wild ;
+	:Linked :The_Master_Key ;
+	:Linked :Jurgen_A_Comedy_of_Justice ;
 	:Linked :The_Count_of_Monte_Cristo_IllustratedThe_Scarlet_Pimpernel ;
 	:Linked :The_Scarlet_Pimpernel ;
 	:Linked :Moby_Dick_or_The_Whale ;
-	:Linked :King_Solomon_Mines ;
+	:Linked :The_Boats_of_the_Glen_Carrig ;
 	:Linked :The_Prisoner_of_Zenda ;
-	:Linked :The_Man_in_the_Iron_Mask .
+	:Linked :The_Bride_of_Lammermoor .
 	
 :Captains_Courageous_A_Story_Of_The_Grand_Banks
-	:Linked :She ;
+	:Linked :Men_of_Iron ;
 	:Linked :Captain_Blood ;
-	:Linked :Kidnapped ;
+	:Linked :Wild_Adventures_round_the_Pole ;
 	:Linked :Moby_Dick_or_The_Whale ;
 	:Linked :The_Prisoner_of_Zenda ;
 	:Linked :Greenmantle ;
-	:Linked :The_Call_Of_The_Wild ;
-	:Linked :Mr_Standfast .
+	:Linked :The_Boats_of_the_Glen_Carrig ;
+	:Linked :The_Song_of_the_Lark .
 	
 :The_Call_Of_The_Wild
 	:Linked :She ;
@@ -144,61 +144,61 @@
 	:Linked :Scaramouche_A_Romance_of_the_French_Revolution .
 	
 :Mr_Standfast
-	:Linked :Kidnapped ;
-	:Linked :The_Scarlet_Pimpernel ;
-	:Linked :Moby_Dick_or_The_Whale ;
-	:Linked :King_Solomon_Mines ;
-	:Linked :The_Prisoner_of_Zenda ;
-	:Linked :The_Man_in_the_Iron_Mask ;
 	:Linked :Greenmantle ;
-	:Linked :Scaramouche_A_Romance_of_the_French_Revolution .
+	:Linked :Scaramouche_A_Romance_of_the_French_Revolution ;
+	:Linked :Men_of_Iron ;
+	:Linked :The_Mirror_of_Kong_Ho ;
+	:Linked :The_Strange_Case_of_Dr_Jekyll_and_Mr_Hyde ;
+	:Linked :Dracula ;
+	:Linked :The_Turn_of_the_Screw ;
+	:Linked :War_and_Peace .
 	
 :The_Count_of_Monte_Cristo_Illustrated
 	:Linked :Captain_Blood ;
 	:Linked :The_Three_Musketeers ;
 	:Linked :Kidnapped ;
 	:Linked :The_Scarlet_Pimpernel ;
-	:Linked :King_Solomon_Mines ;
+	:Linked :Journal_of_Researches_into_the_Natural_History_and_Geology_of_the_Countries_Visited_During_the_Voyage_Round_the_World_of  ;
 	:Linked :The_Man_in_the_Iron_Mask ;
 	:Linked :Scaramouche_A_Romance_of_the_French_Revolution ;
-	:Linked :She .
+	:Linked :War_and_Peace .
 	
 :The_Three_Musketeers
-	:Linked :Captain_Blood ;
+	:Linked :Scaramouche_A_Romance_of_the_French_Revolution ;
 	:Linked :The_Count_of_Monte_Cristo_Illustrated ;
 	:Linked :Kidnapped ;
 	:Linked :The_Scarlet_Pimpernel ;
 	:Linked :The_Man_in_the_Iron_Mask ;
-	:Linked :Scaramouche_A_Romance_of_the_French_Revolution ;
+	:Linked :The_Voyage_of_the_Beagle ;
 	:Linked :Men_of_Iron ;
 	:Linked :War_and_Peace .
-
+	
 :Kidnapped
 	:Linked :The_Count_of_Monte_Cristo_Illustrated ;
 	:Linked :The_Three_Musketeers ;
 	:Linked :The_Scarlet_Pimpernel ;
 	:Linked :The_Man_in_the_Iron_Mask ;
-	:Linked :Scaramouche_A_Romance_of_the_French_Revolution ;
-	:Linked :The_Call_Of_The_Wild ;
-	:Linked :Captains_Courageous_A_Story_Of_The_Grand_Banks ;
-	:Linked :Captain_Blood .
+	:Linked :An_Occurrence_at_Owl_Creek_Bridge ;
+	:Linked :Men_of_Iron ;
+	:Linked :War_and_Peace ;
+	:Linked :The_Bride_of_Lammermoor .
 
 :The_Scarlet_Pimpernel
 	:Linked :Captain_Blood ;
 	:Linked :The_Count_of_Monte_Cristo_Illustrated ;
 	:Linked :The_Three_Musketeers ;
 	:Linked :Kidnapped ;
-	:Linked :King_Solomon_Mines ;
+	:Linked :The_Phantom_of_the_Opera ;
 	:Linked :The_Man_in_the_Iron_Mask ;
 	:Linked :Scaramouche_A_Romance_of_the_French_Revolution ;
-	:Linked :The_Call_Of_The_Wild .
+	:Linked :War_and_Peace .
 
 :Moby_Dick_or_The_Whale
 	:Linked :Captain_Blood ;
 	:Linked :Captains_Courageous_A_Story_Of_The_Grand_Banks ;
 	:Linked :The_Call_Of_The_Wild ;
-	:Linked :The_Count_of_Monte_Cristo_Illustrated ;
 	:Linked :The_Scarlet_Pimpernel ;
+	:Linked :Wild_Adventures_round_the_Pole ;
 	:Linked :King_Solomon_Mines ;
 	:Linked :The_Prisoner_of_Zenda ;
 	:Linked :Scaramouche_A_Romance_of_the_French_Revolution .
@@ -208,10 +208,11 @@
 	:Linked :Captain_Blood ;
 	:Linked :The_Call_Of_The_Wild ;
 	:Linked :The_Count_of_Monte_Cristo_Illustrated ;
-	:Linked :The_Scarlet_Pimpernel ;
+	:Linked :Zanzibar_Tales ;
 	:Linked :Moby_Dick_or_The_Whale ;
 	:Linked :The_Prisoner_of_Zenda ;
 	:Linked :Scaramouche_A_Romance_of_the_French_Revolution .
+
 
 :The_Prisoner_of_Zenda
 	:Linked :She ;
@@ -224,36 +225,35 @@
 	:Linked :Scaramouche_A_Romance_of_the_French_Revolution .
 
 :The_Man_in_the_Iron_Mask
-	:Linked :Captain_Blood ;
+	:Linked :An_Occurrence_at_Owl_Creek_Bridge ;
 	:Linked :The_Count_of_Monte_Cristo_Illustrated ;
 	:Linked :The_Three_Musketeers ;
 	:Linked :Kidnapped ;
 	:Linked :The_Scarlet_Pimpernel ;
-	:Linked :Scaramouche_A_Romance_of_the_French_Revolution ;
-	:Linked :King_Solomon_Mines ;
-	:Linked :The_Prisoner_of_Zenda .
-
+	:Linked :Captain_Blood ;
+	:Linked :Men_of_Iron ;
+	:Linked :War_and_Peace .
 	
 :Greenmantle
 	:Linked :Captains_Courageous_A_Story_Of_The_Grand_Banks ;
 	:Linked :Mr_Standfast ;
-	:Linked :The_Scarlet_Pimpernel ;
+	:Linked :The_Boats_of_the_Glen_Carrig ;
 	:Linked :King_Solomon_Mines ;
-	:Linked :The_Man_in_the_Iron_Mask ;
+	:Linked :Observations_and_Reflections_Made_in_the_Course_of_a_Journey_through_France_Italy_and_Germany ;
 	:Linked :Scaramouche_A_Romance_of_the_French_Revolution ;
-	:Linked :She ;
-	:Linked :Captain_Blood .
-
+	:Linked :Men_of_Iron ;
+	:Linked :War_and_Peace .
+	
 :Scaramouche_A_Romance_of_the_French_Revolution
 	:Linked :She ;
-	:Linked :The_Call_Of_The_Wild ;
+	:Linked :Men_of_Iron ;
 	:Linked :The_Count_of_Monte_Cristo_Illustrated ;
 	:Linked :The_Scarlet_Pimpernel ;
-	:Linked :King_Solomon_Mines ;
+	:Linked :An_Occurrence_at_Owl_Creek_Bridge ;
 	:Linked :The_Man_in_the_Iron_Mask ;
-	:Linked :The_Three_Musketeers ;
-	:Linked :Kidnapped .
-
+	:Linked :War_and_Peace ;
+	:Linked :La_dame_aux_camelias .
+	
 :The_Wonderful_Wizard_of_Oz
 	:Linked :The_Marvelous_Land_of_Oz ;
 	:Linked :The_Sea_Fairies ;
@@ -261,39 +261,39 @@
 	:Linked :The_Enchanted_Island_of_Yew ;
 	:Linked :The_Surprising_Adventures_of_the_Magical_Monarch_of_Mo_and_His_People ;
 	:Linked :Sky_Island ;
-	:Linked :In_the_Court_of_King_Arthur ;
+	:Linked :Wild_Adventures_round_the_Pole ;
 	:Linked :Roughing_It .
 	
 :The_Legends_of_King_Arthur_and_His_Knights
-	:Linked :Men_of_Iron ;
+	:Linked :Mr_Standfast ;
 	:Linked :The_Story_of_the_Champions_of_the_Round_Table ;
 	:Linked :The_Enchanted_Island_of_Yew ;
 	:Linked :Stories_from_Le_Morte_D'Arthur_and_the_Mabinogion ;
-	:Linked :The_Hollow_Land ;
-	:Linked :The_Mirror_of_Kong_Ho ;
+	:Linked :Pamela_or_Virtue_Rewarded ;
+	:Linked :Zanzibar_Tales ;
 	:Linked :In_the_Court_of_King_Arthur ;
 	:Linked :The_Strange_Case_of_Dr_Jekyll_and_Mr_Hyde .
-	
+
 :The_Marvelous_Land_of_Oz
 	:Linked :The_Wonderful_Wizard_of_Oz ;
 	:Linked :The_Sea_Fairies ;
 	:Linked :The_Master_Key ;
-	:Linked :The_Enchanted_Island_of_Yew ;
+	:Linked :Macbeth ;
 	:Linked :The_Surprising_Adventures_of_the_Magical_Monarch_of_Mo_and_His_People ;
 	:Linked :Sky_Island ;
-	:Linked :In_the_Court_of_King_Arthur ;
+	:Linked :The_Enchanted_Island_of_Yew ;
 	:Linked :Wild_Adventures_round_the_Pole .
 	
 :Men_of_Iron
-	:Linked :The_Enchanted_Island_of_Yew ;
-	:Linked :Stories_from_Le_Morte_D'Arthur_and_the_Mabinogion ;
-	:Linked :Jurgen_A_Comedy_of_Justice ;
+	:Linked :The_Count_of_Monte_Cristo_Illustrated ;
+	:Linked :The_Scarlet_Pimpernel ;
+	:Linked :The_Man_in_the_Iron_Mask ;
 	:Linked :The_Hollow_Land ;
-	:Linked :The_Mirror_of_Kong_Ho ;
-	:Linked :In_the_Court_of_King_Arthur ;
-	:Linked :The_Legends_of_King_Arthur_and_His_Knights ;
-	:Linked :The_Story_of_the_Champions_of_the_Round_Table .
-
+	:Linked :An_Occurrence_at_Owl_Creek_Bridge ;
+	:Linked :The_Tale_of_Terror_A_Study_of_the_Gothic_Romance ;
+	:Linked :War_and_Peace ;
+	:Linked :Mary_Stuart_A_Tragedy .
+	
 :The_Sea_Fairies
 	:Linked :The_Wonderful_Wizard_of_Oz ;
 	:Linked :The_Marvelous_Land_of_Oz ;
@@ -301,54 +301,54 @@
 	:Linked :The_Enchanted_Island_of_Yew ;
 	:Linked :The_Surprising_Adventures_of_the_Magical_Monarch_of_Mo_and_His_People ;
 	:Linked :Sky_Island ;
-	:Linked :In_the_Court_of_King_Arthur ;
+	:Linked :The_Boats_of_the_Glen_Carrig ;
 	:Linked :Wild_Adventures_round_the_Pole .
 	
 :The_Story_of_the_Champions_of_the_Round_Table
 	:Linked :The_Legends_of_King_Arthur_and_His_Knights ;
 	:Linked :Men_of_Iron ;
-	:Linked :The_Enchanted_Island_of_Yew ;
+	:Linked :Kidnapped ;
 	:Linked :Stories_from_Le_Morte_D'Arthur_and_the_Mabinogion ;
+	:Linked :The_Enchanted_Island_of_Yew ;
 	:Linked :The_Hollow_Land ;
-	:Linked :Sky_Island ;
 	:Linked :In_the_Court_of_King_Arthur ;
 	:Linked :Zanzibar_Tales .
 	
 :The_Master_Key
-	:Linked :The_Enchanted_Island_of_Yew ;
+	:Linked :Captain_Blood ;
 	:Linked :The_Wonderful_Wizard_of_Oz ;
 	:Linked :The_Marvelous_Land_of_Oz ;
 	:Linked :The_Sea_Fairies ;
-	:Linked :The_Surprising_Adventures_of_the_Magical_Monarch_of_Mo_and_His_People ;
+	:Linked :The_Count_of_Monte_Cristo_Illustrated ;
 	:Linked :Sky_Island ;
-	:Linked :In_the_Court_of_King_Arthur ;
+	:Linked :The_Surprising_Adventures_of_the_Magical_Monarch_of_Mo_and_His_People ;
 	:Linked :Wild_Adventures_round_the_Pole .
 	
 :The_Enchanted_Island_of_Yew
 	:Linked :The_Wonderful_Wizard_of_Oz ;
 	:Linked :The_Marvelous_Land_of_Oz ;
 	:Linked :The_Sea_Fairies ;
-	:Linked :Jurgen_A_Comedy_of_Justice ;
+	:Linked :Kidnapped ;
 	:Linked :The_Surprising_Adventures_of_the_Magical_Monarch_of_Mo_and_His_People ;
-	:Linked :Sky_Island ;
+	:Linked :Four_Weird_Tales ;
 	:Linked :In_the_Court_of_King_Arthur ;
-	:Linked :The_Master_Key .
+	:Linked :Wild_Adventures_round_the_Pole .
 	
 :Stories_from_Le_Morte_D'Arthur_and_the_Mabinogion
 	:Linked :The_Legends_of_King_Arthur_and_His_Knights ;
 	:Linked :Men_of_Iron ;
 	:Linked :The_Story_of_the_Champions_of_the_Round_Table ;
 	:Linked :The_Enchanted_Island_of_Yew ;
-	:Linked :The_Hollow_Land ;
-	:Linked :The_Mirror_of_Kong_Ho ;
-	:Linked :In_the_Court_of_King_Arthur ;
+	:Linked :Mr_Standfast ;
+	:Linked :Pamela_or_Virtue_Rewarded ;
+	:Linked :The_Story_of_Magellan_and_The_Discovery_of_the_Philippines ;
 	:Linked :The_Strange_Case_of_Dr_Jekyll_and_Mr_Hyde .
 	
 :Jurgen_A_Comedy_of_Justice
-	:Linked :Men_of_Iron ;
-	:Linked :The_Enchanted_Island_of_Yew ;
-	:Linked :The_Hollow_Land ;
-	:Linked :The_Mirror_of_Kong_Ho ;
+	:Linked :Captain_Blood ;
+	:Linked :The_Count_of_Monte_Cristo_Illustrated ;
+	:Linked :Kidnapped ;
+	:Linked :The_Scarlet_Pimpernel ;
 	:Linked :The_Man_in_the_Iron_Mask ;
 	:Linked :Four_Weird_Tales ;
 	:Linked :War_and_Peace ;
@@ -361,35 +361,35 @@
 	:Linked :The_Master_Key ;
 	:Linked :The_Enchanted_Island_of_Yew ;
 	:Linked :Sky_Island ;
-	:Linked :In_the_Court_of_King_Arthur ;
+	:Linked :Wild_Adventures_round_the_Pole ;
 	:Linked :Macbeth .
 	
 :The_Hollow_Land
-	:Linked :The_Legends_of_King_Arthur_and_His_Knights ;
+	:Linked :The_Count_of_Monte_Cristo_Illustrated ;
 	:Linked :Men_of_Iron ;
-	:Linked :The_Story_of_the_Champions_of_the_Round_Table ;
-	:Linked :The_Enchanted_Island_of_Yew ;
+	:Linked :The_House_of_Souls ;
+	:Linked :The_Song_of_the_Lark ;
 	:Linked :Stories_from_Le_Morte_D'Arthur_and_the_Mabinogion ;
 	:Linked :Jurgen_A_Comedy_of_Justice ;
 	:Linked :The_Mirror_of_Kong_Ho ;
-	:Linked :In_the_Court_of_King_Arthur .
+	:Linked :La_dame_aux_camelias .
 	
 :Sky_Island
 	:Linked :The_Wonderful_Wizard_of_Oz ;
 	:Linked :The_Marvelous_Land_of_Oz ;
 	:Linked :The_Sea_Fairies ;
-	:Linked :The_Master_Key ;
-	:Linked :The_Enchanted_Island_of_Yew ;
+	:Linked :Moby_Dick_or_The_Whale ;
+	:Linked :The_Boats_of_the_Glen_Carrig ;
 	:Linked :The_Surprising_Adventures_of_the_Magical_Monarch_of_Mo_and_His_People ;
-	:Linked :In_the_Court_of_King_Arthur ;
+	:Linked :The_Master_Key ;
 	:Linked :Wild_Adventures_round_the_Pole .
 	
 :The_Mirror_of_Kong_Ho
-	:Linked :The_Legends_of_King_Arthur_and_His_Knights ;
+	:Linked :Mr_Standfast ;
 	:Linked :Men_of_Iron ;
 	:Linked :Jurgen_A_Comedy_of_Justice ;
 	:Linked :The_Hollow_Land ;
-	:Linked :Stories_from_Le_Morte_D'Arthur_and_the_Mabinogion ;
+	:Linked :The_Strange_Case_of_Dr_Jekyll_and_Mr_Hyde ;
 	:Linked :Dracula ;
 	:Linked :The_Turn_of_the_Screw ;
 	:Linked :Pamela_or_Virtue_Rewarded .
@@ -399,143 +399,144 @@
 	:Linked :The_Story_of_the_Champions_of_the_Round_Table ;
 	:Linked :The_Master_Key ;
 	:Linked :The_Enchanted_Island_of_Yew ;
-	:Linked :Stories_from_Le_Morte_D'Arthur_and_the_Mabinogion ;
-	:Linked :The_Surprising_Adventures_of_the_Magical_Monarch_of_Mo_and_His_People ;
-	:Linked :The_Hollow_Land ;
+	:Linked :King_Solomon_Mines ;
+	:Linked :The_Prisoner_of_Zenda ;
+	:Linked :Scaramouche_A_Romance_of_the_French_Revolution ;
 	:Linked :Wild_Adventures_round_the_Pole .
 	
 :The_Strange_Case_of_Dr_Jekyll_and_Mr_Hyde
 	:Linked :Dracula ;
 	:Linked :The_Turn_of_the_Screw ;
 	:Linked :The_King_in_Yellow ;
-	:Linked :Four_Weird_Tales ;
+	:Linked :Mr_Standfast ;
 	:Linked :The_Boats_of_the_Glen_Carrig ;
-	:Linked :The_House_of_Souls ;
-	:Linked :The_Shunned_House ;
-	:Linked :The_Jewel_of_Seven_Stars .
+	:Linked :The_Mirror_of_Kong_Ho ;
+	:Linked :Pamela_or_Virtue_Rewarded ;
+	:Linked :The_Bride_of_Lammermoor .
 	
 :Dracula
-	:Linked :The_House_of_Souls ;
+	:Linked :The_Mirror_of_Kong_Ho ;
 	:Linked :The_Strange_Case_of_Dr_Jekyll_and_Mr_Hyde ;
 	:Linked :The_Turn_of_the_Screw ;
-	:Linked :The_King_in_Yellow ;
-	:Linked :Four_Weird_Tales ;
+	:Linked :Mr_Standfast ;
+	:Linked :The_Phantom_of_the_Opera ;
 	:Linked :The_Vampyre_a_Tale ;
 	:Linked :Varney_the_Vampire_Or_the_Feast_of_Blood ;
-	:Linked :The_Boats_of_the_Glen Carrig .
+	:Linked :Pamela_or_Virtue_Rewarded .
 	
 :The_Turn_of_the_Screw
-	:Linked :The_Shunned_House ;
-	:Linked :Varney_the_Vampire_Or_the_Feast_of_Blood ;
+	:Linked :Mr_Standfast ;
+	:Linked :The_Mirror_of_Kong_Ho ;
 	:Linked :The_Strange_Case_of_Dr_Jekyll_and_Mr_Hyde ;
 	:Linked :Dracula ;
 	:Linked :An_Occurrence_at_Owl_Creek_Bridge ;
 	:Linked :The_King_in_Yellow ;
-	:Linked :The_House_of_Souls ;
-	:Linked :The_Vampyre_a_Tale .
-
+	:Linked :Pamela_or_Virtue_Rewarded ;
+	:Linked :The_Bride_of_Lammermoor .
+	
 :An_Occurrence_at_Owl_Creek_Bridge
-	:Linked :The_Tale_of_Terror_A_Study_of_the_Gothic_Romance ;
-	:Linked :The_Vampyre_a_Tale ;
-	:Linked :The_Boats_of_the_Glen_Carrig ;
-	:Linked :The_House_of_Souls ;
-	:Linked :The_Shunned_House ;
+	:Linked :The_Count_of_Monte_Cristo_Illustrated ;
+	:Linked :Kidnapped ;
+	:Linked :The_Man_in_the_Iron_Mask ;
+	:Linked :Scaramouche_A_Romance_of_the_French_Revolution ;
+	:Linked :Men_of_Iron ;
 	:Linked :The_King_in_Yellow ;
 	:Linked :Four_Weird_Tales ;
-	:Linked :Varney_the_Vampire_Or_the_Feast_of_Blood .
-
+	:Linked :War_and_Peace .
+	
 :The_Works_of_Edgar_Allan_Poe
 	:Linked :The_King_in_Yellow ;
 	:Linked :Four_Weird_Tales ;
 	:Linked :The_Boats_of_the_Glen_Carrig ;
 	:Linked :The_Tale_of_Terror_A_Study_of_the_Gothic_Romance ;
-	:Linked :The_Vampyre_a_Tale ;
-	:Linked :The_House_of_Souls ;
-	:Linked :Varney_the_Vampire_Or_the_Feast_of_Blood ;
-	:Linked :The_Shunned_House .
+	:Linked :The_Count_of_Monte_Cristo_Illustrated ;
+	:Linked :Jurgen_A_Comedy_of_Justice ;
+	:Linked :The_Phantom_of_the_Opera ;
+	:Linked :Journal_of_Researches_into_the_Natural_History_and_Geology_of_the_Countries_Visited_During_the_Voyage_Round_the_World_of  .
 	
 :The_King_in_Yellow
 	:Linked :An_Occurrence_at_Owl_Creek_Bridge ;
-	:Linked :Four_Weird_Tales ;
-	:Linked :The_Boats_of_the_Glen_Carrig ;
-	:Linked :The_Vampyre_a_Tale ;
+	:Linked :The_Count_of_Monte_Cristo_Illustrated ;
+	:Linked :The_Phantom_of_the_Opera ;
+	:Linked :Roughing_It ;
 	:Linked :The_House_of_Souls ;
 	:Linked :Varney_the_Vampire_Or_the_Feast_of_Blood ;
 	:Linked :The_Shunned_House ;
-	:Linked :The_Strange_Case_of_Dr_Jekyll_and_Mr_Hyde .
+	:Linked :What_I_Saw_in_America .
 	
 :Four_Weird_Tales
 	:Linked :The_King_in_Yellow ;
 	:Linked :The_Boats_of_the_Glen_Carrig ;
+	:Linked :She ;
 	:Linked :The_Tale_of_Terror_A_Study_of_the_Gothic_Romance ;
-	:Linked :The_Vampyre_a_Tale ;
 	:Linked :The_House_of_Souls ;
 	:Linked :Varney_the_Vampire_Or_the_Feast_of_Blood ;
-	:Linked :The_Shunned_House ;
-	:Linked :The_Jewel_of_Seven_Stars .
+	:Linked :Jurgen_A_Comedy_of_Justice ;
+	:Linked :The_Phantom_of_the_Opera .
 	
 :The_Boats_of_the_Glen_Carrig
 	:Linked :The_Strange_Case_of_Dr_Jekyll_and_Mr_Hyde ;
 	:Linked :Dracula ;
+	:Linked :Captain_Blood ;
+	:Linked :Captains_Courageous_A_Story_Of_The_Grand_Banks ;
 	:Linked :The_King_in_Yellow ;
-	:Linked :The_Vampyre_a_Tale ;
-	:Linked :The_House_of_Souls ;
-	:Linked :Varney_the_Vampire_Or_the_Feast_of_Blood ;
+	:Linked :The_Phantom_of_the_Opera ;
 	:Linked :The_Shunned_House ;
 	:Linked :The_Jewel_of_Seven_Stars .
 	
 :The_Tale_of_Terror_A_Study_of_the_Gothic_Romance
-	:Linked :The_Works_of_Edgar_Allan_Poe ;
-	:Linked :The_Strange_Case_of_Dr_Jekyll_and_Mr_Hyde ;
+	:Linked :Men_of_Iron ;
+	:Linked :The_Man_in_the_Iron_Mask ;
 	:Linked :Four_Weird_Tales ;
-	:Linked :The_Vampyre_a_Tale ;
+	:Linked :Greenmantle ;
 	:Linked :The_House_of_Souls ;
 	:Linked :Varney_the_Vampire_Or_the_Feast_of_Blood ;
 	:Linked :The_Shunned_House ;
-	:Linked :The_Jewel_of_Seven_Stars .
+	:Linked :Mary_Stuart_A_Tragedy .
 	
 :The_Vampyre_a_Tale
 	:Linked :The_Strange_Case_of_Dr_Jekyll_and_Mr_Hyde ;
 	:Linked :Dracula ;
 	:Linked :The_King_in_Yellow ;
 	:Linked :Four_Weird_Tales ;
-	:Linked :The_House_of_Souls ;
+	:Linked :The_Phantom_of_the_Opera ;
 	:Linked :Varney_the_Vampire_Or_the_Feast_of_Blood ;
 	:Linked :The_Shunned_House ;
-	:Linked :The_Jewel_of_Seven_Stars .
+	:Linked :The_House_of_Souls .
 	
 :The_House_of_Souls
 	:Linked :The_Strange_Case_of_Dr_Jekyll_and_Mr_Hyde ;
 	:Linked :Dracula ;
 	:Linked :The_King_in_Yellow ;
 	:Linked :Four_Weird_Tales ;
-	:Linked :The_Boats_of_the_Glen_Carrig ;
+	:Linked :The_Phantom_of_the_Opera ;
 	:Linked :Varney_the_Vampire_Or_the_Feast_of_Blood ;
-	:Linked :The_Shunned_House ;
-	:Linked :The_Jewel_of_Seven_Stars .
+	:Linked :The_Jewel_of_Seven_Stars ;
+	:Linked :The_Boats_of_the_Glen_Carrig .
 	
 :Varney_the_Vampire_Or_the_Feast_of_Blood
-	:Linked :The_Strange_Case_of_Dr_Jekyll_and_Mr_Hyde ;
-	:Linked :Dracula ;
 	:Linked :The_King_in_Yellow ;
+	:Linked :Dracula ;
 	:Linked :Four_Weird_Tales ;
+	:Linked :The_Phantom_of_the_Opera ;
 	:Linked :The_Boats_of_the_Glen_Carrig ;
 	:Linked :The_Vampyre_a_Tale ;
 	:Linked :The_Shunned_House ;
 	:Linked :The_Jewel_of_Seven_Stars .
-	
+
+
 :The_Shunned_House
 	:Linked :The_Strange_Case_of_Dr_Jekyll_and_Mr_Hyde ;
 	:Linked :Dracula ;
 	:Linked :The_King_in_Yellow ;
 	:Linked :Four_Weird_Tales ;
-	:Linked :The_Boats_of_the_Glen_Carrig ;
 	:Linked :The_Vampyre_a_Tale ;
 	:Linked :The_House_of_Souls ;
-	:Linked :The_Jewel_of_Seven_Stars .
-	
+	:Linked :The_Phantom_of_the_Opera ;
+	:Linked :La_dame_aux_camelias .
+
 :The_Raven_French_and_English
-	:Linked :An_Occurrence_at_Owl_Creek_Bridge ;
+	:Linked :The_Legends_of_King_Arthur_and_His_Knights ;
 	:Linked :The_King_in_Yellow ;
 	:Linked :The_Tale_of_Terror_A_Study_of_the_Gothic_Romance ;
 	:Linked :The_Shunned_House ;
@@ -552,27 +553,27 @@
 	:Linked :The_Boats_of_the_Glen_Carrig ;
 	:Linked :The_Vampyre_a_Tale ;
 	:Linked :The_House_of_Souls ;
-	:Linked :Varney_the_Vampire_Or_the_Feast_of_Blood .
-	
+	:Linked :The_Phantom_of_the_Opera .
+
 :War_and_Peace
-	:Linked :The_Sorrows_of_Young_Werther ;
-	:Linked :The_Phantom_of_the_Opera ;
-	:Linked :Pamela_or_Virtue_Rewarded ;
-	:Linked :Die_Leiden_des_jungen_Werther ;
-	:Linked :The_Song_of_the_Lark ;
-	:Linked :Mary_Stuart_A_Tragedy ;
+	:Linked :The_Count_of_Monte_Cristo_Illustrated ;
+	:Linked :Kidnapped ;
+	:Linked :The_Scarlet_Pimpernel ;
+	:Linked :The_Man_in_the_Iron_Mask ;
+	:Linked :Scaramouche_A_Romance_of_the_French_Revolution ;
+	:Linked :An_Occurrence_at_Owl_Creek_Bridge ;
 	:Linked :The_Bride_of_Lammermoor ;
 	:Linked :The_Queen_Of_Spades .
 	
 :The_Sorrows_of_Young_Werther
 	:Linked :The_Phantom_of_the_Opera ;
 	:Linked :Pamela_or_Virtue_Rewarded ;
-	:Linked :The_Bride_of_Lammermoor ;
+	:Linked :The_Man_in_the_Iron_Mask ;
 	:Linked :Die_Leiden_des_jungen_Werther ;
-	:Linked :The_Song_of_the_Lark ;
-	:Linked :Woyzeck ;
+	:Linked :Jurgen_A_Comedy_of_Justice ;
+	:Linked :What_I_Saw_in_America ;
 	:Linked :The_Queen_Of_Spades ;
-	:Linked :La_dame_aux_camelias .
+	:Linked :The_King_in_Yellow .
 	
 :Macbeth
 	:Linked :Kidnapped ;
@@ -581,29 +582,29 @@
 	:Linked :Riders_to_the_Sea ;
 	:Linked :Woyzeck ;
 	:Linked :Mary_Stuart_A_Tragedy ;
-	:Linked :Jerusalem_Delivered ;
+	:Linked :The_Story_of_Magellan_and_The_Discovery_of_the_Philippines ;
 	:Linked :The_Marvelous_Land_of_Oz .
 	
 :The_Phantom_of_the_Opera
-	:Linked :War_and_Peace ;
-	:Linked :The_Sorrows_of_Young_Werther ;
-	:Linked :Pamela_or_Virtue_Rewarded ;
-	:Linked :The_Bride_of_Lammermoor ;
-	:Linked :Die_Leiden_des_jungen_Werther ;
-	:Linked :The_Queen_Of_Spades ;
+	:Linked :The_Scarlet_Pimpernel ;
+	:Linked :The_Man_in_the_Iron_Mask ;
+	:Linked :The_Strange_Case_of_Dr_Jekyll_and_Mr_Hyde ;
+	:Linked :Four_Weird_Tales ;
+	:Linked :Varney_the_Vampire_Or_the_Feast_of_Blood ;
+	:Linked :The_Jewel_of_Seven_Stars ;
 	:Linked :The_Song_of_the_Lark ;
 	:Linked :La_dame_aux_camelias .
-
+	
 :Pamela_or_Virtue_Rewarded
-	:Linked :War_and_Peace ;
-	:Linked :The_Sorrows_of_Young_Werther ;
-	:Linked :Macbeth ;
-	:Linked :La_dame_aux_camelias ;
-	:Linked :The_Phantom_of_the_Opera ;
-	:Linked :Pamela_or_Virtue_Rewarded ;
-	:Linked :Mary_Stuart_A_Tragedy ;
-	:Linked :The_Queen_Of_Spades .
-
+	:Linked :Mr_Standfast ;
+	:Linked :The_Mirror_of_Kong_Ho ;
+	:Linked :The_Strange_Case_of_Dr_Jekyll_and_Mr_Hyde ;
+	:Linked :Dracula ;
+	:Linked :The_Turn_of_the_Screw ;
+	:Linked :The_Bride_of_Lammermoor ;
+	:Linked :Die_Leiden_des_jungen_Werther ;
+	:Linked :The_Song_of_the_Lark .
+	
 :The_Bride_of_Lammermoor
 	:Linked :She ;
 	:Linked :The_Count_of_Monte_Cristo_Illustrated ;
@@ -615,24 +616,24 @@
 	:Linked :La_dame_aux_camelias .
 	
 :Die_Leiden_des_jungen_Werther
-	:Linked :Pamela_or_Virtue_Rewarded ;
+	:Linked :The_King_in_Yellow ;
 	:Linked :War_and_Peace ;
 	:Linked :The_Sorrows_of_Young_Werther ;
-	:Linked :The_Phantom_of_the_Opera ;
+	:Linked :The_Mirror_of_Kong_Ho ;
 	:Linked :The_Song_of_the_Lark ;
-	:Linked :Woyzeck ;
+	:Linked :The_Prisoner_of_Zenda ;
 	:Linked :The_Queen_Of_Spades ;
-	:Linked :La_dame_aux_camelias .
+	:Linked :What_I_Saw_in_America .
 	
 :Riders_to_the_Sea
-	:Linked :War_and_Peace ;
+	:Linked :The_Three_Musketeers ;
 	:Linked :Macbeth ;
 	:Linked :The_Phantom_of_the_Opera ;
-	:Linked :The_Bride_of_Lammermoor ;
+	:Linked :The_Story_of_the_Champions_of_the_Round_Table ;
 	:Linked :Woyzeck ;
 	:Linked :Mary_Stuart_A_Tragedy ;
-	:Linked :Epicoene_Or_The_Silent_Woman ;
-	:Linked :Jerusalem_Delivered .
+	:Linked :The_House_of_Souls ;
+	:Linked :A_Journey_from_Prince_of_Wales_Fort_in_Hudsons_Bay_to_the_Northern_Ocean_in_the_Years .
 	
 :The_Song_of_the_Lark
 	:Linked :Captains_Courageous_A_Story_Of_The_Grand_Banks ;
@@ -640,49 +641,49 @@
 	:Linked :War_and_Peace ;
 	:Linked :The_Phantom_of_the_Opera ;
 	:Linked :The_Bride_of_Lammermoor ;
-	:Linked :Die_Leiden_des_jungen_Werther ;
+	:Linked :Jurgen_A_Comedy_of_Justice ;
 	:Linked :The_Queen_Of_Spades ;
-	:Linked :La_dame_aux_camelias .
+	:Linked :The_House_of_Souls .
 	
 :Woyzeck
 	:Linked :The_Sorrows_of_Young_Werther ;
 	:Linked :Macbeth ;
-	:Linked :Pamela_or_Virtue_Rewarded ;
+	:Linked :The_Three_Musketeers ;
 	:Linked :Die_Leiden_des_jungen_Werther ;
 	:Linked :Riders_to_the_Sea ;
+	:Linked :Stories_from_Le_Morte_D'Arthur_and_the_Mabinogion ;
 	:Linked :Mary_Stuart_A_Tragedy ;
-	:Linked :La_dame_aux_camelias ;
 	:Linked :Observations_and_Reflections_Made_in_the_Course_of_a_Journey_through_France_Italy_and_Germany .
 	
 :Mary_Stuart_A_Tragedy
 	:Linked :Men_of_Iron ;
-	:Linked :War_and_Peace ;
+	:Linked :The_Man_in_the_Iron_Mask ;
 	:Linked :Macbeth ;
 	:Linked :The_Bride_of_Lammermoor ;
 	:Linked :Riders_to_the_Sea ;
 	:Linked :Woyzeck ;
-	:Linked :Jerusalem_Delivered ;
+	:Linked :An_Occurrence_at_Owl_Creek_Bridge ;
 	:Linked :Old_Trails_on_the_Niagara_Frontier .
 	
 :The_Queen_Of_Spades
 	:Linked :The_King_in_Yellow ;
 	:Linked :War_and_Peace ;
 	:Linked :The_Sorrows_of_Young_Werther ;
-	:Linked :The_Phantom_of_the_Opera ;
-	:Linked :The_Bride_of_Lammermoor ;
+	:Linked :The_Prisoner_of_Zenda ;
+	:Linked :Jurgen_A_Comedy_of_Justice ;
 	:Linked :Die_Leiden_des_jungen_Werther ;
-	:Linked :The_Song_of_the_Lark ;
+	:Linked :What_I_Saw_in_America ;
 	:Linked :La_dame_aux_camelias .
 	
 :Epicoene_Or_The_Silent_Woman
 	:Linked :War_and_Peace ;
-	:Linked :The_Sorrows_of_Young_Werther ;
+	:Linked :The_Count_of_Monte_Cristo_Illustrated ;
 	:Linked :The_Phantom_of_the_Opera ;
-	:Linked :The_Bride_of_Lammermoor ;
-	:Linked :Pamela_or_Virtue_Rewarded ;
-	:Linked :Die_Leiden_des_jungen_Werther ;
-	:Linked :The_Song_of_the_Lark ;
-	:Linked :The_Queen_Of_Spades .
+	:Linked :The_Surprising_Adventures_of_the_Magical_Monarch_of_Mo_and_His_People ;
+	:Linked :Four_Weird_Tales ;
+	:Linked :Voyages_of_Samuel_De_Champlain ;
+	:Linked :Mary_Stuart_A_Tragedy ;
+	:Linked :La_dame_aux_camelias .
 	
 :La_dame_aux_camelias
 	:Linked :She ;
@@ -709,18 +710,18 @@
 	:Linked :The_Journals_of_Lewis_and_Clark ;
 	:Linked :What_I_Saw_in_America ;
 	:Linked :Journal_of_Researches_into_the_Natural_History_and_Geology_of_the_Countries_Visited_During_the_Voyage_Round_the_World_of  ;
-	:Linked :A_Description_of_the_Coasts_of_East_Africa_and_Malabar_in_the_Beginning_of_the_Sixteenth_Century ;
-	:Linked :Old_Trails_on_the_Niagara_Frontier ;
-	:Linked :Observations_and_Reflections_Made_in_the_Course_of_a_Journey_through_France_Italy_and_Germany ;
-	:Linked :Maximilian_Prince_of_Wieds_Travels_in_the_Interior_of_North_America .
+	:Linked :The_Count_of_Monte_Cristo_Illustrated;
+	:Linked :The_Wonderful_Wizard_of_Oz ;
+	:Linked :The_King_in_Yellow ;
+	:Linked :The_Raven_French_and_English .
 	
 :The_Voyage_of_the_Beagle
-	:Linked :A_Journey_from_Prince_of_Wales_Fort_in_Hudsons_Bay_to_the_Northern_Ocean_in_the_Years ;
-	:Linked :Roughing_It ;
-	:Linked :The_Journals_of_Lewis_and_Clark ;
+	:Linked :The_Count_of_Monte_Cristo_Illustrated ;
+	:Linked :Men_of_Iron ;
+	:Linked :The_King_in_Yellow ;
 	:Linked :Journal_of_Researches_into_the_Natural_History_and_Geology_of_the_Countries_Visited_During_the_Voyage_Round_the_World_of  ;
 	:Linked :The_Story_of_Magellan_and_The_Discovery_of_the_Philippines ;
-	:Linked :Old_Trails_on_the_Niagara_Frontier ;
+	:Linked :War_and_Peace ;
 	:Linked :Narrative_of_the_surveying_voyages_of_His_Majestys_ships_Adventure_and_Beagle ;
 	:Linked :Wild_Adventures_round_the_Pole .
 	
@@ -728,31 +729,31 @@
 	:Linked :Roughing_It ;
 	:Linked :What_I_Saw_in_America ;
 	:Linked :Journal_of_Researches_into_the_Natural_History_and_Geology_of_the_Countries_Visited_During_the_Voyage_Round_the_World_of  ;
-	:Linked :A_Description_of_the_Coasts_of_East_Africa_and_Malabar_in_the_Beginning_of_the_Sixteenth_Century ;
-	:Linked :Old_Trails_on_the_Niagara_Frontier ;
+	:Linked :Greenmantle ;
+	:Linked :Men_of_Iron ;
 	:Linked :Observations_and_Reflections_Made_in_the_Course_of_a_Journey_through_France_Italy_and_Germany ;
-	:Linked :Narrative_of_the_surveying_voyages_of_His_Majestys_ships_Adventure_and_Beagle ;
+	:Linked :Mary_Stuart_A_Tragedy ;
 	:Linked :Maximilian_Prince_of_Wieds_Travels_in_the_Interior_of_North_America .
 	
 :What_I_Saw_in_America
 	:Linked :The_King_in_Yellow ;
 	:Linked :Roughing_It ;
-	:Linked :The_Journals_of_Lewis_and_Clark ;
-	:Linked :A_Journey_from_Prince_of_Wales_Fort_in_Hudsons_Bay_to_the_Northern_Ocean_in_the_Years ;
+	:Linked :The_Raven_French_and_English ;
+	:Linked :Die_Leiden_des_jungen_Werther ;
 	:Linked :A_Description_of_the_Coasts_of_East_Africa_and_Malabar_in_the_Beginning_of_the_Sixteenth_Century ;
 	:Linked :Old_Trails_on_the_Niagara_Frontier ;
-	:Linked :Narrative_of_the_surveying_voyages_of_His_Majestys_ships_Adventure_and_Beagle ;
+	:Linked :The_Queen_Of_Spades ;
 	:Linked :Maximilian_Prince_of_Wieds_Travels_in_the_Interior_of_North_America .
 	
 :Journal_of_Researches_into_the_Natural_History_and_Geology_of_the_Countries_Visited_During_the_Voyage_Round_the_World_of 
-	:Linked :A_Journey_from_Prince_of_Wales_Fort_in_Hudsons_Bay_to_the_Northern_Ocean_in_the_Years ;
+	:Linked :The_Count_of_Monte_Cristo_Illustrated ;
 	:Linked :The_Voyage_of_the_Beagle ;
 	:Linked :The_Story_of_Magellan_and_The_Discovery_of_the_Philippines ;
 	:Linked :Old_Trails_on_the_Niagara_Frontier ;
 	:Linked :Voyages_of_Samuel_De_Champlain ;
-	:Linked :Narrative_of_the_surveying_voyages_of_His_Majestys_ships_Adventure_and_Beagle ;
-	:Linked :Maximilian_Prince_of_Wieds_Travels_in_the_Interior_of_North_America ;
-	:Linked :Wild_Adventures_round_the_Pole .
+	:Linked :The_Sea_Fairies ;
+	:Linked :The_King_in_Yellow ;
+	:Linked :Mary_Stuart_A_Tragedy .
 	
 :A_Journey_from_Prince_of_Wales_Fort_in_Hudsons_Bay_to_the_Northern_Ocean_in_the_Years
 	:Linked :Roughing_It ;
@@ -775,9 +776,9 @@
 	:Linked :Stories_from_Le_Morte_D'Arthur_and_the_Mabinogion .
 	
 :A_Description_of_the_Coasts_of_East_Africa_and_Malabar_in_the_Beginning_of_the_Sixteenth_Century
-	:Linked :Roughing_It ;
-	:Linked :The_Journals_of_Lewis_and_Clark ;
-	:Linked :What_I_Saw_in_America ;
+	:Linked :She ;
+	:Linked :King_Solomon_Mines ;
+	:Linked :The_Marvelous_Land_of_Oz ;
 	:Linked :A_Journey_from_Prince_of_Wales_Fort_in_Hudsons_Bay_to_the_Northern_Ocean_in_the_Years ;
 	:Linked :Old_Trails_on_the_Niagara_Frontier ;
 	:Linked :Zanzibar_Tales ;
@@ -786,24 +787,24 @@
 	
 :Old_Trails_on_the_Niagara_Frontier
 	:Linked :The_Scarlet_Pimpernel ;
-	:Linked :Roughing_It ;
-	:Linked :The_Voyage_of_the_Beagle ;
-	:Linked :The_Journals_of_Lewis_and_Clark ;
+	:Linked :Men_of_Iron ;
+	:Linked :An_Occurrence_at_Owl_Creek_Bridge ;
+	:Linked :War_and_Peace ;
 	:Linked :What_I_Saw_in_America ;
 	:Linked :Journal_of_Researches_into_the_Natural_History_and_Geology_of_the_Countries_Visited_During_the_Voyage_Round_the_World_of  ;
 	:Linked :A_Journey_from_Prince_of_Wales_Fort_in_Hudsons_Bay_to_the_Northern_Ocean_in_the_Years ;
 	:Linked :A_Description_of_the_Coasts_of_East_Africa_and_Malabar_in_the_Beginning_of_the_Sixteenth_Century .
 	
 :Voyages_of_Samuel_De_Champlain
-	:Linked :The_Voyage_of_the_Beagle ;
+	:Linked :The_Man_in_the_Iron_Mask ;
 	:Linked :Journal_of_Researches_into_the_Natural_History_and_Geology_of_the_Countries_Visited_During_the_Voyage_Round_the_World_of  ;
 	:Linked :A_Journey_from_Prince_of_Wales_Fort_in_Hudsons_Bay_to_the_Northern_Ocean_in_the_Years ;
 	:Linked :The_Story_of_Magellan_and_The_Discovery_of_the_Philippines ;
-	:Linked :The_Man_in_the_Iron_Mask ;
 	:Linked :Greenmantle ;
+	:Linked :Scaramouche_A_Romance_of_the_French_Revolution ;
 	:Linked :Maximilian_Prince_of_Wieds_Travels_in_the_Interior_of_North_America ;
-	:Linked :Scaramouche_A_Romance_of_the_French_Revolution .
-
+	:Linked :The_Voyage_of_the_Beagle .
+	
 :Zanzibar_Tales
 	:Linked :She ;
 	:Linked :King_Solomon_Mines ;
@@ -817,7 +818,7 @@
 :Observations_and_Reflections_Made_in_the_Course_of_a_Journey_through_France_Italy_and_Germany
 	:Linked :The_Sorrows_of_Young_Werther ;
 	:Linked :Die_Leiden_des_jungen_Werther ;
-	:Linked :Roughing_It ;
+	:Linked :The_Man_in_the_Iron_Mask ;
 	:Linked :The_Journals_of_Lewis_and_Clark ;
 	:Linked :What_I_Saw_in_America ;
 	:Linked :Narrative_of_the_surveying_voyages_of_His_Majestys_ships_Adventure_and_Beagle ;
@@ -835,24 +836,26 @@
 	:Linked :Wild_Adventures_round_the_Pole .
 	
 :Maximilian_Prince_of_Wieds_Travels_in_the_Interior_of_North_America
-	:Linked :Roughing_It ;
+	:Linked :Voyages_of_Samuel_De_Champlain ;
 	:Linked :The_Journals_of_Lewis_and_Clark ;
 	:Linked :What_I_Saw_in_America ;
 	:Linked :A_Journey_from_Prince_of_Wales_Fort_in_Hudsons_Bay_to_the_Northern_Ocean_in_the_Years ;
-	:Linked :The_Story_of_Magellan_and_The_Discovery_of_the_Philippines ;
-	:Linked :Voyages_of_Samuel_De_Champlain ;
+	:Linked :An_Occurrence_at_Owl_Creek_Bridge ;
+	:Linked :The_King_in_Yellow ;
 	:Linked :Narrative_of_the_surveying_voyages_of_His_Majestys_ships_Adventure_and_Beagle ;
 	:Linked :Wild_Adventures_round_the_Pole .
 	
 :Wild_Adventures_round_the_Pole
-	:Linked :The_Voyage_of_the_Beagle ;
+	:Linked :Moby_Dick_or_The_Whale ;
 	:Linked :The_Marvelous_Land_of_Oz ;
-	:Linked :Maximilian_Prince_of_Wieds_Travels_in_the_Interior_of_North_America ;
-	:Linked :A_Journey_from_Prince_of_Wales_Fort_in_Hudsons_Bay_to_the_Northern_Ocean_in_the_Years ;
-	:Linked :The_Story_of_Magellan_and_The_Discovery_of_the_Philippines ;
-	:Linked :A_Description_of_the_Coasts_of_East_Africa_and_Malabar_in_the_Beginning_of_the_Sixteenth_Century ;
+	:Linked :The_Sea_Fairies ;
+	:Linked :The_Master_Key ;
+	:Linked :The_Enchanted_Island_of_Yew ;
+	:Linked :In_the_Court_of_King_Arthur ;
 	:Linked :Journal_of_Researches_into_the_Natural_History_and_Geology_of_the_Countries_Visited_During_the_Voyage_Round_the_World_of  ;
 	:Linked :Narrative_of_the_surveying_voyages_of_His_Majestys_ships_Adventure_and_Beagle .
+
+
 
 
 
