@@ -245,8 +245,11 @@ public class SerendipityEvaluation
 	    //Cell cell = row.createCell(6);
 	    //String sum = "SUM(F1:F"+ Integer.toString(row.getRowNum())+")";
 		//cell.setCellFormula(sum);
-		
+		System.out.println();
+		System.out.println("The number of existing search paths: "+PathNum);
+		System.out.println("The number of sidetracked paths that can be derived from the exsiting search paths: "+sidePathCount);		
 		System.out.println("The potential serendipity value for the given information space is: "+ potentialSeren);
+
 		
 		workbook.write(new FileOutputStream(new File(args[0]).getAbsolutePath().replaceAll(".[^.]*$",".xlsx")));
 		workbook.close();
@@ -283,6 +286,7 @@ public class SerendipityEvaluation
 	static double Evaluate(int v_d) throws NoPathException
 	{
 		double index=0;
+		int numOfPath = 0;
 		for(Vertex v : GraphN)
 		{
 			if(v.index==v_d)continue;
@@ -296,6 +300,7 @@ public class SerendipityEvaluation
 					//pathIdx=0;
 					for(int i=0;i<p.size();++i)
 						if(v_d != p.get(i))index=index+Serendipity(p,p.get(i), v_d); //remove sidetracked paths starting from target node
+					numOfPath++;
 					//sheetsc.getRow(sheetsc.getLastRowNum()-pathIdx+1).createCell(6).setCellValue(IntStream.rangeClosed(sheetsc.getLastRowNum()-pathIdx+1,sheetsc.getLastRowNum()).mapToObj(i->String.valueOf(sheetsc.getRow(i).getCell(5).getNumericCellValue())).collect(Collectors.joining("+"))+"="+IntStream.rangeClosed(sheetsc.getLastRowNum()-pathIdx+1,sheetsc.getLastRowNum()).mapToDouble(i->sheetsc.getRow(i).getCell(5).getNumericCellValue()).sum());
 						
 					//if(pathIdx>1)
@@ -312,10 +317,16 @@ public class SerendipityEvaluation
 		}
 		
 		//Row row=sheetsc.createRow(sheetsc.getLastRowNum()+1);
-
+		//System.out.println(numOfPath);
+		countPaths(numOfPath);
 		//row.createCell(0).setCellValue("Sum");
 		//row.createCell(6).setCellValue(index);
 		return index;
+	}
+	
+	public static int PathNum = 0;
+	public static void countPaths(int x) {
+		PathNum += x;
 	}
 
 	static List<Integer> getShortestPath(List<Vertex> graph,int s,int e,List<Integer> p) throws NoPathException
@@ -448,13 +459,17 @@ public class SerendipityEvaluation
 				pathIdx++;
 				vsIdx++;
 			}
+			pathCount(vsIdx);
 
 			//if(vsIdx>1)sheetpt2.addMergedRegion(new CellRangeAddress(sheetpt2.getLastRowNum()-vsIdx+1,sheetpt2.getLastRowNum(),1,1));
 		}
 		return score;
 		
 	}
-
+	public static int sidePathCount=0;
+	static void pathCount(int x) {
+		sidePathCount +=x;
+	}
 	static double Discovery(List<Integer> p,List<Integer> p2)
 	{
 		double val = 1.0/(p.indexOf(p2.get(0))+1);
