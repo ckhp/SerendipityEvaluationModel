@@ -18,6 +18,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
+import java.util.Scanner;
 import java.util.Set;
 import java.util.Stack;
 import java.util.function.Function;
@@ -48,12 +49,69 @@ public class SerendipityEvaluation
 	static List<Integer> Vps=new ArrayList<>();
 	static Map<String,Integer> nameToIndex=new HashMap<>();
 	static Sheet sheetiv;
+	static List<RecommendData> pairs = new ArrayList<>();
+	static List<populInfo> popInf = new ArrayList<>();
 //	static Sheet sheetpt;
 //	static Sheet sheetpt2;
 //	static Sheet sheetsc;
 	static int pathIdx;
 	static int N;
+	static double recommendSer;
+	static double diversity; // how diverse the recommender system?
+	static List<Vertex> RecSub = new ArrayList<>(); //store subjects that recommender system recommends only
+	
+	static class populInfo {
+		private Vertex v;
+		private double pop;
+		
+		public populInfo(Vertex v, double pop) {
+			this.v = v;
+			this.pop = pop;
+		}
+		
+		public Vertex getV() {
+			return v;
+		}
+		
+		public double getPop() {
+			return pop;
+		}
+		
+		
+		public void setPop(double newPop) {
+			this.pop = newPop;
+		}
+	}
 
+	static class RecommendData {
+	    private Vertex x;
+	    private Vertex y;
+	    private double unexp;
+	    private double interest;
+
+	    public RecommendData(Vertex x, Vertex y, double unexp, double interest) {
+	        this.x = x;
+	        this.y = y;
+	        this.unexp = unexp;
+	        this.interest = interest;
+	    }
+	    
+	    public double getInterest() {
+	    	return interest;
+	    }
+	    
+	    public double getUnexp() {
+	    	return unexp;
+	    }
+
+	    public Vertex getX(){
+	        return x;
+	    }
+
+	    public Vertex getY(){
+	        return y;
+	    }
+	}
 	static class Vertex
 	{
 		int index,domain,level;
@@ -96,13 +154,7 @@ public class SerendipityEvaluation
 	{
 		Workbook workbook=new SXSSFWorkbook();
 		sheetiv=workbook.createSheet("InterestVal");
-	//	sheetpt=workbook.createSheet("Path");
-	//	sheetpt2=workbook.createSheet("Path2");
-	//	sheetsc=workbook.createSheet("Scoring");
 		createHeader(sheetiv,"Node","InterestVal", "Normalized");
-	//	createHeader(sheetpt,"p","Path");
-	//	createHeader(sheetpt2,"p","v_s","p'","Path");
-	//	createHeader(sheetsc,"p","p'","Pre-encountering","Post-encountering","Discovery","Score");
 		BufferedReader br=new BufferedReader(new InputStreamReader(new FileInputStream(args[0]),"UTF-8"));
 		String line=null;
 		List<String> triple=new ArrayList<>();
@@ -163,12 +215,49 @@ public class SerendipityEvaluation
 						Graph.get(e).level=lv+1;
 					}
 					if(lv==N-1)Graph.get(e).domain=s;//DOMAIN(S,v)
+					if(lv==N) {
+						//20220204 here store all the recommending pairs into pairs list
+						
+						RecommendData p = new RecommendData(Graph.get(s), Graph.get(e),0.0,0.0);
+						pairs.add(p);
+						
+					}
 				}
 			}
 		}
 		br.close();
 		
+		
+		//220206 store popularity info into popInf
+		for(Vertex v: Graph) {
+			if(v.level==N)
+				popInf.add(new populInfo(v, 0.0));
+		}
+	
+		
+		int count=0;
+		Scanner scan = new Scanner(new File("C:\\Users\\kyr94\\eclipse-workspace\\SerendipityEvaluationModel-forLargeIS.zip_expanded\\SerendipityEvaluationModel-forLargeIS\\ExampleData\\popularity.txt"));
+	    while(scan.hasNextLine()){
+	        String line2 = scan.nextLine();
+	        
+	        popInf.get(count).setPop(normalizeNC(Double.valueOf(line2), 0, 177, 1.0, 0.1) );
+	        count++;
 
+	    }
+	    /*
+		popInf.forEach((i)->{
+			System.out.println(i.getV().name+" "+i.getPop());
+		});
+		*/
+		//20220204 check if all the recommending pairs stored into pairs list
+
+	    
+	    pairs.forEach((p)->{
+	    	if(!RecSub.contains(p.getY()))
+	    		RecSub.add(p.getY());
+	    });
+	    
+	    diversity = normalizeNC(RecSub.size(), 0, 61, 1.0, 0.1);
 
 		for(Vertex v : Graph)
 		{
@@ -192,8 +281,8 @@ public class SerendipityEvaluation
 		}
 	
 		GraphN=Graph.stream().filter(v->v.level==N).collect(Collectors.toList());
-		
-		
+		//GraphN contains all the subject leaves from SaopUI to COBOL.
+
 		//S'=(S.V,S.E_n)
 		for(Vertex v : Graph)
 		{
@@ -201,17 +290,25 @@ public class SerendipityEvaluation
 			v2.domain=v.domain;
 			v2.level=v.level;
 			Graph2.add(v2);
+			
 		}
 		for(Vertex v : Graph)
 		{
+
 			for(int d : v.link)
 			{
+				
 				if(v.level!=N||Graph.get(d).level!=N)continue;
 				Graph2.get(v.index).link.add(d);
+
 			}
 		}
 		Graph2M=Graph2.stream().collect(Collectors.toMap(Vertex::getIndex,Function.identity()));
 		Graph2N=Graph2.stream().filter(v->v.level==N).collect(Collectors.toMap(Vertex::getIndex,Function.identity()));
+
+		
+
+		
 		//S''=(S.V,S.E-S.E_n), convert S' to undirected graph
 		for(Vertex v : Graph)
 		{
@@ -228,15 +325,31 @@ public class SerendipityEvaluation
 				Graph3.get(v.index).link.add(d);
 			}
 		}
-		
+		pairs.forEach((p)->{
+			popInf.forEach((pop)->{
+				if(pop.v == p.x || pop.v == p.y) {
+					p.interest += pop.pop ;
+				}
+			});
+
+		});
+		/*
+		pairs.forEach((p)->{
+			System.out.println(p.x.name+" "+p.y.name+" "+p.unexp+" "+p.interest);
+
+		});
+		*/
+
+	    
+
 		Graph.get(2);
-		
-		
 		double potentialSeren=0;
+		
 		for(int i=0; i<GraphN.size(); i++) {
 			//System.out.println(Evaluate(getIndex(GraphN.get(i).name)));
 			potentialSeren += Evaluate(getIndex(GraphN.get(i).name));
 			System.out.println("Page "+ GraphN.get(i).name + " Evaluation completed");
+			
 			//System.out.println("Evaluate(" + GraphN.get(i).name+") = " + Evaluate(getIndex(GraphN.get(i).name)));
 		}
 		
@@ -245,12 +358,18 @@ public class SerendipityEvaluation
 	    //Cell cell = row.createCell(6);
 	    //String sum = "SUM(F1:F"+ Integer.toString(row.getRowNum())+")";
 		//cell.setCellFormula(sum);
-		System.out.println();
-		System.out.println("The number of existing search paths: "+PathNum);
-		System.out.println("The number of sidetracked paths that can be derived from the exsiting search paths: "+sidePathCount);		
-		System.out.println("The potential serendipity value for the given information space is: "+ potentialSeren);
-
+		recommendSer =0;
+		pairs.forEach((p)->{
+				recommendSer += p.unexp * p.interest * diversity;
+			});
 		
+	
+		System.out.println();
+		System.out.println(recommendSer);
+		//System.out.println("The number of existing search paths: "+PathNum);
+		//System.out.println("The number of sidetracked paths that can be derived from the exsiting search paths: "+sidePathCount);		
+		//System.out.println("The potential serendipity value for the given information space is: "+ potentialSeren);
+
 		workbook.write(new FileOutputStream(new File(args[0]).getAbsolutePath().replaceAll(".[^.]*$",".xlsx")));
 		workbook.close();
 	}
@@ -282,6 +401,7 @@ public class SerendipityEvaluation
 		}
 		System.out.println("-------------------------");
 	}
+	
 
 	static double Evaluate(int v_d) throws NoPathException
 	{
@@ -321,9 +441,10 @@ public class SerendipityEvaluation
 		countPaths(numOfPath);
 		//row.createCell(0).setCellValue("Sum");
 		//row.createCell(6).setCellValue(index);
+		
 		return index;
 	}
-	
+
 	public static int PathNum = 0;
 	public static void countPaths(int x) {
 		PathNum += x;
@@ -501,6 +622,26 @@ public class SerendipityEvaluation
 				input = input.concat(String.valueOf(dist)+"+");
 			}
 		}
+		
+		
+		//220206 store unexpectedness data into pairs
+	  
+
+		double valT =0;
+		for (RecommendData p1 : pairs) {
+			
+			if(p1.x.domain != p1.y.domain) {
+				double dist = normalizeNC(distance(Graph3,p1.x.index,p1.y.index),0,N*2,1,0);
+				valT = valT+dist;
+				p1.unexp = valT;
+	
+			}else {
+				p1.unexp = valT;
+			}
+			valT=0;
+
+		}
+
 		input = input.substring(0, input.length()-1);
 		input = input.concat(")="+val);
 		//sheetsc.getRow(sheetsc.getLastRowNum()).createCell(4).setCellValue(input);
