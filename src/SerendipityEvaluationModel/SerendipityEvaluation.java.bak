@@ -236,7 +236,7 @@ public class SerendipityEvaluation
 	
 		
 		int count=0;
-		Scanner scan = new Scanner(new File("ExampleData\\popularity.txt"));
+		Scanner scan = new Scanner(new File("C:\\Users\\kyr94\\eclipse-workspace\\SerendipityEvaluationModel-forLargeIS.zip_expanded\\SerendipityEvaluationModel-forLargeIS\\ExampleData\\popularity.txt"));
 	    while(scan.hasNextLine()){
 	        String line2 = scan.nextLine();
 	        
