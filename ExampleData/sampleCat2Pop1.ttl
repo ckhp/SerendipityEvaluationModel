@@ -1,0 +1,328 @@
+@prefix : <http://example.com/> .
+
+########################
+########1-Level#########
+########################
+
+:Computer_Science
+	:Category :IT_And_Software ;
+	:Category :Cyber_Security ;
+	:Category :Data_Science_And_AL_ML ;
+	:Category :Programming_Languages .
+
+########################
+########2-Level#########
+########################
+
+:IT_And_Software :Subject :SoapUI ;
+ :Subject :GPS ;
+ :Subject :Crypto_Currency ;
+ :Subject :QGIS ;
+ :Subject :Computer_Networks ;
+ :Subject :UML ;
+ :Subject :Software_Architecture ;
+ :Subject :Docker ;
+ :Subject :Raspberry_Pi ;
+ :Subject :GeoServer ;
+ :Subject :Computer_Graphics ;
+ :Subject :Operating_System ;
+ :Subject :System_Analysis ;
+ :Subject :XMPP ;
+ :Subject :Linux .
+
+:Cyber_Security :Subject :Blockchain_Security ;
+ :Subject :SSH ;
+ :Subject :Ransomware ;
+ :Subject :Digital_Forensics ;
+ :Subject :Ethical_Hacking ;
+ :Subject :Cyber_Security_Analysis ;
+ :Subject :WireShark ;
+ :Subject :Cyber_Warfare ;
+ :Subject :ECommerce_Frauds ;
+ :Subject :Nmap ;
+ :Subject :OpenVas .
+
+:Data_Science_And_AL_ML :Subject :Neural_Network ;
+ :Subject :Outlier_Detection_Algorithms ;
+ :Subject :ReasonML ;
+ :Subject :Big_Data ;
+ :Subject :Time_Series_Analysis ;
+ :Subject :Deep_Learning ;
+ :Subject :AI ;
+ :Subject :Support_Vector_Machines ;
+ :Subject :Data_Visualization ;
+ :Subject :Data_Analytics ;
+ :Subject :Seaborn ;
+ :Subject :Automation ;
+ :Subject :Applied_Statistics ;
+ :Subject :Image_Processing ;
+ :Subject :Chatbot ;
+ :Subject :Genetic_Algorithms ;
+ :Subject :Tensorflow .
+
+:Programming_Languages :Subject :Net_Framework ;
+ :Subject :MATLAB ;
+ :Subject :Python ;
+ :Subject :Rust ;
+ :Subject :Julia ;
+ :Subject :JavaScript ;
+ :Subject :C ;
+ :Subject :Ruby ;
+ :Subject :C++ ;
+ :Subject :Clojure ;
+ :Subject :Java ;
+ :Subject :PHP ;
+ :Subject :Perl ;
+ :Subject :SQL ;
+ :Subject :Prolog ;
+ :Subject :TypeScript ;
+ :Subject :Groovy ;
+ :Subject :COBOL .
+
+########################
+########3-Level#########
+########################
+
+:SoapUI :Recommends :Python ;
+	:Recommends :Docker ;
+	:Recommends :Linux .
+
+:GPS :Recommends :AI ;
+	:Recommends :Docker ;
+	:Recommends :Linux .
+
+:Crypto_Currency :Recommends :AI ;
+	:Recommends :Docker ;
+	:Recommends :Linux .
+
+:QGIS :Recommends :AI ;
+ :Recommends :Docker ;
+ :Recommends :Linux .
+
+:Computer_Networks :Recommends :AI ;
+ :Recommends :Docker ;
+ :Recommends :Linux .
+
+:UML :Recommends :Python ;
+:Recommends :Raspberry_Pi ;
+:Recommends :Operating_System .
+
+:Software_Architecture :Recommends :AI ;
+:Recommends :Docker ;
+:Recommends :Linux .
+
+:Docker :Recommends :Python ;
+ :Recommends :Linux ;
+ :Recommends :GPS .
+
+:Raspberry_Pi :Recommends :AI ;
+ :Recommends :Docker ;
+ :Recommends :Linux .
+
+:GeoServer :Recommends :Python ;
+ :Recommends :Docker ;
+ :Recommends :Linux .
+
+:Operating_System :Recommends :Docker ;
+ :Recommends :Linux ;
+ :Recommends :AI .
+
+:Computer_Graphics :Recommends :AI ;
+ :Recommends :QGIS ;
+ :Recommends :Operating_System .
+
+:System_Analysis :Recommends :AI ;
+ :Recommends :Docker ;
+ :Recommends :Linux .
+
+:XMPP :Recommends :AI ;
+ :Recommends :Crypto_Currency ;
+ :Recommends :Docker .
+
+:Linux :Recommends :AI ;
+ :Recommends :GPS ;
+ :Recommends :Docker .
+
+:Blockchain_Security :Recommends :AI ;
+ :Recommends :SSH ;
+ :Recommends :WireShark .
+
+:SSH :Recommends :Python ;
+ :Recommends :WireShark ;
+ :Recommends :Ransomware .
+
+:Ransomware :Recommends :AI ;
+ :Recommends :SSH ;
+ :Recommends :WireShark .
+
+:Digital_Forensics :Recommends :AI ;
+ :Recommends :SSH ;
+ :Recommends :Ransomware .
+
+:Ethical_Hacking :Recommends :AI ;
+ :Recommends :SSH ;
+ :Recommends :WireShark .
+
+:Cyber_Security_Analysis :Recommends :AI ;
+ :Recommends :WireShark ;
+ :Recommends :SSH .
+
+:WireShark :Recommends :C++ ;
+ :Recommends :SSH ;
+ :Recommends :Ransomware .
+
+:Cyber_Warfare :Recommends :AI ;
+ :Recommends :WireShark ;
+ :Recommends :SSH .
+
+:ECommerce_Frauds :Recommends :AI ;
+ :Recommends :WireShark ;
+ :Recommends :Ransomware .
+
+:Nmap :Recommends :Python ;
+ :Recommends :WireShark ;
+ :Recommends :Blockchain_Security .
+
+:OpenVas :Recommends :Python ;
+ :Recommends :WireShark ;
+ :Recommends :SSH .
+
+:Neural_Network :Recommends :AI ;
+ :Recommends :Java ;
+ :Recommends :Tensorflow .
+
+:Outlier_Detection_Algorithms :Recommends :AI ;
+ :Recommends :Java ;
+ :Recommends :Tensorflow .
+
+:ReasonML :Recommends :Python ;
+ :Recommends :Neural_Network ;
+ :Recommends :Chatbot .
+
+:Big_Data :Recommends :AI ;
+ :Recommends :Java ;
+ :Recommends :Tensorflow .
+
+:Time_Series_Analysis :Recommends :AI ;
+ :Recommends :Java ;
+ :Recommends :Tensorflow .
+
+:Deep_Learning :Recommends :AI ;
+ :Recommends :Python ;
+ :Recommends :Tensorflow .
+
+:AI :Recommends :Python ;
+ :Recommends :Tensorflow ;
+ :Recommends :Deep_Learning .
+
+:Support_Vector_Machines :Recommends :Python ;
+ :Recommends :Tensorflow ;
+ :Recommends :Deep_Learning .
+
+:Data_Visualization :Recommends :AI ;
+ :Recommends :Java ;
+ :Recommends :Tensorflow .
+
+:Data_Analytics :Recommends :AI ;
+ :Recommends :Java ;
+ :Recommends :Tensorflow .
+
+:Seaborn :Recommends :Docker ;
+ :Recommends :AI ;
+ :Recommends :Deep_Learning .
+
+:Automation :Recommends :AI ;
+ :Recommends :Java ;
+ :Recommends :Tensorflow .
+
+:Applied_Statistics :Recommends :AI ;
+ :Recommends :Python ;
+ :Recommends :Deep_Learning .
+
+:Image_Processing :Recommends :AI ;
+ :Recommends :Java ;
+ :Recommends :Tensorflow .
+
+:Chatbot :Recommends :AI ;
+ :Recommends :Java ;
+ :Recommends :Tensorflow .
+
+:Genetic_Algorithms :Recommends :AI ;
+ :Recommends :Java ;
+ :Recommends :Tensorflow .
+
+:Tensorflow :Recommends :AI ;
+ :Recommends :Java ;
+ :Recommends :Deep_Learning .
+
+:Net_Framework :Recommends :AI ;
+ :Recommends :Java ;
+ :Recommends :PHP .
+
+:MATLAB :Recommends :AI ;
+ :Recommends :Java ;
+ :Recommends :PHP .
+
+:Python :Recommends :AI ;
+ :Recommends :Java ;
+ :Recommends :PHP .
+
+:Rust :Recommends :AI ;
+ :Recommends :Java ;
+ :Recommends :PHP .
+
+:Julia :Recommends :AI ;
+ :Recommends :Python ;
+ :Recommends :Java .
+
+:JavaScript :Recommends :AI ;
+ :Recommends :Java ;
+ :Recommends :PHP .
+
+:C :Recommends :AI ;
+ :Recommends :Java ;
+ :Recommends :PHP .
+
+:Ruby :Recommends :AI ;
+ :Recommends :Java ;
+ :Recommends :PHP .
+
+:C++ :Recommends :AI ;
+ :Recommends :Java ;
+ :Recommends :PHP .
+
+:Clojure :Recommends :AI ;
+ :Recommends :Java ;
+ :Recommends :PHP .
+
+:Java :Recommends :AI ;
+ :Recommends :Python ;
+ :Recommends :PHP .
+
+:PHP :Recommends :AI ;
+ :Recommends :Python ;
+ :Recommends :Java .
+
+:Perl :Recommends :AI ;
+ :Recommends :Java ;
+ :Recommends :PHP .
+
+:SQL :Recommends :AI ;
+ :Recommends :Java ;
+ :Recommends :PHP .
+
+:Prolog :Recommends :AI ;
+ :Recommends :Java ;
+ :Recommends :PHP .
+
+:TypeScript :Recommends :AI ;
+ :Recommends :Java ;
+ :Recommends :PHP .
+
+:Groovy :Recommends :AI ;
+ :Recommends :Java ;
+ :Recommends :PHP .
+
+:COBOL :Recommends :AI ;
+ :Recommends :Java ;
+ :Recommends :PHP .

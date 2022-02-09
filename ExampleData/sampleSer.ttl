@@ -1,0 +1,328 @@
+@prefix : <http://example.com/> .
+
+########################
+########1-Level#########
+########################
+
+:Computer_Science
+	:Category :IT_And_Software ;
+	:Category :Cyber_Security ;
+	:Category :Data_Science_And_AL_ML ;
+	:Category :Programming_Languages .
+
+########################
+########2-Level#########
+########################
+
+:IT_And_Software :Subject :SoapUI ;
+ :Subject :GPS ;
+ :Subject :Crypto_Currency ;
+ :Subject :QGIS ;
+ :Subject :Computer_Networks ;
+ :Subject :UML ;
+ :Subject :Software_Architecture ;
+ :Subject :Docker ;
+ :Subject :Raspberry_Pi ;
+ :Subject :GeoServer ;
+ :Subject :Computer_Graphics ;
+ :Subject :Operating_System ;
+ :Subject :System_Analysis ;
+ :Subject :XMPP ;
+ :Subject :Linux .
+
+:Cyber_Security :Subject :Blockchain_Security ;
+ :Subject :SSH ;
+ :Subject :Ransomware ;
+ :Subject :Digital_Forensics ;
+ :Subject :Ethical_Hacking ;
+ :Subject :Cyber_Security_Analysis ;
+ :Subject :WireShark ;
+ :Subject :Cyber_Warfare ;
+ :Subject :ECommerce_Frauds ;
+ :Subject :Nmap ;
+ :Subject :OpenVas .
+
+:Data_Science_And_AL_ML :Subject :Neural_Network ;
+ :Subject :Outlier_Detection_Algorithms ;
+ :Subject :ReasonML ;
+ :Subject :Big_Data ;
+ :Subject :Time_Series_Analysis ;
+ :Subject :Deep_Learning ;
+ :Subject :AI ;
+ :Subject :Support_Vector_Machines ;
+ :Subject :Data_Visualization ;
+ :Subject :Data_Analytics ;
+ :Subject :Seaborn ;
+ :Subject :Automation ;
+ :Subject :Applied_Statistics ;
+ :Subject :Image_Processing ;
+ :Subject :Chatbot ;
+ :Subject :Genetic_Algorithms ;
+ :Subject :Tensorflow .
+
+:Programming_Languages :Subject :Net_Framework ;
+ :Subject :MATLAB ;
+ :Subject :Python ;
+ :Subject :Rust ;
+ :Subject :Julia ;
+ :Subject :JavaScript ;
+ :Subject :C ;
+ :Subject :Ruby ;
+ :Subject :C++ ;
+ :Subject :Clojure ;
+ :Subject :Java ;
+ :Subject :PHP ;
+ :Subject :Perl ;
+ :Subject :SQL ;
+ :Subject :Prolog ;
+ :Subject :TypeScript ;
+ :Subject :Groovy ;
+ :Subject :COBOL .
+
+########################
+########3-Level#########
+########################
+
+:SoapUI :Recommends :ReasonML ;
+	:Recommends :OpenVas ;
+	:Recommends :Ruby .
+
+:GPS :Recommends :Support_Vector_Machines ;
+	:Recommends :Ethical_Hacking ;
+	:Recommends :Ruby .
+
+:Crypto_Currency :Recommends :ReasonML ;
+	:Recommends :OpenVas ;
+	:Recommends :COBOL .
+
+:QGIS :Recommends :Support_Vector_Machines ;
+ :Recommends :SSH ;
+ :Recommends :Ruby .
+
+:Computer_Networks :Recommends :Support_Vector_Machines ;
+ :Recommends :OpenVas ;
+ :Recommends :Julia .
+
+:UML :Recommends :Genetic_Algorithms ;
+:Recommends :WireShark ;
+:Recommends :COBOL .
+
+:Software_Architecture :Recommends :Support_Vector_Machines ;
+:Recommends :OpenVas ;
+:Recommends :COBOL.
+
+:Docker :Recommends :ReasonML ;
+ :Recommends :OpenVas ;
+ :Recommends :COBOL .
+
+:Raspberry_Pi :Recommends :Support_Vector_Machines ;
+ :Recommends :OpenVas ;
+ :Recommends :COBOL .
+
+:GeoServer :Recommends :Data_Visualization ;
+ :Recommends :Ruby ;
+ :Recommends :Computer_Networks .
+
+:Operating_System :Recommends :Genetic_Algorithms ;
+ :Recommends :OpenVas ;
+ :Recommends :Net_Framework .
+
+:Computer_Graphics :Recommends :Genetic_Algorithms ;
+ :Recommends :COBOL ;
+ :Recommends :Software_Architecture .
+
+:System_Analysis :Recommends :Support_Vector_Machines ;
+ :Recommends :OpenVas ;
+ :Recommends :COBOL .
+
+:XMPP :Recommends :Chatbot ;
+ :Recommends :ECommerce_Frauds ;
+ :Recommends :Ruby .
+
+:Linux :Recommends :Genetic_Algorithms ;
+ :Recommends :OpenVas ;
+ :Recommends :COBOL .
+
+:Blockchain_Security :Recommends :Support_Vector_Machines ;
+ :Recommends :SoapUI ;
+ :Recommends :C .
+
+:SSH :Recommends :Support_Vector_Machines ;
+ :Recommends :SoapUI ;
+ :Recommends :Julia .
+
+:Ransomware :Recommends :Support_Vector_Machines ;
+ :Recommends :SoapUI ;
+ :Recommends :Ruby .
+
+:Digital_Forensics :Recommends :Support_Vector_Machines ;
+ :Recommends :XMPP ;
+ :Recommends :Perl .
+
+:Ethical_Hacking :Recommends :Big_Data ;
+ :Recommends :XMPP ;
+ :Recommends :Ruby .
+
+:Cyber_Security_Analysis :Recommends :Support_Vector_Machines ;
+ :Recommends :SoapUI ;
+ :Recommends :COBOL .
+
+:WireShark :Recommends :Applied_Statistics ;
+ :Recommends :SoapUI ;
+ :Recommends :Ruby .
+
+:Cyber_Warfare :Recommends :Support_Vector_Machines ;
+ :Recommends :SoapUI ;
+ :Recommends :Ruby .
+
+:ECommerce_Frauds :Recommends :Support_Vector_Machines ;
+ :Recommends :XMPP ;
+ :Recommends :Ruby .
+
+:Nmap :Recommends :Support_Vector_Machines ;
+ :Recommends :SoapUI ;
+ :Recommends :Ruby .
+
+:OpenVas :Recommends :Data_Analytics ;
+ :Recommends :SoapUI ;
+ :Recommends :Ruby .
+
+:Neural_Network :Recommends :ECommerce_Frauds ;
+ :Recommends :Computer_Graphics ;
+ :Recommends :COBOL .
+
+:Outlier_Detection_Algorithms :Recommends :ECommerce_Frauds ; 
+ :Recommends :Computer_Networks ;
+ :Recommends :Julia .
+
+:ReasonML :Recommends :Chatbot ;
+ :Recommends :SoapUI ;
+ :Recommends :Julia .
+
+:Big_Data :Recommends :ECommerce_Frauds ;
+ :Recommends :Computer_Networks ;
+ :Recommends :COBOL .
+
+:Time_Series_Analysis :Recommends :ECommerce_Frauds ;
+ :Recommends :Computer_Networks ;
+ :Recommends :Julia .
+
+:Deep_Learning :Recommends :ECommerce_Frauds ;
+ :Recommends :XMPP ;
+ :Recommends :COBOL .
+
+:AI :Recommends :ECommerce_Frauds ;
+ :Recommends :XMPP ;
+ :Recommends :COBOL .
+
+:Support_Vector_Machines :Recommends :ECommerce_Frauds ;
+ :Recommends :Computer_Networks ;
+ :Recommends :Julia .
+
+:Data_Visualization :Recommends :Cyber_Warfare ;
+ :Recommends :SoapUI ;
+ :Recommends :COBOL .
+
+:Data_Analytics :Recommends :OpenVas ;
+ :Recommends :SoapUI ;
+ :Recommends :COBOL .
+
+:Seaborn :Recommends :Crypto_Currency ;
+ :Recommends :Julia ;
+ :Recommends :Outlier_Detection_Algorithms .
+
+:Automation :Recommends :OpenVas ;
+ :Recommends :SoapUI ;
+ :Recommends :COBOL .
+
+:Applied_Statistics :Recommends :ECommerce_Frauds ;
+ :Recommends :Computer_Networks ;
+ :Recommends :Perl .
+
+:Image_Processing :Recommends :Cyber_Warfare ;
+ :Recommends :Computer_Networks ;
+ :Recommends :COBOL .
+
+:Chatbot :Recommends :ECommerce_Frauds ;
+ :Recommends :XMPP ;
+ :Recommends :Julia .
+
+:Genetic_Algorithms :Recommends :ECommerce_Frauds ;
+ :Recommends :Computer_Networks ;
+ :Recommends :Julia .
+
+:Tensorflow :Recommends :ECommerce_Frauds ;
+ :Recommends :Computer_Graphics ;
+ :Recommends :Julia .
+
+:Net_Framework :Recommends :ReasonML ;
+ :Recommends :Ransomware ;
+ :Recommends :XMPP .
+
+:MATLAB :Recommends :Support_Vector_Machines ;
+ :Recommends :ECommerce_Frauds ;
+ :Recommends :Computer_Networks .
+
+:Python :Recommends :ReasonML ;
+ :Recommends :OpenVas ;
+ :Recommends :SoapUI .
+
+:Rust :Recommends :ReasonML ;
+ :Recommends :Cyber_Warfare ;
+ :Recommends :XMPP .
+
+:Julia :Recommends :ReasonML ;
+ :Recommends :Cyber_Security_Analysis ;
+ :Recommends :Computer_Networks .
+
+:JavaScript :Recommends :ReasonML ;
+ :Recommends :OpenVas ;
+ :Recommends :SoapUI .
+
+:C :Recommends :ReasonML ;
+ :Recommends :Ethical_Hacking ;
+ :Recommends :SoapUI .
+
+:Ruby :Recommends :ReasonML ;
+ :Recommends :OpenVas ;
+ :Recommends :SoapUI .
+
+:C++ :Recommends :ReasonML ;
+ :Recommends :Cyber_Warfare ;
+ :Recommends :SoapUI .
+
+:Clojure :Recommends :ReasonML ;
+ :Recommends :Cyber_Security_Analysis ;
+ :Recommends :SoapUI .
+
+:Java :Recommends :ReasonML ;
+ :Recommends :OpenVas ;
+ :Recommends :SoapUI .
+
+:PHP :Recommends :ReasonML ;
+ :Recommends :OpenVas ;
+ :Recommends :SoapUI .
+
+:Perl :Recommends :Support_Vector_Machines ;
+ :Recommends :OpenVas ;
+ :Recommends :SoapUI .
+
+:SQL :Recommends :ReasonML ;
+ :Recommends :OpenVas ;
+ :Recommends :SoapUI .
+
+:Prolog :Recommends :ReasonML ;
+ :Recommends :Cyber_Security_Analysis ;
+ :Recommends :Computer_Networks .
+
+:TypeScript :Recommends :ReasonML ;
+ :Recommends :Cyber_Warfare ;
+ :Recommends :XMPP .
+
+:Groovy :Recommends :Time_Series_Analysis ;
+ :Recommends :Nmap ;
+ :Recommends :SoapUI .
+
+:COBOL :Recommends :Data_Visualization ;
+ :Recommends :Cyber_Security_Analysis ;
+ :Recommends :Computer_Graphics .
